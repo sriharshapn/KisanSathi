@@ -68,6 +68,9 @@ PRESENTATION.md
 enhance_presentation.py
 client/public/presentation.html
 presentation.html
+screenshots/
+capture_all_pages.py
+take_screenshots.py
 
 # Python artifacts
 __pycache__/
