@@ -74,6 +74,8 @@ uploads/
 server/uploads/
 tmp/
 temp/
+*.pptx
+*.ppt
 
 # Python artifacts
 __pycache__/
