@@ -153,13 +153,13 @@ export const MeadowCapture: React.FC<MeadowCaptureProps> = ({ onNavigate }) => {
               About us
             </button>
             <button onClick={() => onNavigate('advisory')} className="px-4 py-1.5 rounded-full text-xs font-semibold text-stone-600 hover:text-[#022113] hover:bg-[#F0F2EB] font-['Montserrat',sans-serif] transition cursor-pointer">
-              Our services
+              AI Advisory
             </button>
             <button onClick={() => onNavigate('gov')} className="px-4 py-1.5 rounded-full text-xs font-semibold text-stone-600 hover:text-[#022113] hover:bg-[#F0F2EB] font-['Montserrat',sans-serif] transition cursor-pointer">
-              Latest news
+              Gov Data
             </button>
             <button onClick={() => onNavigate('dashboard')} className="px-4 py-1.5 rounded-full text-xs font-semibold text-stone-600 hover:text-[#022113] hover:bg-[#F0F2EB] font-['Montserrat',sans-serif] transition cursor-pointer">
-              Shares
+              Mandi Prices
             </button>
           </div>
 
