@@ -1126,13 +1126,13 @@ export const HomePage: React.FC<HomePageProps> = ({
                 About us
               </button>
               <button onClick={() => onNavigate('advisory')} className="px-4 py-1.5 rounded-full text-xs font-semibold text-stone-600 hover:text-[#022113] font-['Montserrat',sans-serif]">
-                Our services
+                AI Advisory
               </button>
               <button onClick={() => onNavigate('gov')} className="px-4 py-1.5 rounded-full text-xs font-semibold text-stone-600 hover:text-[#022113] font-['Montserrat',sans-serif]">
-                Latest news
+                Gov Data
               </button>
               <button onClick={() => onNavigate('dashboard')} className="px-4 py-1.5 rounded-full text-xs font-semibold text-stone-600 hover:text-[#022113] font-['Montserrat',sans-serif]">
-                Shares
+                Mandi Prices
               </button>
             </div>
 
