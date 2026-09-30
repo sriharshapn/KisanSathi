@@ -64,6 +64,10 @@ tmp/
 temp/
 *.pptx
 *.ppt
+PRESENTATION.md
+enhance_presentation.py
+client/public/presentation.html
+presentation.html
 
 # Python artifacts
 __pycache__/
