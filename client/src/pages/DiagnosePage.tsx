@@ -43,7 +43,7 @@ export const DEMO_CASES: DemoCase[] = [
     severity: 'moderate',
     category: 'Solanaceous',
     pathogenType: 'Fungal',
-    imageUrl: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/demo_specimens/tomato_early_blight.png',
     description: 'Concentric necrotic target-board rings on lower foliage driven by alternating warm days and wet foliar periods.'
   },
   {
@@ -57,7 +57,7 @@ export const DEMO_CASES: DemoCase[] = [
     severity: 'severe',
     category: 'Cereals',
     pathogenType: 'Fungal',
-    imageUrl: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/demo_specimens/paddy_rice_blast.jpg',
     description: 'Acute diamond and spindle-shaped lesions with ash-gray center and brownish margins threatening panicle neck blast.'
   },
   {
@@ -71,7 +71,7 @@ export const DEMO_CASES: DemoCase[] = [
     severity: 'severe',
     category: 'Spices',
     pathogenType: 'Viral',
-    imageUrl: 'https://images.unsplash.com/photo-1588252303782-cb80119abd6d?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/demo_specimens/chilli_leaf_curl.png',
     description: 'Severe upward boat-cupping and apical clustering vectored by whiteflies and thrips, degrading oleoresin value.'
   },
   {
@@ -85,7 +85,7 @@ export const DEMO_CASES: DemoCase[] = [
     severity: 'severe',
     category: 'Cereals',
     pathogenType: 'Fungal',
-    imageUrl: 'https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/demo_specimens/wheat_yellow_rust.png',
     description: 'Parallel vertical stripe arrays of bright yellow-orange powdery pustules along veins triggered by cool damp fog.'
   },
   {
@@ -99,7 +99,7 @@ export const DEMO_CASES: DemoCase[] = [
     severity: 'moderate',
     category: 'Alliums',
     pathogenType: 'Fungal',
-    imageUrl: 'https://images.unsplash.com/photo-1618512496248-a07fe83aa8cb?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/demo_specimens/onion_purple_blotch.jpg',
     description: 'Sunken elliptical purplish-violet spots on tubular scapes and seed stalks with concentric rings.'
   },
   {
@@ -113,7 +113,7 @@ export const DEMO_CASES: DemoCase[] = [
     severity: 'moderate',
     category: 'Fibre',
     pathogenType: 'Bacterial',
-    imageUrl: 'https://images.unsplash.com/photo-1606041008023-472dfb5e530f?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/demo_specimens/cotton_bacterial_blight.png',
     description: 'Vein-delimited dark polygonal water-soaked lesions risking blackarm stem cankers and boll rot.'
   },
   {
@@ -127,7 +127,7 @@ export const DEMO_CASES: DemoCase[] = [
     severity: 'severe',
     category: 'Tubers',
     pathogenType: 'Oomycete',
-    imageUrl: 'https://images.unsplash.com/photo-1518977676601-b53f82aba655?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/demo_specimens/potato_late_blight.jpg',
     description: 'Rapid water-soaked brown lesions with white downy fungal mildew on leaf undersides in cold humid weather.'
   },
   {
@@ -141,7 +141,7 @@ export const DEMO_CASES: DemoCase[] = [
     severity: 'moderate',
     category: 'Cereals',
     pathogenType: 'Fungal',
-    imageUrl: 'https://images.unsplash.com/photo-1551754655-cd27e38d2076?auto=format&fit=crop&w=800&q=80',
+    imageUrl: '/demo_specimens/maize_turcicum_blight.jpg',
     description: 'Large elliptical spindle-shaped grayish-green to tan lesions parallel to leaf veins.'
   }
 ];
@@ -227,7 +227,8 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
     try {
       const response = await fetch(demo.imageUrl);
       const blob = await response.blob();
-      const file = new File([blob], demo.key + '_specimen.jpg', { type: 'image/jpeg' });
+      const isPng = demo.imageUrl.endsWith('.png');
+      const file = new File([blob], demo.key + (isPng ? '_specimen.png' : '_specimen.jpg'), { type: isPng ? 'image/png' : 'image/jpeg' });
       setSelectedFile(file);
 
       const formData = new FormData();
@@ -466,7 +467,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
                 </h3>
               </div>
               <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] px-2.5 py-0.5 rounded-full bg-[#DFEB38]/40 text-[#022113] border border-[#DFEB38]">
-                6 Real Cases
+                8 Real Cases
               </span>
             </div>
             <p className="text-xs text-[#022113]/70 mb-3.5 leading-relaxed font-normal">

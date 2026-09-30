@@ -415,8 +415,8 @@ export async function initDb() {
         severity: 'moderate',
         confidence: 0.94,
         overall_health: 'stressed',
-        image_name: 'tomato_early_blight_specimen.jpg',
-        image_url: 'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&w=800&q=80',
+        image_name: 'tomato_early_blight_specimen.png',
+        image_url: '/demo_specimens/tomato_early_blight.png',
         language: 'en',
         created_at: new Date(Date.now() - 3600000 * 4).toISOString(),
         diagnosis: {
@@ -458,7 +458,7 @@ export async function initDb() {
         confidence: 0.96,
         overall_health: 'diseased',
         image_name: 'paddy_rice_blast_specimen.jpg',
-        image_url: 'https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80',
+        image_url: '/demo_specimens/paddy_rice_blast.jpg',
         language: 'en',
         created_at: new Date(Date.now() - 3600000 * 24).toISOString(),
         diagnosis: {
