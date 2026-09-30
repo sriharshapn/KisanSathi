@@ -12,21 +12,9 @@ out/
 .vercel
 
 # Environment and secret credential files
-.env
-.env.*
-*.env
-*.env.*
-**/.env
-**/.env.*
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-!.env.example
-!**/.env.example
-!client/.env.example
-!server/.env.example
-!backend/.env.example
+.env*
+*.env*
+**/.env*
 
 # Private keys, certificates, and cloud credentials
 *.pem

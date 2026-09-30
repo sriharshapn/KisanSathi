@@ -17,13 +17,9 @@ dist
 dist-ssr
 
 # Environment files and credentials
-.env
-.env.*
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-!.env.example
+.env*
+*.env*
+**/.env*
 *.pem
 *.key
 *.cert
