@@ -17,7 +17,7 @@ Built for the **Google Cloud "Build with AI: Code for Communities 2.0"** Hackath
 India has 120 million small and marginal farmers with no real-time access to market prices, crop health intelligence, or hyper-local agronomic advice. KisanSathi bridges this gap with a single platform that combines:
 
 - 🏛️ **Live APMC mandi prices** from government sources (zero hallucination)
-- 🤖 **Gemini 2.0 Flash** AI for crop advisory and plant disease diagnosis
+- 🤖 **Gemini 3.8 Flash** AI for crop advisory and plant disease diagnosis
 - 🛰️ **Sentinel-2 satellite NDVI** for field health monitoring
 - 🌦️ **Microclimate weather forecasts** via Open-Meteo NWP
 - 📊 **Federated government data mesh** (ETSI NGSI-LD / AgriStack)
@@ -42,7 +42,7 @@ India has 120 million small and marginal farmers with no real-time access to mar
 - Net in-hand earnings estimator (deducting freight, hamali, APMC cess)
 - 7 / 15 / 30-day price trend analysis
 
-### 🤖 AI Agronomy Advisory (Gemini 2.0 Flash)
+### 🤖 AI Agronomy Advisory (Gemini 3.8 Flash)
 - Hyper-local crop recommendations grounded in soil health + NDVI telemetry + NWP weather
 - Zero-hallucination pipeline — AI only explains; all numbers come from verified sources
 - Regenerative farming score (A–F) with APMC price realization estimates
@@ -77,7 +77,7 @@ India has 120 million small and marginal farmers with no real-time access to mar
 | **Frontend** | React 19 · TypeScript · Vite · Tailwind CSS v4 · Framer Motion |
 | **Maps** | Leaflet · React-Leaflet · Google Maps JS API |
 | **Backend** | Node.js 20 · Express · REST API |
-| **AI** | Google Gemini 2.0 Flash (text + vision) |
+| **AI** | Google Gemini 3.8 Flash (text + vision) |
 | **Satellite** | Copernicus Sentinel-2 · NDVI computation |
 | **Auth** | Firebase Authentication (Google OAuth 2.0 / OTP) |
 | **Database** | Cloud Firestore |
@@ -96,7 +96,7 @@ React 19 SPA  ──OAuth/OTP──▶  Firebase Auth (Google Cloud)
         │  REST/JSON
         ▼
 Express API (Node.js 20 · port 5001)
-   ├── generateContent ──▶  Gemini 2.0 Flash  (Google Cloud)
+   ├── generateContent ──▶  Gemini 3.8 Flash  (Google Cloud)
    ├── NWP query       ──▶  Weather NWP Service  ──▶  Open-Meteo API
    ├── price query     ──▶  Mandi Price Service  ──▶  data.gov.in
    ├── advisory req    ──▶  AI Advisory Service  ──▶  Firestore

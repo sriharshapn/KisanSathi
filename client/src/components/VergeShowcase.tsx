@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Play, Pause } from 'lucide-react';
+import { Play, Pause } from 'lucide-react';
 import type { NavigationPage } from '../types';
 
 interface VergeShowcaseProps {
@@ -20,11 +20,11 @@ export const VergeShowcase: React.FC<VergeShowcaseProps> = ({ onNavigate }) => {
       
       {/* Section Header */}
       <div className="flex flex-wrap items-center gap-2 mb-4">
-        <span className="rounded-full border border-line px-3 py-1 text-[11px] font-mono font-medium text-mist uppercase tracking-wider">
+        <span className="rounded-md border border-line px-3 py-1 text-[11px] font-mono font-medium text-mist uppercase tracking-wider">
           Digital Public Good • Sovereign Architecture
         </span>
-        <span className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full px-3 py-1 text-[11px] font-mono font-semibold border border-tide/40 bg-tide/10 text-foam">
-          <span className="h-1.5 w-1.5 rounded-full bg-neon animate-pulse"></span>
+        <span className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-md px-3 py-1 text-[11px] font-mono font-semibold border border-tide/40 bg-tide/10 text-foam">
+          <span className="h-1.5 w-1.5 rounded-md bg-neon animate-pulse"></span>
           Cinematic Field Stream
         </span>
       </div>
@@ -35,12 +35,12 @@ export const VergeShowcase: React.FC<VergeShowcaseProps> = ({ onNavigate }) => {
             Kisan Setu: <span className="text-transparent bg-clip-text bg-gradient-to-r from-foam via-neon to-tide">Sovereign Soil Intelligence</span>
           </h2>
           <p className="mt-3 text-base text-mist max-w-2xl leading-relaxed">
-            Cream, acid mint, and obsidian over panoramic field telemetry — connecting Copernicus Sentinel-2 canopy health directly into local APMC price discovery.
+            Cream, acid mint, and obsidian over panoramic field telemetry - connecting Copernicus Sentinel-2 canopy health directly into local APMC price discovery.
           </p>
         </div>
 
         {/* Tab Switcher */}
-        <div className="inline-flex rounded-full border border-line bg-surface/60 p-1 backdrop-blur self-start">
+        <div className="inline-flex rounded-md border border-line bg-surface/60 p-1 backdrop-blur self-start">
           {[
             { id: 'thesis', label: 'Platform Mandate' },
             { id: 'pillars', label: 'Core Pillars' },
@@ -49,7 +49,7 @@ export const VergeShowcase: React.FC<VergeShowcaseProps> = ({ onNavigate }) => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id as any)}
-              className={`rounded-full px-4 py-1.5 text-xs font-semibold transition cursor-pointer ${
+              className={`rounded-xl px-4 py-1.5 text-xs font-semibold transition cursor-pointer ${
                 activeTab === tab.id
                   ? 'bg-bone text-ink shadow-[0_0_15px_rgba(255,255,255,0.3)]'
                   : 'text-mist hover:text-bone'
@@ -86,8 +86,8 @@ export const VergeShowcase: React.FC<VergeShowcaseProps> = ({ onNavigate }) => {
 
           {/* Floating Telemetry Callout Pill */}
           <div className="absolute top-6 left-6 z-20 flex items-center gap-3">
-            <div className="rounded-full border border-white/20 bg-ink/75 px-4 py-1.5 text-xs font-mono text-bone backdrop-blur-md flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-neon animate-ping"></span>
+            <div className="rounded-md border border-white/20 bg-ink/75 px-4 py-1.5 text-xs font-mono text-bone backdrop-blur-md flex items-center gap-2">
+              <span className="h-2 w-2 rounded-md bg-neon animate-ping"></span>
               <span>COP-S2 • 10M Multispectral Stream</span>
             </div>
           </div>
@@ -95,7 +95,7 @@ export const VergeShowcase: React.FC<VergeShowcaseProps> = ({ onNavigate }) => {
           {/* Play/Pause Control Floating Button */}
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="absolute bottom-6 right-6 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-ink/70 text-bone backdrop-blur-md transition hover:bg-white hover:text-ink cursor-pointer shadow-lg"
+            className="absolute bottom-6 right-6 z-20 flex h-11 w-11 items-center justify-center rounded-xl border border-white/20 bg-ink/70 text-bone backdrop-blur-md transition hover:bg-white hover:text-ink cursor-pointer shadow-lg"
             aria-label={isPlaying ? 'Pause video' : 'Play video'}
           >
             {isPlaying ? <Pause className="h-4 w-4" /> : <Play className="h-4 w-4 ml-0.5 fill-current" />}
@@ -125,7 +125,7 @@ export const VergeShowcase: React.FC<VergeShowcaseProps> = ({ onNavigate }) => {
             Small and marginal farmers need definitive facts, not stochastic price guesses.
           </p>
           <p>
-            The Kisan Setu architecture delivers verified agro-climatic intelligence by treating every data source as a sovereign layer: Agmarknet records remain immutable, Sentinel-2 spectral indices provide canopy truth, and Google Gemini 2.0 Flash is strictly grounded as an accessible multilingual translation layer.
+            The Kisan Setu architecture delivers verified agro-climatic intelligence by treating every data source as a sovereign layer: Agmarknet records remain immutable, Sentinel-2 spectral indices provide canopy truth, and Google Gemini 3.8 Flash is strictly grounded as an accessible multilingual translation layer.
           </p>
           
           <div className="pt-3 grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs">
@@ -153,8 +153,8 @@ export const VergeShowcase: React.FC<VergeShowcaseProps> = ({ onNavigate }) => {
             </h3>
             
             <ul className="mt-4 flex flex-wrap gap-2 font-mono text-xs">
-              {['Sentinel-2 NDVI', 'Gemini 2.0 Flash', 'Vision Pathology', 'ETSI NGSI-LD', 'SQLite WAL', 'Data.gov.in', 'React 19 + Vite'].map(tech => (
-                <li key={tech} className="rounded-full border border-line bg-ink/60 px-3 py-1 text-mist">
+              {['Sentinel-2 NDVI', 'Gemini 3.8 Flash', 'Vision Pathology', 'ETSI NGSI-LD', 'SQLite WAL', 'Data.gov.in', 'React 19 + Vite'].map(tech => (
+                <li key={tech} className="rounded-md border border-line bg-ink/60 px-3 py-1 text-mist">
                   {tech}
                 </li>
               ))}
@@ -167,7 +167,7 @@ export const VergeShowcase: React.FC<VergeShowcaseProps> = ({ onNavigate }) => {
                 className="inline-flex items-center gap-1.5 text-xs font-semibold text-tide hover:text-foam transition cursor-pointer"
               >
                 <span>Read Full Spec</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                
               </button>
             </div>
           </div>

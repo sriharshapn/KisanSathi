@@ -81,7 +81,7 @@ export const ExplainModal: React.FC<ExplainModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="p-1.5 rounded-full hover:bg-white/10 text-stone-300 hover:text-white transition-colors cursor-pointer"
+            className="p-1.5 rounded-lg hover:bg-white/10 text-stone-300 hover:text-white transition-colors cursor-pointer"
             aria-label="Close"
           >
             <X className="w-5 h-5" />
@@ -95,7 +95,7 @@ export const ExplainModal: React.FC<ExplainModalProps> = ({
               key={item.key}
               type="button"
               onClick={() => setActiveTab(item.key)}
-              className={`px-3 py-1.5 rounded-full whitespace-nowrap transition-all cursor-pointer font-['Montserrat',sans-serif] ${
+              className={`px-3 py-1.5 rounded-lg whitespace-nowrap transition-all cursor-pointer font-['Montserrat',sans-serif] ${
                 activeTab === item.key 
                   ? 'bg-[#546C18] text-[#DFEB38] shadow-sm font-bold' 
                   : 'text-stone-600 hover:text-[#022113] hover:bg-[#F0F4EC]'
@@ -107,7 +107,7 @@ export const ExplainModal: React.FC<ExplainModalProps> = ({
         </div>
 
         {/* Content Body */}
-        <div className="p-6 space-y-4 font-['Open_Sans',sans-serif]">
+        <div className="p-6 space-y-4 font-['Plus_Jakarta_Sans',sans-serif]">
           {termData ? (
             <>
               <div>
@@ -153,7 +153,7 @@ export const ExplainModal: React.FC<ExplainModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="px-5 py-2 bg-[#DFEB38] hover:bg-[#cbe025] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] rounded-full transition-all cursor-pointer shadow-sm"
+            className="px-5 py-2 bg-[#DFEB38] hover:bg-[#cbe025] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] rounded-xl transition-all cursor-pointer shadow-sm"
           >
             {t.close}
           </button>

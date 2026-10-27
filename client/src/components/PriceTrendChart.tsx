@@ -89,7 +89,7 @@ export const PriceTrendChart: React.FC<PriceTrendChartProps> = ({
   const yLabels = [maxP, Math.round((maxP + minP) / 2), minP];
 
   return (
-    <div className="rounded-3xl border border-[#E5EAD7] overflow-hidden bg-white shadow-[0_4px_24px_rgba(2,33,19,0.04)] font-['Open_Sans',sans-serif]">
+    <div className="rounded-3xl border border-[#E5EAD7] overflow-hidden bg-white shadow-[0_4px_24px_rgba(2,33,19,0.04)] font-['Plus_Jakarta_Sans',sans-serif]">
 
       {/* ── Header ── */}
       <div className="px-6 pt-6 pb-4 flex flex-wrap items-start justify-between gap-3 border-b border-[#E5EAD7]">
@@ -103,13 +103,13 @@ export const PriceTrendChart: React.FC<PriceTrendChartProps> = ({
         </div>
 
         {/* Period toggle */}
-        <div className="flex items-center gap-1 bg-[#F0F4EC] border border-[#E5EAD7] p-1 rounded-full">
+        <div className="flex items-center gap-1 bg-[#F0F4EC] border border-[#E5EAD7] p-1 rounded-md">
           {[7, 15, 30].map(d => (
             <button
               key={d}
               type="button"
               onClick={() => setDays(d)}
-              className={`px-3.5 py-1 text-xs font-['Montserrat',sans-serif] rounded-full transition-all cursor-pointer ${
+              className={`px-3.5 py-1 text-xs font-['Montserrat',sans-serif] rounded-lg transition-all cursor-pointer ${
                 days === d
                   ? 'bg-[#546C18] text-[#DFEB38] font-bold shadow-xs'
                   : 'text-[#59701E] hover:text-[#546C18]'
@@ -140,7 +140,7 @@ export const PriceTrendChart: React.FC<PriceTrendChartProps> = ({
                 <span className="text-sm font-bold text-[#022113] font-['Montserrat',sans-serif]">
                   {symbol} {isUp ? 'Increasing' : isDown ? 'Decreasing' : 'Stable'}
                 </span>
-                <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-full font-['Montserrat',sans-serif] ${
+                <span className={`text-[11px] font-bold px-2.5 py-0.5 rounded-md font-['Montserrat',sans-serif] ${
                   isUp ? 'bg-[#DFEB38] text-[#022113]' : isDown ? 'bg-rose-100 text-rose-800 border border-rose-200' : 'bg-[#F0F4EC] text-[#59701E] border border-[#E5EAD7]'
                 }`}>
                   {percent_change > 0 ? `+${percent_change}%` : `${percent_change}%`}
@@ -221,7 +221,7 @@ export const PriceTrendChart: React.FC<PriceTrendChartProps> = ({
                   stroke="#59701E" strokeWidth="1" strokeDasharray="3 3" opacity="0.6" />
               )}
 
-              {/* Data points — invisible wide hit areas + visible dots */}
+              {/* Data points - invisible wide hit areas + visible dots */}
               {pts.map((pt, i) => (
                 <g key={i} onMouseEnter={() => setHoveredIdx(i)} style={{ cursor: 'pointer' }}>
                   {/* Wide invisible hit area */}

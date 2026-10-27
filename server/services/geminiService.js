@@ -1,5 +1,5 @@
 // AgriMate Gemini AI Service
-// Handles: crop advisory generation + disease diagnostics via Gemini 2.0 Flash
+// Handles: crop advisory generation + disease diagnostics via Gemini 3.8 Flash
 
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import fs from 'fs';
@@ -28,7 +28,7 @@ function getClient() {
   return new GoogleGenerativeAI(key);
 }
 
-const PREFERRED_GEMINI_MODELS = ['gemini-flash-latest', 'gemini-3.8-flash'];
+const PREFERRED_GEMINI_MODELS = ['gemini-3.8-flash', 'gemini-flash-latest'];
 
 async function generateWithFallbackModel(client, contents) {
   let lastErr = null;
@@ -460,7 +460,7 @@ function getWeatherMock(state, district = 'District', lat = 13.03, lon = 77.57) 
 }
 
 // ──────────────────────────────────────────────
-// CROP ADVISORY — Gemini 2.0 Flash text generation
+// CROP ADVISORY — Gemini 3.8 Flash text generation
 // ──────────────────────────────────────────────
 export async function generateCropAdvisory({ state, district, crop, soilType, season, language }) {
   const langName = language === 'hi' ? 'Hindi' : language === 'kn' ? 'Kannada' : 'English';

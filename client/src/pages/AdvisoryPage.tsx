@@ -1,15 +1,14 @@
 import React, { useState } from 'react';
 import type { Language, NavigationPage, AdvisoryResult } from '../types';
 import { 
-  Sprout, 
+  
   Droplets, 
   AlertTriangle, 
   Calendar, 
-  Sparkles, 
-  ArrowRight, 
-  ShieldCheck, 
+  Sparkles,
+ShieldCheck, 
   RefreshCw, 
-  Award,
+  
   Sun,
   MapPin,
   CheckCircle2,
@@ -419,36 +418,37 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
   };
 
   return (
-    <div className="max-w-[1440px] mx-auto px-3 sm:px-6 py-8 md:py-12 space-y-8 font-['Open_Sans',sans-serif] text-[#022113]">
+    <div className="max-w-[1440px] mx-auto px-3 sm:px-6 py-8 md:py-12 space-y-8 font-['Plus_Jakarta_Sans',sans-serif] text-[#022113]">
       {/* Header Banner (Pic 1 & 2 Aesthetic) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         {/* Left Card: Crisp White Card */}
         <div className="lg:col-span-8 bg-white rounded-[2.5rem] p-8 sm:p-10 border border-[#022113]/8 shadow-xl hover:shadow-2xl transition-all space-y-4 flex flex-col justify-between">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F0F2EB] border border-[#022113]/8 text-xs font-['Montserrat',sans-serif] font-bold uppercase tracking-wider text-[#546C18]">
-              <Sparkles className="w-3.5 h-3.5 text-[#546C18]" />
-              <span>Gemini 2.0 Flash • Precision Agro-Advisory Engine</span>
-            </div>
             <h1 className="text-3xl sm:text-5xl font-black text-[#022113] font-['Montserrat',sans-serif] tracking-tight">
-              Gemini 2.0 Flash <span className="text-[#546C18]">Agro-Advisory</span>
+              Precision <span className="text-[#546C18]">Agro-Advisory</span>
             </h1>
             <p className="text-[#4A5568] text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
               Real-time, hyper-local guidance harmonizing satellite NDVI vegetative health, 7-day micro-weather forecasts, and soil health chemistry for Indian growers.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-[#022113]/8">
-            <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
-              10 Regional Languages
-            </span>
-            <span className="text-[#718096]">•</span>
-            <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
-              Regenerative Scoring
-            </span>
-            <span className="text-[#718096]">•</span>
-            <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
-              ICAR Validated Knowledge
-            </span>
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#022113]/8">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
+                10 Regional Languages
+              </span>
+              <span className="text-[#718096]">•</span>
+              <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
+                Regenerative Scoring
+              </span>
+              <span className="text-[#718096]">•</span>
+              <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
+                ICAR Validated Knowledge
+              </span>
+            </div>
+            <div className="text-xs text-stone-600 font-medium">
+              Gemini 3.8 Flash • Cloud Text-to-Speech
+            </div>
           </div>
         </div>
 
@@ -456,10 +456,10 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
         <div className="lg:col-span-4 bg-[#546C18] text-white rounded-[2.5rem] p-8 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between space-y-4">
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1 rounded-full bg-[#DFEB38] text-[#022113]">
-                AI Agronomist Active
+              <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1 rounded-md bg-[#DFEB38] text-[#022113]">
+                Agronomy Engine Active
               </span>
-              <span className="text-xs font-mono text-white/80">Gemini Flash</span>
+              <span className="text-xs font-mono text-white/80">ICAR Rules</span>
             </div>
             <h3 className="text-xl font-bold font-['Montserrat',sans-serif] text-white pt-2">
               Soil & Weather Fusion
@@ -471,8 +471,8 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
 
           <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
             <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#DFEB38] block">Adaptive Advisory</span>
-            <span className="text-2xl font-black font-['Montserrat',sans-serif] text-white block">Precision 99.4%</span>
-            <span className="text-[11px] text-white/70 block">Cross-referenced with KVK bulletins</span>
+            <span className="text-2xl font-black font-['Montserrat',sans-serif] text-white block">KVK Aligned</span>
+            <span className="text-[11px] text-white/70 block">Aligned with Indian Council of Agricultural Research agronomy</span>
           </div>
         </div>
       </div>
@@ -491,7 +491,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
             type="button"
             onClick={handleUseGps}
             disabled={gpsLoading}
-            className="px-3.5 py-1.5 rounded-full bg-[#F0F4EC] hover:bg-[#E2ECE3] border border-[#E5EAD7] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50 self-start sm:self-auto"
+            className="px-3.5 py-1.5 rounded-lg bg-[#F0F4EC] hover:bg-[#E2ECE3] border border-[#E5EAD7] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50 self-start sm:self-auto"
             title="Detect your current location and auto-populate State and District"
           >
             {gpsLoading ? (
@@ -508,7 +508,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
           <div className="mb-4 px-4 py-2.5 rounded-2xl bg-[#F0F4EC] border border-[#DFEB38] text-[#022113] text-xs font-medium flex items-center justify-between gap-2 animate-in fade-in">
             <div className="flex items-center gap-2">
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#DFEB38] opacity-75"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-md bg-[#DFEB38] opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#59701E]"></span>
               </span>
               <span className="font-semibold">{gpsMessage}</span>
@@ -611,7 +611,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
             <button
               type="button"
               onClick={handleOpenHistory}
-              className="px-4 py-2 rounded-full bg-[#F0F4EC] border border-[#E5EAD7] hover:bg-[#E2ECE3] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
+              className="px-4 py-2 rounded-xl bg-[#F0F4EC] border border-[#E5EAD7] hover:bg-[#E2ECE3] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
             >
               <History className="w-3.5 h-3.5 text-[#59701E]" />
               <span>Advisory History</span>
@@ -619,7 +619,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
             <button
               type="button"
               onClick={handleOpenIvr}
-              className="px-4 py-2 rounded-full bg-[#F0F4EC] border border-[#E5EAD7] hover:bg-[#E2ECE3] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
+              className="px-4 py-2 rounded-xl bg-[#F0F4EC] border border-[#E5EAD7] hover:bg-[#E2ECE3] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-xs"
             >
               <PhoneCall className="w-3.5 h-3.5 text-[#59701E]" />
               <span>Kisan IVR</span>
@@ -627,7 +627,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
             <button
               onClick={() => handleGenerate()}
               disabled={loading}
-              className="px-6 py-2 rounded-full bg-[#DFEB38] hover:bg-[#c9d42f] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-[0_4px_16px_rgba(223,235,56,0.4)] disabled:opacity-50"
+              className="px-6 py-2 rounded-xl bg-[#DFEB38] hover:bg-[#c9d42f] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-[0_4px_16px_rgba(223,235,56,0.4)] disabled:opacity-50"
             >
               {loading ? (
                 <>
@@ -688,16 +688,14 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
             </div>
 
             <div className="p-7 rounded-[2.2rem] bg-white border border-[#022113]/8 shadow-xl flex items-start gap-4 hover:shadow-2xl transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-[#F0F2EB] text-[#022113] flex items-center justify-center shrink-0">
-                <Sprout className="w-6 h-6 text-[#546C18]" />
-              </div>
+
               <div>
                 <span className="text-[11px] uppercase font-bold tracking-wider font-['Montserrat',sans-serif] text-[#546C18]">Sentinel-2 NDVI Score</span>
                 <div className="flex items-center gap-2 mt-1">
                   <span className="text-xl font-black text-[#022113] font-['Montserrat',sans-serif]">
                     {result.ndvi_score}
                   </span>
-                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-[#DFEB38] text-[#022113] shadow-xs">
+                  <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-md bg-[#DFEB38] text-[#022113] shadow-xs">
                     Vegetative Canopy
                   </span>
                 </div>
@@ -705,9 +703,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
             </div>
 
             <div className="p-7 rounded-[2.2rem] bg-[#546C18] text-white shadow-xl flex items-start gap-4 hover:shadow-2xl transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-white/20 text-[#DFEB38] flex items-center justify-center shrink-0 shadow-sm">
-                <Award className="w-6 h-6 text-[#DFEB38]" />
-              </div>
+
               <div>
                 <span className="text-[11px] uppercase font-bold tracking-wider font-['Montserrat',sans-serif] text-[#DFEB38]">Regenerative Target</span>
                 <p className="text-xs font-semibold text-white/90 mt-1 leading-snug">
@@ -744,7 +740,6 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
                 className="text-xs font-bold text-[#022113] hover:text-[#59701E] flex items-center gap-1.5 cursor-pointer font-['Montserrat',sans-serif] uppercase tracking-wider"
               >
                 <span>Check Mandi Rates</span>
-                <ArrowRight className="w-3.5 h-3.5 text-[#59701E]" />
               </button>
             </div>
 
@@ -757,15 +752,13 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
                   <div className="space-y-4">
                     <div className="flex items-start justify-between">
                       <div className="flex items-center gap-3">
-                        <span className="p-3 rounded-2xl bg-[#F0F2EB] border border-[#022113]/8 flex items-center justify-center">
-                          <Sprout className="w-5 h-5 text-[#546C18]" />
-                        </span>
+
                         <div>
                           <h4 className="text-base font-black text-[#022113] font-['Montserrat',sans-serif]">{rec.crop}</h4>
                           <span className="text-[11px] text-[#022113]/60 font-medium">{rec.variety}</span>
                         </div>
                       </div>
-                      <span className={`text-[10px] font-bold px-3 py-1 rounded-full border font-['Montserrat',sans-serif] uppercase tracking-wider ${getRegenColor(rec.regenerative_score)}`}>
+                      <span className={`text-[10px] font-bold px-3 py-1 rounded-md border font-['Montserrat',sans-serif] uppercase tracking-wider ${getRegenColor(rec.regenerative_score)}`}>
                         Regen {rec.regenerative_score}
                       </span>
                     </div>
@@ -776,7 +769,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
                         <span>Suitability Match</span>
                         <span className="text-[#546C18]">{rec.suitability_score}%</span>
                       </div>
-                      <div className="w-full h-2 rounded-full bg-[#F0F2EB] overflow-hidden">
+                      <div className="w-full h-2 rounded-md bg-[#F0F2EB] overflow-hidden">
                         <div 
                           className="h-full bg-[#546C18] rounded-full transition-all" 
                           style={{ width: `${rec.suitability_score}%` }} 
@@ -846,9 +839,9 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
                   <div key={idx} className="p-4 rounded-2xl bg-[#F8FAF6] border border-[#E5EAD7] space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="p-1 rounded-lg bg-[#EAF2E3] text-[#59701E]">
-                        <Sprout className="w-4 h-4" />
+                        
                       </span>
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#DFEB38]/40 text-[#022113] font-['Montserrat',sans-serif]">
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-[#DFEB38]/40 text-[#022113] font-['Montserrat',sans-serif]">
                         Day +{item.days_from_now}
                       </span>
                     </div>
@@ -865,7 +858,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
       {/* History Modal */}
       {historyOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl border border-[#E5EAD7] max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-4 max-h-[85vh] flex flex-col font-['Open_Sans',sans-serif]">
+          <div className="bg-white rounded-3xl border border-[#E5EAD7] max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-4 max-h-[85vh] flex flex-col font-['Plus_Jakarta_Sans',sans-serif]">
             <div className="flex items-center justify-between pb-4 border-b border-[#E5EAD7]">
               <div className="flex items-center gap-2.5">
                 <History className="w-5 h-5 text-[#59701E]" />
@@ -873,7 +866,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
               </div>
               <button 
                 onClick={() => setHistoryOpen(false)}
-                className="p-1 rounded-full hover:bg-[#F0F4EC] text-[#022113] cursor-pointer"
+                className="p-1.5 rounded-lg hover:bg-[#F0F4EC] text-[#022113] cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -890,7 +883,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <span className="font-extrabold text-xs text-[#022113] font-['Montserrat',sans-serif]">{item.district}, {item.state}</span>
-                        <span className="text-[10px] bg-[#DFEB38]/40 text-[#022113] px-2.5 py-0.5 rounded-full font-bold font-['Montserrat',sans-serif]">
+                        <span className="text-[10px] bg-[#DFEB38]/40 text-[#022113] px-2.5 py-0.5 rounded-md font-bold font-['Montserrat',sans-serif]">
                           {item.season}
                         </span>
                       </div>
@@ -909,7 +902,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
                       <div className="flex flex-wrap gap-1.5 pt-1">
                         {item.advisory.crop_recommendations.map((c: any, i: number) => (
                           <span key={i} className="text-[10px] bg-white text-[#022113] border border-[#E5EAD7] px-2 py-0.5 rounded-md font-medium inline-flex items-center gap-1">
-                            <Sprout className="w-3 h-3 text-[#59701E]" />
+                            
                             <span>{c.crop} ({c.regenerative_score})</span>
                           </span>
                         ))}
@@ -919,7 +912,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
                     <div className="pt-2 flex justify-end">
                       <button
                         onClick={() => handleLoadFromHistory(item)}
-                        className="px-4 py-1.5 bg-[#546C18] text-white rounded-full text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#435713] cursor-pointer transition-colors"
+                        className="px-4 py-1.5 bg-[#546C18] text-white rounded-xl text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#435713] cursor-pointer transition-colors"
                       >
                         Load Into Advisory Console
                       </button>
@@ -935,7 +928,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
       {/* IVR Voice Telephony Modal */}
       {ivrOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl border border-[#E5EAD7] max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-4 font-['Open_Sans',sans-serif]">
+          <div className="bg-white rounded-3xl border border-[#E5EAD7] max-w-lg w-full p-6 sm:p-8 shadow-2xl space-y-4 font-['Plus_Jakarta_Sans',sans-serif]">
             <div className="flex items-center justify-between pb-4 border-b border-[#E5EAD7]">
               <div className="flex items-center gap-2.5">
                 <PhoneCall className="w-5 h-5 text-[#59701E]" />
@@ -946,7 +939,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
               </div>
               <button 
                 onClick={() => setIvrOpen(false)}
-                className="p-1 rounded-full hover:bg-[#F0F4EC] text-[#022113] cursor-pointer"
+                className="p-1.5 rounded-lg hover:bg-[#F0F4EC] text-[#022113] cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -969,7 +962,7 @@ export const AdvisoryPage: React.FC<AdvisoryPageProps> = ({ language, onNavigate
                 <div className="pt-3 flex justify-end gap-2 border-t border-[#E5EAD7]">
                   <button
                     onClick={handleCopyIvr}
-                    className="px-5 py-2 rounded-full bg-[#DFEB38] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#c9d42f] flex items-center gap-1.5 cursor-pointer transition-colors shadow-xs"
+                    className="px-5 py-2 rounded-xl bg-[#DFEB38] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#c9d42f] flex items-center gap-1.5 cursor-pointer transition-colors shadow-xs"
                   >
                     {copiedIvr ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                     <span>{copiedIvr ? 'Copied Script' : 'Copy Audio Script'}</span>

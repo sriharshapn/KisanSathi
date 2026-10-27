@@ -3,10 +3,6 @@ import type { Language, NavigationPage, Commodity } from '../types';
 import { 
   ArrowUpRight, 
   ArrowDown, 
-  ChevronLeft, 
-  ChevronRight, 
-  CheckCircle2, 
-  ArrowRight,
   MapPin
 } from 'lucide-react';
 
@@ -23,7 +19,7 @@ interface HomePageProps {
  * Recreating the exact UI from Anastasia Chugueva's AgroInvest:
  * - Color Palette: Deep Forest Green (#022113), Dark Olive (#59701E / #4A6016), 
  *   Electric Lime (#DFEB38), Card White (#FFFFFF), Inset Pale Gray (#F0F2EB / #F8FAF6).
- * - Typography: Montserrat (Headings, Buttons, Numbers), Open Sans (Body, Descriptions).
+ * - Typography: Montserrat (Headings, Buttons, Numbers), Plus Jakarta Sans (Body, Descriptions).
  */
 const QUICK_PRODUCE_OPTIONS = [
   { name: 'Tomato', label: 'Tomato', sub: 'टमाटर', modalRate: 2450, mandi: 'Bengaluru, KA', msp: 2100 },
@@ -137,7 +133,7 @@ export const HomePage: React.FC<HomePageProps> = ({
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAF6] text-[#022113] font-['Open_Sans',sans-serif] selection:bg-[#DFEB38] selection:text-[#022113]">
+    <div className="min-h-screen bg-[#F8FAF6] text-[#022113] font-['Plus_Jakarta_Sans',sans-serif] selection:bg-[#DFEB38] selection:text-[#022113]">
       
       {/* ── 1. EXACT BEHANCE HERO SECTION (Image 1) ───────────────────────── */}
       <section className="mx-auto max-w-[1440px] px-3 sm:px-6 pt-4 pb-10">
@@ -334,51 +330,55 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* Main White Container (73K Gauge + Smiling Farmer Photo + Analytics Copy) */}
           <div className="lg:col-span-8 bg-white rounded-[2.5rem] p-6 sm:p-10 border border-[#022113]/10 shadow-sm flex flex-col md:flex-row items-center gap-8">
             
-            {/* 86K Donut Gauge */}
+            {/* 126M Donut Gauge: India Real Agricultural Demographics */}
             <div className="flex flex-col items-center shrink-0">
               <div className="relative w-36 h-36 flex items-center justify-center">
                 <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                   <circle cx="50" cy="50" r="40" stroke="#F0F2EB" strokeWidth="8" fill="none" />
-                  {/* 78% dark arc: 251.2 × 0.78 = 195.9, offset = 251.2 - 195.9 = 55.3 */}
+                  {/* 86.2% dark green: 251.33 * 0.862 = 216.64 (covers 0 to 310.3 deg) */}
                   <circle 
                     cx="50" 
                     cy="50" 
                     r="40" 
                     stroke="#022113" 
                     strokeWidth="8" 
-                    strokeDasharray="251.2" 
-                    strokeDashoffset="55.3" 
-                    strokeLinecap="round" 
+                    strokeDasharray="216.64 251.33" 
+                    strokeDashoffset="0" 
                     fill="none" 
                   />
-                  {/* 22% olive arc: 251.2 × 0.22 = 55.3, offset = 251.2 - 55.3 = 195.9 */}
+                  {/* 13.8% olive green: 251.33 * 0.138 = 34.69 (starts at 310.3 deg and completes 100% to 360 deg) */}
                   <circle 
                     cx="50" 
                     cy="50" 
                     r="40" 
                     stroke="#59701E" 
                     strokeWidth="8" 
-                    strokeDasharray="251.2" 
-                    strokeDashoffset="195.9" 
-                    strokeLinecap="round" 
+                    strokeDasharray="34.69 251.33" 
+                    strokeDashoffset="0" 
+                    transform="rotate(310.32 50 50)" 
                     fill="none" 
                   />
                 </svg>
-                <div className="absolute flex flex-col items-center">
-                  <span className="text-3xl font-extrabold text-[#022113] font-['Montserrat',sans-serif]">86K</span>
+                <div className="absolute flex flex-col items-center text-center">
+                  <span className="text-3xl font-extrabold text-[#022113] font-['Montserrat',sans-serif] tracking-tight">126M</span>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-[#59701E] font-['Montserrat',sans-serif] -mt-1">In India</span>
                 </div>
               </div>
 
-              <div className="mt-3 space-y-1 text-xs">
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-sm bg-[#022113]" />
-                  <span className="text-stone-600">Smallholder Farmers</span>
-                  <span className="font-bold text-[#022113] ml-auto">78%</span>
+              <div className="mt-3 space-y-2 text-xs w-full max-w-[260px]">
+                <div className="flex items-center justify-between gap-3 whitespace-nowrap">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-sm bg-[#022113] shrink-0" />
+                    <span className="text-stone-600 font-medium">Smallholder Farmers</span>
+                  </div>
+                  <span className="font-bold text-[#022113] font-['Montserrat',sans-serif]">126M (86%)</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-sm bg-[#59701E]" />
-                  <span className="text-stone-600">FPOs & Agri-Traders</span>
-                  <span className="font-bold text-[#022113] ml-auto">22%</span>
+                <div className="flex items-center justify-between gap-3 whitespace-nowrap">
+                  <div className="flex items-center gap-1.5">
+                    <span className="w-2.5 h-2.5 rounded-sm bg-[#59701E] shrink-0" />
+                    <span className="text-stone-600 font-medium">FPOs & Agri-Traders</span>
+                  </div>
+                  <span className="font-bold text-[#59701E] font-['Montserrat',sans-serif]">10K+ • 2.5L+</span>
                 </div>
               </div>
             </div>
@@ -399,7 +399,7 @@ export const HomePage: React.FC<HomePageProps> = ({
               </h2>
 
               <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-                India's sovereign agri-intelligence network combining Agmarknet terminal prices, ISRO & ESA Sentinel-2 multispectral satellite telemetry, and Gemini 3.8 AI agronomist advisory in 10 regional Indian dialects.
+                India's sovereign agri-intelligence network combining Agmarknet terminal prices, ISRO & ESA Sentinel-2 multispectral satellite telemetry, and Gemini 3.8 Flash agronomist advisory in 10 regional Indian dialects.
               </p>
 
               {/* Authentic Behance Double-Pill Button: Lime Pill + Circlepod Arrow */}
@@ -455,25 +455,14 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* ── 3. EXACT OUR SERVICES SECTION (Image 2) ────────────────────────── */}
       <section className="mx-auto max-w-[1440px] px-3 sm:px-6 py-12">
         
-        {/* Section Header with Left Title and Right Carousel Navigation Circles */}
-        <div className="flex items-center justify-between gap-4 mb-8">
-          <div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#022113] font-['Montserrat',sans-serif] uppercase tracking-tight">
-              Our Services
-            </h2>
-            <p className="text-xs sm:text-sm text-stone-500 mt-1">
-              Our platform <span className="text-[#59701E]">provides sovereign agricultural intelligence tools</span>
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <button className="w-11 h-11 rounded-full border border-[#022113]/30 flex items-center justify-center hover:bg-white transition text-[#022113] cursor-pointer">
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button className="w-11 h-11 rounded-full border border-[#022113]/30 flex items-center justify-center hover:bg-white transition text-[#022113] cursor-pointer">
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#022113] font-['Montserrat',sans-serif] tracking-tight">
+            Our Sovereign <span className="font-light italic text-[#59701E]">Agricultural Services</span>
+          </h2>
+          <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-3 font-normal max-w-xl mx-auto leading-relaxed">
+            Direct farmer empowerment through real-time APMC Mandi rates, Sentinel-2 satellite canopy telemetry, and automated crop pathology.
+          </p>
         </div>
 
         {/* 3 Services Cards (Mandi Price Terminal, Satellite NDVI, AI Pathology) */}
@@ -506,29 +495,45 @@ export const HomePage: React.FC<HomePageProps> = ({
           </div>
 
           {/* Card 2: Satellite Crop NDVI Analytics (Center Dark Olive Active Card) */}
-          <div className="bg-[#546C18] text-white rounded-[2.5rem] p-7 sm:p-8 flex flex-col justify-between min-h-[460px] shadow-xl">
+          <div className="bg-[#546C18] text-white rounded-[2.5rem] p-7 sm:p-8 flex flex-col justify-between min-h-[460px] shadow-xl border border-[#546C18]/30">
             <div>
-              <div className="flex items-start justify-between">
-                <span className="text-[11px] font-bold text-white/70 font-mono">Sentinel-2 Multispectral</span>
-                <span className="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center text-white">
-                  <ArrowDown className="w-5 h-5 -rotate-45" />
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#DFEB38]">
+                  Sentinel-2 Multispectral
+                </span>
+                <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1 rounded-full bg-white/10 text-white/90 border border-white/15">
+                  10m Orbit
                 </span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-bold font-['Montserrat',sans-serif] text-white mt-4">
+              <h3 className="text-2xl sm:text-3xl font-extrabold font-['Montserrat',sans-serif] text-white tracking-tight leading-snug mt-4">
                 Satellite Crop <br />NDVI Analytics
               </h3>
             </div>
 
-            {/* Inner White Card with text and button */}
-            <div className="mt-8 bg-white text-[#022113] rounded-3xl p-6 shadow-md space-y-4">
+            {/* Inner White Telemetry Card */}
+            <div className="mt-6 bg-white text-[#022113] rounded-3xl p-6 shadow-md border border-[#022113]/8 space-y-4">
+              {/* Mini Spectral Telemetry Indicator */}
+              <div className="space-y-1.5 pb-3 border-b border-[#022113]/8">
+                <div className="flex items-center justify-between text-[11px] font-['Montserrat',sans-serif]">
+                  <span className="text-stone-500 font-semibold uppercase tracking-wider flex items-center gap-1.5">
+                    <span className="w-2 h-2 rounded-full bg-[#59701E] animate-pulse" />
+                    Canopy Vigor Index
+                  </span>
+                  <span className="text-[#022113] font-bold font-mono">0.82 NDVI (High)</span>
+                </div>
+                {/* Spectral Gradient Bar */}
+                <div className="h-1.5 w-full rounded-full bg-gradient-to-r from-amber-400 via-[#DFEB38] to-[#59701E]" />
+              </div>
+
               <p className="text-xs leading-relaxed text-stone-600 font-normal">
                 Track field-level vegetative vigor, soil moisture anomalies, and nitrogen stress directly from orbit before symptoms become visible on the ground.
               </p>
+
               <button 
                 onClick={() => onNavigate('satellite')}
-                className="w-full py-2.5 px-4 rounded-full border border-[#022113] text-[#022113] hover:bg-[#DFEB38] font-bold text-xs font-['Montserrat',sans-serif] transition cursor-pointer"
+                className="w-full py-3.5 px-5 rounded-full bg-[#022113] hover:bg-[#17412E] text-[#DFEB38] font-bold text-xs uppercase tracking-wider font-['Montserrat',sans-serif] transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 shadow-sm hover:shadow-md hover:scale-[1.01] active:scale-[0.99]"
               >
-                Launch Satellite NDVI
+                <span>Launch Satellite NDVI</span>
               </button>
             </div>
           </div>
@@ -540,7 +545,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           >
             <div>
               <div className="flex items-start justify-between">
-                <span className="text-[11px] font-bold text-stone-500 font-mono">Gemini 3.8 AI Vision</span>
+                <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#546C18]">Gemini 3.8 Flash Vision</span>
                 <span className="w-10 h-10 rounded-full border border-[#022113]/40 flex items-center justify-center text-[#022113] group-hover:bg-[#DFEB38] transition">
                   <ArrowUpRight className="w-5 h-5" />
                 </span>
@@ -566,25 +571,14 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* ── 4. SATELLITE REMOTE SENSING & ORBITAL MAPPING ── */}
       <section className="mx-auto max-w-[1440px] px-3 sm:px-6 py-12">
         
-        {/* Header */}
-        <div className="flex items-center justify-between gap-4 mb-6">
-          <div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#022113] font-['Montserrat',sans-serif] uppercase tracking-tight">
-              Revolution in <br />Satellite Agronomy
-            </h2>
-            <p className="text-xs sm:text-sm text-stone-500 mt-1 max-w-xl">
-              Copernicus Sentinel-2 multispectral earth observation <span className="text-[#59701E]">captures vegetative vigor, canopy nitrogen, and root hydration across every farm parcel in India.</span>
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2 shrink-0">
-            <button className="w-11 h-11 rounded-full border border-[#022113]/30 flex items-center justify-center hover:bg-white transition text-[#022113] cursor-pointer">
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button className="w-11 h-11 rounded-full border border-[#022113]/30 flex items-center justify-center hover:bg-white transition text-[#022113] cursor-pointer">
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#022113] font-['Montserrat',sans-serif] tracking-tight">
+            Revolution in <span className="font-light italic text-[#59701E]">Satellite Agronomy</span>
+          </h2>
+          <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-3 font-normal max-w-2xl mx-auto leading-relaxed">
+            Copernicus Sentinel-2 multispectral earth observation captures vegetative vigor, canopy nitrogen, and root hydration across every farm parcel in India.
+          </p>
         </div>
 
         {/* Unified Satellite Earth Observation Stage (Zero Nested Images) */}
@@ -638,7 +632,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                         <span>{spec.pct}</span>
                         <span className="w-2 h-2 rounded-full bg-[#546C18]" />
                       </div>
-                      <p className="text-[11px] text-[#022113]/75 font-semibold max-w-[150px] leading-snug mt-0.5 font-['Open_Sans',sans-serif]">
+                      <p className="text-[11px] text-[#022113]/75 font-semibold max-w-[150px] leading-snug mt-0.5 font-['Plus_Jakarta_Sans',sans-serif]">
                         {spec.label}
                       </p>
                     </div>
@@ -669,51 +663,19 @@ export const HomePage: React.FC<HomePageProps> = ({
       {/* ── 5. EXACT FREQUENTLY ASKED QUESTIONS SECTION (Image 3) ──────────── */}
       <section className="mx-auto max-w-[1440px] px-3 sm:px-6 py-12">
         
-        {/* Header */}
-        <div className="flex items-center justify-between gap-4 mb-8">
-          <div>
-            <h2 className="text-3xl sm:text-5xl font-extrabold text-[#022113] font-['Montserrat',sans-serif] uppercase tracking-tight">
-              Frequently <br />Asked Questions
-            </h2>
-            <p className="text-xs sm:text-sm text-stone-500 mt-1 max-w-xl">
-              Our team has prepared a list of frequently asked questions <span className="text-[#59701E]">to help you quickly find answers to the most important issues.</span>
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2 shrink-0">
-            <button className="w-11 h-11 rounded-full border border-[#022113]/30 flex items-center justify-center hover:bg-white transition text-[#022113] cursor-pointer">
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button className="w-11 h-11 rounded-full border border-[#022113]/30 flex items-center justify-center hover:bg-white transition text-[#022113] cursor-pointer">
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#022113] font-['Montserrat',sans-serif] tracking-tight">
+            Frequently Asked <span className="font-light italic text-[#59701E]">Questions</span>
+          </h2>
+          <p className="text-xs sm:text-sm md:text-base text-stone-600 mt-3 font-normal max-w-xl mx-auto leading-relaxed">
+            Everything you need to know about KisanSathi's mandi telemetry, Sentinel-2 NDVI monitoring, and sovereign agricultural intelligence.
+          </p>
         </div>
 
-        {/* 4 FAQ Cards: Card 1 Featured with Greenhouse image, Cards 2-4 Off-white with Down-Arrow Button */}
+        {/* 4 FAQ Cards: All unified Photo Cards with toggle overlay */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-          
-          {/* Card 1: Featured Photo Card */}
-          <div className="rounded-[2.5rem] overflow-hidden relative p-7 sm:p-8 flex flex-col justify-end text-white min-h-[380px] shadow-lg">
-            <img 
-              src={faqs[0].image} 
-              alt="Greenhouse" 
-              className="absolute inset-0 w-full h-full object-cover filter brightness-75"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#022113] via-[#022113]/60 to-transparent" />
-            
-            <div className="relative z-10 space-y-3">
-              <h3 className="text-lg font-bold font-['Montserrat',sans-serif] text-white leading-snug">
-                {faqs[0].q}
-              </h3>
-              <p className="text-xs text-stone-200 leading-relaxed font-normal">
-                {faqs[0].a}
-              </p>
-            </div>
-          </div>
-
-          {/* Cards 2, 3, 4: Photo Cards with toggle overlay */}
-          {faqs.slice(1).map((faq) => {
+          {faqs.map((faq) => {
             const isOpen = activeFaq === faq.id;
             return (
               <div 
@@ -746,7 +708,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               </div>
             );
           })}
-
         </div>
       </section>
 
@@ -757,33 +718,15 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
             
             {/* Left Column: Context, Methodology & Value Prop */}
-            <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#546C18] bg-[#F0F2EB] px-4 py-1.5 rounded-full inline-block font-['Montserrat',sans-serif] border border-[#022113]/8 shadow-sm">
-                  Agro-Financial Realization Terminal
-                </span>
+            <div className="lg:col-span-5 flex flex-col justify-between space-y-6 pt-3 sm:pt-6">
+              <div className="space-y-6">
                 <h3 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#022113] font-['Montserrat',sans-serif] tracking-tight leading-[1.08]">
                   Calculate Real Net Returns <br className="hidden sm:inline" />
                   <span className="text-[#546C18]">Before You Haul</span>
                 </h3>
-                <p className="text-xs sm:text-sm text-[#022113]/70 leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm text-[#022113]/70 leading-relaxed font-normal pt-1">
                   KisanSathi normalizes your harvest volume against live Agmarknet APMC modal prices, automatically deducting transit diesel costs and market cess to compute your true in-hand realization with zero price hallucination.
                 </p>
-                
-                <div className="pt-2 flex flex-wrap gap-2.5 text-xs font-bold text-[#022113] font-['Montserrat',sans-serif]">
-                  <span className="flex items-center gap-2 bg-[#F0F2EB] px-3.5 py-1.5 rounded-full border border-[#022113]/8">
-                    <CheckCircle2 className="w-4 h-4 text-[#546C18]" />
-                    Agmarknet Verified
-                  </span>
-                  <span className="flex items-center gap-2 bg-[#F0F2EB] px-3.5 py-1.5 rounded-full border border-[#022113]/8">
-                    <CheckCircle2 className="w-4 h-4 text-[#546C18]" />
-                    Fuel & Cess Deducted
-                  </span>
-                  <span className="flex items-center gap-2 bg-[#F0F2EB] px-3.5 py-1.5 rounded-full border border-[#022113]/8">
-                    <CheckCircle2 className="w-4 h-4 text-[#546C18]" />
-                    Zero Hallucination
-                  </span>
-                </div>
               </div>
 
               {/* Verified Mandi Telemetry Trust Card */}
@@ -815,9 +758,6 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <label className="text-xs font-bold text-[#022113] uppercase tracking-wider font-['Montserrat',sans-serif]">
                       Select Commodity / Produce
                     </label>
-                    <span className="text-[11px] font-semibold text-[#546C18] bg-white px-2.5 py-0.5 rounded-full border border-[#022113]/8 font-['Montserrat',sans-serif]">
-                      Grade-A FAQ
-                    </span>
                   </div>
 
                   <div className="grid grid-cols-3 sm:grid-cols-6 gap-2">
@@ -977,7 +917,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   className="w-full py-4 rounded-full bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] font-black text-xs uppercase tracking-wider transition-all duration-200 cursor-pointer flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] font-['Montserrat',sans-serif]"
                 >
                   <span>Query 2,400+ Mandis in Real-Time Terminal</span>
-                  <ArrowRight className="w-4 h-4 text-[#022113] stroke-[2.5]" />
+                  
                 </button>
               </form>
 
@@ -1020,7 +960,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <h4 className="text-base font-bold font-['Montserrat',sans-serif] text-[#022113] mb-4">
                   Sovereign Solutions
                 </h4>
-                <ul className="space-y-2.5 text-stone-600 font-['Open_Sans',sans-serif]">
+                <ul className="space-y-2.5 text-stone-600 font-['Plus_Jakarta_Sans',sans-serif]">
                   <li>
                     <button 
                       onClick={() => onNavigate('dashboard')} 
@@ -1060,7 +1000,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                 <h4 className="text-base font-bold font-['Montserrat',sans-serif] text-[#022113] mb-4">
                   Public Infrastructure
                 </h4>
-                <ul className="space-y-2.5 text-stone-600 font-['Open_Sans',sans-serif]">
+                <ul className="space-y-2.5 text-stone-600 font-['Plus_Jakarta_Sans',sans-serif]">
                   <li>
                     <button 
                       onClick={() => onNavigate('weather')} 
@@ -1107,11 +1047,6 @@ export const HomePage: React.FC<HomePageProps> = ({
               onClick={() => onNavigate('home')}
               className="flex items-center gap-2 cursor-pointer select-none"
             >
-              <div className="w-8 h-8 rounded-2xl bg-[#546C18] flex items-center justify-center text-[#DFEB38]">
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
-                  <path d="M12 2v20M12 4c-3 0-5 2-5 5 0 2 2 3 5 3M12 4c3 0 5 2 5 5 0 2-2 3-5 3M12 10c-3.5 0-6 2.5-6 5.5 0 2 2.5 3.5 6 3.5M12 10c3.5 0 6 2.5 6 5.5 0 2-2.5 3.5-6 3.5" />
-                </svg>
-              </div>
               <span className="text-2xl font-extrabold tracking-tight text-[#022113] font-['Montserrat',sans-serif]">
                 Kisan<span className="text-[#59701E]">Sathi</span>
               </span>

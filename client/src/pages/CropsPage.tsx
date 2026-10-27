@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import type { Language, NavigationPage, Commodity } from '../types';
 import { resolveCropFromQuery } from '../data/cropDictionary';
 import { 
-  Search, 
-  ChevronRight,
-  ShieldCheck,
+  Search,
+ShieldCheck,
   Droplets,
   Warehouse,
   TrendingUp,
@@ -244,43 +243,40 @@ export const CropsPage: React.FC<CropsPageProps> = ({
   });
 
   return (
-    <div className="space-y-12 sm:space-y-16 pb-20 font-['Open_Sans',sans-serif] text-[#022113]">
+    <div className="space-y-12 sm:space-y-16 pb-20 font-['Plus_Jakarta_Sans',sans-serif] text-[#022113]">
       {/* Crops Page Header - Two Card Bento Layout */}
       <section className="max-w-[1440px] mx-auto px-3 sm:px-6 mt-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
           {/* Left Card: Crisp Pure White Banner */}
           <div className="lg:col-span-8 bg-white rounded-[2.5rem] p-8 sm:p-10 border border-[#022113]/8 shadow-xl flex flex-col justify-between">
             <div className="space-y-4">
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider text-[#546C18] bg-[#F0F2EB] px-3.5 py-1.5 rounded-full border border-[#022113]/8">
-                  Produce Directory
-                </span>
-                <span className="text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider text-[#022113]/70 bg-[#F0F2EB] px-3.5 py-1.5 rounded-full border border-[#022113]/8">
-                  Agmarknet Grade-A Standards
-                </span>
-              </div>
 
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#022113] tracking-tight leading-[1.08] font-['Montserrat',sans-serif]">
                 Commodity Portfolio & <span className="text-[#546C18]">Agronomic Standards</span>
               </h1>
 
-              <p className="text-[#022113]/70 text-sm sm:text-base leading-relaxed max-w-2xl font-['Open_Sans',sans-serif]">
+              <p className="text-[#022113]/70 text-sm sm:text-base leading-relaxed max-w-2xl font-['Plus_Jakarta_Sans',sans-serif]">
                 Explore official APMC grading metrics, moisture benchmarks, storage conditions, and prevailing auction price bands across Indian agricultural commodities.
               </p>
 
-              {/* Quick Feature Badges */}
-              <div className="flex flex-wrap items-center gap-2.5 pt-2 text-xs font-['Montserrat',sans-serif]">
-                <div className="flex items-center gap-1.5 bg-[#F0F2EB] px-3.5 py-1.5 rounded-full border border-[#022113]/8">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-[#546C18]" />
-                  <span className="text-[#022113] font-bold">Zero Price Hallucination</span>
+              {/* Quick Feature Badges & Google Tech Badge */}
+              <div className="flex flex-wrap items-center justify-between gap-2.5 pt-2 text-xs font-['Montserrat',sans-serif]">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <div className="flex items-center gap-1.5 bg-[#F0F2EB] px-3.5 py-1.5 rounded-md border border-[#022113]/8">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-[#546C18]" />
+                    <span className="text-[#022113] font-bold">Zero Price Hallucination</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 bg-[#F0F2EB] px-3.5 py-1.5 rounded-md border border-[#022113]/8">
+                    <ShieldCheck className="w-3.5 h-3.5 text-[#546C18]" />
+                    <span className="text-[#022113] font-bold">APMC Act Compliant</span>
+                  </div>
+                  <div className="flex items-center gap-1.5 bg-[#F0F2EB] px-3.5 py-1.5 rounded-md border border-[#022113]/8">
+                    <Boxes className="w-3.5 h-3.5 text-[#546C18]" />
+                    <span className="text-[#022113] font-bold">7 Produce Classes</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-1.5 bg-[#F0F2EB] px-3.5 py-1.5 rounded-full border border-[#022113]/8">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#546C18]" />
-                  <span className="text-[#022113] font-bold">APMC Act Compliant</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-[#F0F2EB] px-3.5 py-1.5 rounded-full border border-[#022113]/8">
-                  <Boxes className="w-3.5 h-3.5 text-[#546C18]" />
-                  <span className="text-[#022113] font-bold">7 Produce Classes</span>
+                <div className="text-xs text-stone-600 font-medium">
+                  Gemini Agronomic KB • Cloud Firestore
                 </div>
               </div>
             </div>
@@ -301,7 +297,7 @@ export const CropsPage: React.FC<CropsPageProps> = ({
                   <Droplets className="w-4 h-4 text-[#546C18]" />
                   <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#022113]/60">Moisture</span>
                 </div>
-                <p className="text-sm font-bold text-[#022113] font-['Montserrat',sans-serif]">&lt; 10% – 14%</p>
+                <p className="text-sm font-bold text-[#022113] font-['Montserrat',sans-serif]">&lt; 10% - 14%</p>
                 <p className="text-[11px] text-[#022113]/70 mt-0.5 leading-snug">Permissible cutoff</p>
               </div>
 
@@ -310,7 +306,7 @@ export const CropsPage: React.FC<CropsPageProps> = ({
                   <Warehouse className="w-4 h-4 text-[#546C18]" />
                   <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#022113]/60">Storage</span>
                 </div>
-                <p className="text-sm font-bold text-[#022113] font-['Montserrat',sans-serif]">3°C – 12°C RH</p>
+                <p className="text-sm font-bold text-[#022113] font-['Montserrat',sans-serif]">3°C - 12°C RH</p>
                 <p className="text-[11px] text-[#022113]/70 mt-0.5 leading-snug">Sprout control</p>
               </div>
 
@@ -329,10 +325,10 @@ export const CropsPage: React.FC<CropsPageProps> = ({
           <div className="lg:col-span-4 bg-[#546C18] text-white rounded-[2.5rem] p-8 sm:p-10 shadow-xl border border-[#546C18]/20 flex flex-col justify-between">
             <div className="space-y-4">
               <div className="flex items-center justify-between">
-                <span className="px-3.5 py-1.5 rounded-full bg-[#DFEB38] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider shadow-sm">
+                <span className="px-3.5 py-1.5 rounded-md bg-[#DFEB38] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider shadow-sm">
                   Agmarknet FAQ
                 </span>
-                <div className="w-10 h-10 rounded-full bg-white text-[#022113] flex items-center justify-center font-bold shadow-md">
+                <div className="w-10 h-10 rounded-xl bg-white text-[#022113] flex items-center justify-center font-bold shadow-md">
                   ↗
                 </div>
               </div>
@@ -341,7 +337,7 @@ export const CropsPage: React.FC<CropsPageProps> = ({
                 Audited APMC <br />Grading Catalog
               </h3>
 
-              <p className="text-white/80 text-xs sm:text-sm leading-relaxed font-['Open_Sans',sans-serif]">
+              <p className="text-white/80 text-xs sm:text-sm leading-relaxed font-['Plus_Jakarta_Sans',sans-serif]">
                 Direct terminal linkage with live arrivals, modal rates, and moisture-controlled warehouse limits across Indian trade corridors.
               </p>
             </div>
@@ -373,7 +369,7 @@ export const CropsPage: React.FC<CropsPageProps> = ({
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-4 py-2 rounded-full text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all cursor-pointer ${
+                className={`px-4 py-2 rounded-xl text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all cursor-pointer ${
                   selectedCategory === cat
                     ? 'bg-[#546C18] text-[#DFEB38] shadow-md'
                     : 'bg-[#F0F2EB] text-[#022113] hover:bg-[#E2ECE3] border border-[#022113]/8'
@@ -392,7 +388,7 @@ export const CropsPage: React.FC<CropsPageProps> = ({
               placeholder="Search crop, variety or language..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-full text-xs font-semibold border border-[#022113]/10 focus:border-[#546C18] outline-none bg-[#F0F2EB]/50 text-[#022113] placeholder-[#022113]/40"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl text-xs font-semibold border border-[#022113]/10 focus:border-[#546C18] outline-none bg-[#F0F2EB]/50 text-[#022113] placeholder-[#022113]/40"
             />
           </div>
         </div>
@@ -417,7 +413,7 @@ export const CropsPage: React.FC<CropsPageProps> = ({
                       {crop.hindiName} • {crop.kannadaName}
                     </p>
                   </div>
-                  <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] px-3 py-1 rounded-full bg-[#DFEB38]/40 text-[#022113] border border-[#DFEB38] shrink-0">
+                  <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] px-3 py-1 rounded-md bg-[#DFEB38]/40 text-[#022113] border border-[#DFEB38] shrink-0">
                     {crop.category}
                   </span>
                 </div>
@@ -439,7 +435,7 @@ export const CropsPage: React.FC<CropsPageProps> = ({
                   <span className="text-[#022113]/50 text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] block mb-1.5">Key Varieties</span>
                   <div className="flex flex-wrap gap-1.5">
                     {crop.varieties.map((v, i) => (
-                      <span key={i} className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#F0F2EB] border border-[#022113]/8 text-[#022113]">
+                      <span key={i} className="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-[#F0F2EB] border border-[#022113]/8 text-[#022113]">
                         {v}
                       </span>
                     ))}
@@ -451,7 +447,7 @@ export const CropsPage: React.FC<CropsPageProps> = ({
                   <span className="text-[#022113]/50 text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] block mb-1.5">Major APMC Hubs</span>
                   <div className="flex flex-wrap gap-1.5">
                     {crop.majorMandis.map((m, i) => (
-                      <span key={i} className="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-[#F0F2EB] text-[#022113] border border-[#022113]/8">
+                      <span key={i} className="text-[11px] font-semibold px-2.5 py-0.5 rounded-md bg-[#F0F2EB] text-[#022113] border border-[#022113]/8">
                         {m}
                       </span>
                     ))}
@@ -468,10 +464,9 @@ export const CropsPage: React.FC<CropsPageProps> = ({
               {/* Action Button */}
               <button
                 onClick={() => onSelectCropAndNavigate(crop.name)}
-                className="w-full mt-4 py-3 rounded-full bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] font-black text-xs font-['Montserrat',sans-serif] uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-[0_4px_16px_rgba(223,235,56,0.4)] hover:scale-[1.02]"
+                className="w-full mt-4 py-3 rounded-xl bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] font-black text-xs font-['Montserrat',sans-serif] uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md hover:scale-[1.01]"
               >
                 <span>Analyze {crop.name} in Terminal</span>
-                <ChevronRight className="w-4 h-4 text-[#022113]" />
               </button>
             </div>
           ))}

@@ -86,7 +86,7 @@ export const NaturalQuery: React.FC<NaturalQueryProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-[2.5rem] p-6 sm:p-8 border border-[#022113]/8 shadow-xl hover:shadow-2xl transition-all space-y-5 font-['Open_Sans',sans-serif]">
+    <div className="bg-white rounded-[2.5rem] p-6 sm:p-8 border border-[#022113]/8 shadow-xl hover:shadow-2xl transition-all space-y-5 font-['Plus_Jakarta_Sans',sans-serif]">
       <div className="flex items-center justify-between gap-2">
         <div className="flex items-center gap-2">
           <Sparkles className="w-4 h-4 text-[#546C18]" strokeWidth={2} />
@@ -94,9 +94,6 @@ export const NaturalQuery: React.FC<NaturalQueryProps> = ({
             {t.searchTabNlp}
           </h3>
         </div>
-        <span className="text-[10px] font-bold font-['Montserrat',sans-serif] text-[#546C18] bg-[#F0F2EB] border border-[#022113]/8 px-3.5 py-1 rounded-full uppercase tracking-wider">
-          Voice & Natural Search
-        </span>
       </div>
       
       <p className="text-xs text-[#4A5568]">
@@ -145,7 +142,7 @@ export const NaturalQuery: React.FC<NaturalQueryProps> = ({
           type="button"
           onClick={() => parseAndApply(queryText)}
           disabled={isProcessing || !queryText.trim()}
-          className="px-6 py-3 bg-[#DFEB38] hover:bg-[#d0dc32] text-[#022113] font-bold text-xs uppercase tracking-wider font-['Montserrat',sans-serif] rounded-full transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed shadow-xs"
+          className="px-6 py-3 bg-[#DFEB38] hover:bg-[#d0dc32] text-[#022113] font-bold text-xs uppercase tracking-wider font-['Montserrat',sans-serif] rounded-xl transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed shadow-xs"
         >
           {isProcessing ? (
             <div className="w-4 h-4 border-2 border-[#022113] border-t-transparent rounded-full animate-spin" />
@@ -171,7 +168,7 @@ export const NaturalQuery: React.FC<NaturalQueryProps> = ({
                 setQueryText(label);
                 parseAndApply(label);
               }}
-              className="text-xs bg-[#F0F4EC] hover:bg-[#DFEB38] border border-[#E5EAD7] text-[#022113] px-3 py-1 rounded-full transition-all cursor-pointer font-medium"
+              className="text-xs bg-[#F0F4EC] hover:bg-[#DFEB38] border border-[#E5EAD7] text-[#022113] px-3 py-1 rounded-lg transition-all cursor-pointer font-medium"
             >
               "{label}"
             </button>
@@ -188,7 +185,7 @@ export const NaturalQuery: React.FC<NaturalQueryProps> = ({
               <strong className="text-[#022113] font-bold font-['Montserrat',sans-serif]">Validated:</strong> {parsedPreview.crop} • {parsedPreview.location} • {parsedPreview.quantity} {parsedPreview.unit}
             </span>
           </div>
-          <span className="text-[10px] uppercase tracking-wider text-[#022113] bg-[#DFEB38] px-3 py-0.5 rounded-full font-bold font-['Montserrat',sans-serif]">
+          <span className="text-[10px] uppercase tracking-wider text-[#022113] bg-[#DFEB38] px-3 py-0.5 rounded-md font-bold font-['Montserrat',sans-serif]">
             Search Ready
           </span>
         </div>

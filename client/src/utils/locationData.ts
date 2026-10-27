@@ -2344,3 +2344,368 @@ export function getLocationCoordinates(state: string, district?: string): { lat:
 
   return { lat: 15.14, lon: 76.92 }; // Default to Ballari, KA
 }
+
+export function getPrecisionCoordinates(state: string, district?: string, taluk?: string, village?: string): { lat: number; lon: number } {
+  const base = getLocationCoordinates(state, district);
+  if (!taluk && !village) return base;
+
+  const t = (taluk || '').trim();
+  const v = (village || '').trim();
+  const d = (district || '').trim();
+
+  if ((!t || t.toLowerCase() === d.toLowerCase()) && (!v || v.toLowerCase().includes('central'))) {
+    return base;
+  }
+
+  // Deterministic localized spatial micro-offset based on taluk and village names (~1-4km within district boundaries)
+  const seedStr = `${state}_${d}_${t}_${v}`;
+  let hash = 0;
+  for (let i = 0; i < seedStr.length; i++) {
+    hash = (hash << 5) - hash + seedStr.charCodeAt(i);
+    hash |= 0;
+  }
+  const latOffset = (((Math.abs(hash) % 1000) / 1000) - 0.5) * 0.055;
+  const lonOffset = (((Math.abs(hash * 37) % 1000) / 1000) - 0.5) * 0.065;
+
+  return {
+    lat: Number((base.lat + latOffset).toFixed(6)),
+    lon: Number((base.lon + lonOffset).toFixed(6))
+  };
+}
+
+export interface TalukVillageInfo {
+  taluks: string[];
+  defaultTaluk: string;
+  defaultVillage: string;
+  villagesByTaluk?: Record<string, string[]>;
+}
+
+export const DISTRICT_SUBDIVISIONS: Record<string, TalukVillageInfo> = {
+  'Bengaluru Urban': {
+    taluks: ['Bengaluru North', 'Bengaluru South', 'Bengaluru East', 'Anekal', 'Yelahanka'],
+    defaultTaluk: 'Bengaluru North',
+    defaultVillage: 'Hesaraghatta',
+    villagesByTaluk: {
+      'Bengaluru North': ['Hesaraghatta', 'Dasarahalli', 'Yelahanka Hobli', 'Chikkabanavara'],
+      'Bengaluru South': ['Kengeri Hobli', 'Begur', 'Uttarahalli', 'Bannerghatta Road'],
+      'Bengaluru East': ['K.R. Puram', 'Varthur', 'Bidarahalli', 'Whitefield Hobli'],
+      'Anekal': ['Attibele', 'Jigani', 'Sarjapura', 'Marsur', 'Bannerghatta'],
+      'Yelahanka': ['Jakkur', 'Sahakarnagar', 'Attur', 'Singanayakanahalli']
+    }
+  },
+  'Bengaluru Rural': {
+    taluks: ['Devanahalli', 'Doddaballapura', 'Hosakote', 'Nelamangala'],
+    defaultTaluk: 'Devanahalli',
+    defaultVillage: 'Vijayapura',
+    villagesByTaluk: {
+      'Devanahalli': ['Vijayapura', 'Channarayapatna', 'Kundana', 'Koira'],
+      'Doddaballapura': ['Tubagere', 'Sasalu', 'Madhure', 'Kasaba'],
+      'Hosakote': ['Nandagudi', 'Jadigenahalli', 'Anugondanahalli', 'Sulibele'],
+      'Nelamangala': ['Sompura', 'Tyamagondlu', 'Kasaba', 'Dabbeghatta']
+    }
+  },
+  'Ballari': {
+    taluks: ['Ballari', 'Siruguppa', 'Kampli', 'Kurugodu', 'Sandur'],
+    defaultTaluk: 'Ballari',
+    defaultVillage: 'Kudatini',
+    villagesByTaluk: {
+      'Ballari': ['Kudatini', 'Moka', 'Kolagallu', 'Rupanagudi', 'Halakundi'],
+      'Siruguppa': ['Tekkalakote', 'Karur', 'Raravi', 'Hatcholli'],
+      'Kampli': ['Emmiganur', 'Devasamudra', 'Metri'],
+      'Kurugodu': ['Kudithini Border', 'Yelabenchi', 'Genikehal'],
+      'Sandur': ['Toranagallu', 'Choranur', 'Vaddu', 'Yeshwantnagar']
+    }
+  },
+  'Kolar': {
+    taluks: ['Kolar', 'Bangarapet', 'Malur', 'Mulbagal', 'Srinivaspur'],
+    defaultTaluk: 'Kolar',
+    defaultVillage: 'Vemgal',
+    villagesByTaluk: {
+      'Kolar': ['Vemgal', 'Huthur', 'Sugatur', 'Holur'],
+      'Bangarapet': ['Kamasamudram', 'Deshihalli', 'Kolar Gold Fields'],
+      'Malur': ['Lakkur', 'Masti', 'Tekal'],
+      'Mulbagal': ['Avani', 'Byrakur', 'Tayalur'],
+      'Srinivaspur': ['Rayalpad', 'Ronur', 'Yeldur']
+    }
+  },
+  'Chikkaballapur': {
+    taluks: ['Chikkaballapur', 'Gauribidanur', 'Bagepalli', 'Sidlaghatta', 'Chintamani'],
+    defaultTaluk: 'Chikkaballapur',
+    defaultVillage: 'Nandi',
+    villagesByTaluk: {
+      'Chikkaballapur': ['Nandi', 'Mandikal', 'Peresandra'],
+      'Gauribidanur': ['Manchenahalli', 'Doddakurugodu', 'Thondebhavi'],
+      'Bagepalli': ['Chelur', 'Pathapalya', 'Mittemari'],
+      'Sidlaghatta': ['Dibburahalli', 'Jangamakote', 'Bashettihalli'],
+      'Chintamani': ['Murugamalla', 'Kaivara', 'Ambajidurga']
+    }
+  },
+  'Belagavi': {
+    taluks: ['Belagavi', 'Gokak', 'Chikkodi', 'Athani', 'Bailhongal', 'Hukkeri', 'Ramdurg', 'Saundatti'],
+    defaultTaluk: 'Belagavi',
+    defaultVillage: 'Kakati',
+    villagesByTaluk: {
+      'Belagavi': ['Kakati', 'Peeranwadi', 'Uchagaon', 'Sambara'],
+      'Gokak': ['Konnur', 'Koujalgi', 'Arabhavi'],
+      'Chikkodi': ['Nipani', 'Ankali', 'Khadaklat'],
+      'Athani': ['Kagwad', 'Ainapur', 'Kokatnur']
+    }
+  },
+  'Dharwad': {
+    taluks: ['Dharwad', 'Hubballi Urban', 'Hubballi Rural', 'Navalgund', 'Kalghatgi', 'Kundgol', 'Alnavar'],
+    defaultTaluk: 'Dharwad',
+    defaultVillage: 'Hebballi',
+    villagesByTaluk: {
+      'Dharwad': ['Hebballi', 'Mugad', 'Garag', 'Tadkod'],
+      'Hubballi Rural': ['Annigeri Border', 'Chabbi', 'Kusugal'],
+      'Navalgund': ['Morab', 'Annigeri', 'Shalavadi'],
+      'Kalghatgi': ['Dhummawad', 'Mishrikoti', 'Devikoppa']
+    }
+  },
+  'Mysuru': {
+    taluks: ['Mysuru', 'Nanjangud', 'T. Narasipura', 'Hunsur', 'Heggadadevankote', 'Periyapatna', 'K.R. Nagar'],
+    defaultTaluk: 'Mysuru',
+    defaultVillage: 'Varuna',
+    villagesByTaluk: {
+      'Mysuru': ['Varuna', 'Jayapura', 'Elwala', 'Siddalingapura'],
+      'Nanjangud': ['Hadinaru', 'Kowlande', 'Hullahalli', 'Biligere'],
+      'T. Narasipura': ['Bannur', 'Muguru', 'Sosale'],
+      'Hunsur': ['Bilikere', 'Gavadagere', 'Hunasuru Rural']
+    }
+  },
+  'Mandya': {
+    taluks: ['Mandya', 'Maddur', 'Malavalli', 'Srirangapatna', 'Pandavapura', 'Nagamangala', 'K.R. Pet'],
+    defaultTaluk: 'Mandya',
+    defaultVillage: 'Keragodu',
+    villagesByTaluk: {
+      'Mandya': ['Keragodu', 'Dudda', 'Basaralu', 'Kothathi'],
+      'Maddur': ['Besagarahalli', 'Koppa', 'C.A. Kere'],
+      'Malavalli': ['Halagur', 'Kirugavalu', 'Bannur Road'],
+      'Srirangapatna': ['Arakere', 'K. Shettihalli', 'Palahalli']
+    }
+  },
+  'Hassan': {
+    taluks: ['Hassan', 'Arsikere', 'Channarayapatna', 'Holenarasipura', 'Sakleshpur', 'Alur', 'Arkalgud', 'Belur'],
+    defaultTaluk: 'Hassan',
+    defaultVillage: 'Shantigrama',
+    villagesByTaluk: {
+      'Hassan': ['Shantigrama', 'Dudda', 'Kattaya', 'Salagame'],
+      'Arsikere': ['Banavara', 'Javagal', 'Kanakatte'],
+      'Channarayapatna': ['Hirisave', 'Nuggehalli', 'Shravanabelagola'],
+      'Sakleshpur': ['Hanbal', 'Hettur', 'Yeslur']
+    }
+  },
+  'Shivamogga': {
+    taluks: ['Shivamogga', 'Bhadravathi', 'Thirthahalli', 'Sagar', 'Shikaripura', 'Soraba', 'Hosanagara'],
+    defaultTaluk: 'Shivamogga',
+    defaultVillage: 'Haranahalli',
+    villagesByTaluk: {
+      'Shivamogga': ['Haranahalli', 'Kumsi', 'Ayanur', 'Holalur'],
+      'Bhadravathi': ['Kudligere', 'Holehonnor', 'Barandur'],
+      'Sagar': ['Anandapura', 'Avinahalli', 'Kandika']
+    }
+  },
+  'Tumakuru': {
+    taluks: ['Tumakuru', 'Tiptur', 'Kunigal', 'Gubbi', 'Sira', 'Madhugiri', 'Pavagada', 'Koratagere', 'Turuvekere'],
+    defaultTaluk: 'Tumakuru',
+    defaultVillage: 'Urdigere',
+    villagesByTaluk: {
+      'Tumakuru': ['Urdigere', 'Bellavi', 'Hebbur', 'Kyatsandra'],
+      'Tiptur': ['Honnavalli', 'Kibbanahalli', 'Nonavinakere'],
+      'Kunigal': ['Huliyurdurga', 'Amruthur', 'Kothagere']
+    }
+  },
+  'Davanagere': {
+    taluks: ['Davanagere', 'Harihara', 'Channagiri', 'Honnali', 'Nyamathi', 'Jagalur'],
+    defaultTaluk: 'Davanagere',
+    defaultVillage: 'Anaji',
+    villagesByTaluk: {
+      'Davanagere': ['Anaji', 'Mayakonda', 'Hadadi', 'Lokikere'],
+      'Harihara': ['Malebennur', 'Kondajji', 'Fakiragowdanahalli'],
+      'Channagiri': ['Santhebennur', 'Basavapatna', 'Hodigere']
+    }
+  },
+  'Kalaburagi': {
+    taluks: ['Kalaburagi', 'Aland', 'Afzalpur', 'Chittapur', 'Sedam', 'Chincholi', 'Jewargi'],
+    defaultTaluk: 'Kalaburagi',
+    defaultVillage: 'Farhatabad',
+    villagesByTaluk: {
+      'Kalaburagi': ['Farhatabad', 'Kusnoor', 'Kerebhosga', 'Kotnoor'],
+      'Chittapur': ['Wadi', 'Shahabad', 'Nalwar'],
+      'Jewargi': ['Andola', 'Yedrami', 'Nelogi']
+    }
+  },
+  'Vijayapura': {
+    taluks: ['Vijayapura', 'Basavana Bagewadi', 'Indi', 'Muddebihal', 'Sindagi', 'Chadchan', 'Tikota'],
+    defaultTaluk: 'Vijayapura',
+    defaultVillage: 'Tikota',
+    villagesByTaluk: {
+      'Vijayapura': ['Tikota', 'Honavad', 'Toravi', 'Kannur'],
+      'Indi': ['Loni', 'Horti', 'Zalki'],
+      'Basavana Bagewadi': ['Kudagi', 'Kolhar', 'Yalwar']
+    }
+  },
+  'Bagalkote': {
+    taluks: ['Bagalkote', 'Badami', 'Hungund', 'Jamkhandi', 'Mudhol', 'Bilgi', 'Guledgudda'],
+    defaultTaluk: 'Bagalkote',
+    defaultVillage: 'Navanagar',
+    villagesByTaluk: {
+      'Bagalkote': ['Navanagar', 'Muchakhandi', 'Gaddanakeri'],
+      'Badami': ['Pattadakal', 'Kerur', 'Katageri'],
+      'Jamkhandi': ['Rabkavi', 'Banhatti', 'Terdal']
+    }
+  },
+  'Raichur': {
+    taluks: ['Raichur', 'Manvi', 'Sindhanur', 'Devadurga', 'Lingsugur', 'Maski', 'Sirwar'],
+    defaultTaluk: 'Raichur',
+    defaultVillage: 'Yeramarus',
+    villagesByTaluk: {
+      'Raichur': ['Yeramarus', 'Shaktinagar', 'Chandrabanda'],
+      'Sindhanur': ['Gorebal', 'Turvihal', 'Jawalagera'],
+      'Manvi': ['Pothnal', 'Sirwar Road', 'Kurdi']
+    }
+  },
+  'Koppal': {
+    taluks: ['Koppal', 'Gangavathi', 'Kushtagi', 'Yelburga', 'Karatagi', 'Kukanur'],
+    defaultTaluk: 'Koppal',
+    defaultVillage: 'Munirabad',
+    villagesByTaluk: {
+      'Koppal': ['Munirabad', 'Kinnal', 'Alavandi', 'Bhagyanagar'],
+      'Gangavathi': ['Anegundi', 'Marali', 'Kanakagiri'],
+      'Kushtagi': ['Tavargera', 'Hiregonnagara', 'Hanamsagar']
+    }
+  },
+  'Chitradurga': {
+    taluks: ['Chitradurga', 'Challakere', 'Hiriyur', 'Holalkere', 'Hosadurga', 'Molakalmuru'],
+    defaultTaluk: 'Chitradurga',
+    defaultVillage: 'Turuvanoor',
+    villagesByTaluk: {
+      'Chitradurga': ['Turuvanoor', 'Medehally', 'Kelagote', 'Doddasiddavvanahalli'],
+      'Challakere': ['Parasurampura', 'Sanikere', 'Pagadalabanda'],
+      'Hiriyur': ['Vani Vilasa Sagara', 'Aimangala', 'Dharmapura']
+    }
+  },
+  'Gadag': {
+    taluks: ['Gadag', 'Betageri', 'Ron', 'Shirhatti', 'Mundargi', 'Nargund', 'Lakkundi'],
+    defaultTaluk: 'Gadag',
+    defaultVillage: 'Lakkundi',
+    villagesByTaluk: {
+      'Gadag': ['Lakkundi', 'Hulkoti', 'Binkadakatti', 'Asundi'],
+      'Ron': ['Gajendragad', 'Naregal', 'Hole Alur'],
+      'Shirhatti': ['Lakshmeshwar', 'Bellatti', 'Hebbal']
+    }
+  },
+  'Ramanagara': {
+    taluks: ['Ramanagara', 'Channapatna', 'Kanakapura', 'Magadi'],
+    defaultTaluk: 'Ramanagara',
+    defaultVillage: 'Kailancha',
+    villagesByTaluk: {
+      'Ramanagara': ['Kailancha', 'Bidadi Hobli', 'Kootagal'],
+      'Channapatna': ['Iggalur', 'Akkihebbalu', 'Makkalane'],
+      'Kanakapura': ['Harohalli', 'Maralawadi', 'Uyyamballi']
+    }
+  },
+  'Haveri': {
+    taluks: ['Haveri', 'Ranebennur', 'Byadgi', 'Hirekerur', 'Hangal', 'Shiggaon', 'Savanur'],
+    defaultTaluk: 'Byadgi',
+    defaultVillage: 'Motebennur',
+    villagesByTaluk: {
+      'Byadgi': ['Motebennur', 'Kaginele', 'Mallur'],
+      'Haveri': ['Guttal', 'Devagiri', 'Karajagi'],
+      'Ranebennur': ['Halageri', 'Medleri', 'Chalageri']
+    }
+  },
+  'Udupi': {
+    taluks: ['Udupi', 'Kundapura', 'Karkala', 'Kaup', 'Byndoor', 'Brahmavara'],
+    defaultTaluk: 'Udupi',
+    defaultVillage: 'Malpe',
+    villagesByTaluk: {
+      'Udupi': ['Malpe', 'Santhekatte', 'Manipal Rural', 'Kallianpur'],
+      'Kundapura': ['Koteshwara', 'Gangolli', 'Basrur'],
+      'Karkala': ['Miyar', 'Belman', 'Ajekar']
+    }
+  },
+  'Dakshina Kannada': {
+    taluks: ['Mangaluru', 'Bantwal', 'Belthangady', 'Puttur', 'Sullia', 'Moodabidri', 'Kadaba'],
+    defaultTaluk: 'Mangaluru',
+    defaultVillage: 'Surathkal',
+    villagesByTaluk: {
+      'Mangaluru': ['Surathkal', 'Gurupura', 'Bajpe', 'Ullal Hobli'],
+      'Bantwal': ['Panemangalore', 'Mani', 'Vittal'],
+      'Puttur': ['Uppinangady', 'Kabaka', 'Kaniyoor']
+    }
+  },
+  'Vijayanagara': {
+    taluks: ['Hosapete', 'Harapanahalli', 'Huvina Hadagali', 'Kotturu', 'Hagaribommanahalli', 'Kudligi'],
+    defaultTaluk: 'Hosapete',
+    defaultVillage: 'Kamalapura',
+    villagesByTaluk: {
+      'Hosapete': ['Kamalapura', 'Hampi Rural', 'Mariyammanahalli'],
+      'Harapanahalli': ['Teligi', 'Chigateri', 'Arasikere'],
+      'Huvina Hadagali': ['Hirehadagali', 'Holalu', 'Ittagi']
+    }
+  },
+  'Nashik': {
+    taluks: ['Niphad', 'Nashik', 'Dindori', 'Sinnar', 'Yeola', 'Malegaon', 'Baglan'],
+    defaultTaluk: 'Niphad',
+    defaultVillage: 'Lasalgaon',
+    villagesByTaluk: {
+      'Niphad': ['Lasalgaon', 'Pimpalgaon Baswant', 'Kundewadi', 'Ranwad'],
+      'Nashik': ['Deolali', 'Girnare', 'Mhasrul', 'Gangapur'],
+      'Dindori': ['Vani', 'Nanashi', 'Mhasrul']
+    }
+  },
+  'Pune': {
+    taluks: ['Haveli', 'Baramati', 'Shirur', 'Junnar', 'Khed', 'Maval', 'Daund', 'Indapur'],
+    defaultTaluk: 'Baramati',
+    defaultVillage: 'Malegaon Budruk',
+    villagesByTaluk: {
+      'Baramati': ['Malegaon Budruk', 'Supe', 'Someshwarnagar', 'Morgaon'],
+      'Haveli': ['Wagholi', 'Uruli Kanchan', 'Loni Kalbhor', 'Khadakwasla'],
+      'Shirur': ['Shikrapur', 'Narayangaon', 'Pabal', 'Sanaswadi']
+    }
+  },
+  'Ludhiana': {
+    taluks: ['Ludhiana East', 'Ludhiana West', 'Jagraon', 'Khanna', 'Samrala', 'Payal', 'Raikot'],
+    defaultTaluk: 'Jagraon',
+    defaultVillage: 'Mullanpur',
+    villagesByTaluk: {
+      'Jagraon': ['Mullanpur', 'Swaddi Khas', 'Sidhwan Bet'],
+      'Khanna': ['Samrala Road', 'Alour', 'Bhadla'],
+      'Ludhiana East': ['Sahnewal', 'Kohara', 'Doraha']
+    }
+  }
+};
+
+export function getDefaultSubdivision(district: string, _state?: string): { taluk: string; village: string; taluks: string[]; villages: string[] } {
+  const cleanDist = (district || '').trim();
+  const info = DISTRICT_SUBDIVISIONS[cleanDist];
+  if (info) {
+    const villages = info.villagesByTaluk?.[info.defaultTaluk] || [info.defaultVillage];
+    return {
+      taluk: info.defaultTaluk,
+      village: info.defaultVillage,
+      taluks: info.taluks,
+      villages
+    };
+  }
+
+  // Realistic procedural fallback per district
+  const genericTaluks = [`${cleanDist} North`, `${cleanDist} South`, `${cleanDist} East`, `${cleanDist} Rural`];
+  return {
+    taluk: `${cleanDist} North`,
+    village: `${cleanDist} Hobli`,
+    taluks: genericTaluks,
+    villages: [`${cleanDist} Hobli`, `${cleanDist} Agripark`, `${cleanDist} Sector 1`]
+  };
+}
+
+export function getVillagesForTaluk(district: string, taluk: string): string[] {
+  const cleanDist = (district || '').trim();
+  const cleanTaluk = (taluk || '').trim();
+  const info = DISTRICT_SUBDIVISIONS[cleanDist];
+  if (info?.villagesByTaluk?.[cleanTaluk]) {
+    return info.villagesByTaluk[cleanTaluk];
+  }
+  return [`${cleanTaluk} Central`, `${cleanTaluk} North Gram`, `${cleanTaluk} Hobli`];
+}

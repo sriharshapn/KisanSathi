@@ -112,13 +112,13 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
       onClick={onClose}
     >
       <div
-        className="bg-white rounded-[2.5rem] max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[#022113]/10 p-6 sm:p-10 space-y-7 animate-in fade-in zoom-in-95 cursor-default relative font-['Open_Sans',sans-serif]"
+        className="bg-white rounded-[2.5rem] max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-[#022113]/10 p-6 sm:p-10 space-y-7 animate-in fade-in zoom-in-95 cursor-default relative font-['Plus_Jakarta_Sans',sans-serif]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-start justify-between gap-4 pb-6 border-b border-[#022113]/8">
           <div>
-            <div className="inline-flex items-center gap-2 bg-[#F0F2EB] px-3.5 py-1.5 rounded-full border border-[#022113]/8 text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider text-[#546C18]">
+            <div className="inline-flex items-center gap-2 bg-[#F0F2EB] px-3.5 py-1.5 rounded-lg border border-[#022113]/8 text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider text-[#546C18]">
               <Settings className="w-3.5 h-3.5 text-[#546C18]" />
               <span>Farmer Profile & Regional Setup</span>
             </div>
@@ -132,7 +132,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
 
           <button
             onClick={onClose}
-            className="w-10 h-10 rounded-full bg-[#F0F2EB] hover:bg-[#E5EAD7] text-[#022113] flex items-center justify-center transition-all cursor-pointer border border-[#022113]/8 shrink-0 hover:scale-105 shadow-xs"
+            className="w-9 h-9 rounded-xl bg-[#F0F2EB] hover:bg-[#E5EAD7] text-[#022113] flex items-center justify-center transition-all cursor-pointer border border-[#022113]/8 shrink-0 hover:scale-105 shadow-xs"
             title="Close"
           >
             <X className="w-5 h-5" />
@@ -150,7 +150,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 Preferred Language / Dialect
               </span>
             </div>
-            <span className="text-[11px] font-bold text-[#546C18] bg-[#F0F2EB] px-2.5 py-0.5 rounded-full border border-[#022113]/5 font-['Montserrat',sans-serif]">
+            <span className="text-[11px] font-bold text-[#546C18] bg-[#F0F2EB] px-2.5 py-0.5 rounded-md border border-[#022113]/5 font-['Montserrat',sans-serif]">
               10 Indian Languages
             </span>
           </div>
@@ -221,7 +221,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                   key={d}
                   type="button"
                   onClick={() => setLocalLoc(d)}
-                  className={`px-3 py-1 rounded-full text-xs font-semibold font-['Montserrat',sans-serif] transition-all cursor-pointer ${
+                  className={`px-3 py-1 rounded-lg text-xs font-semibold font-['Montserrat',sans-serif] transition-all cursor-pointer ${
                     isSelected
                       ? 'bg-[#546C18] text-[#DFEB38] shadow-xs'
                       : 'bg-[#F0F2EB] text-[#022113] hover:bg-[#E5EAD7] border border-[#022113]/8'
@@ -278,7 +278,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           </div>
         </div>
 
-        {/* Section 4: Sovereign Telemetry & Architecture Bento Card */}
+        {/* Section 4: Agricultural Telemetry Architecture Bento Card */}
         <div className="bg-[#F0F2EB] rounded-[2rem] p-6 border border-[#022113]/8 space-y-4">
           <div className="flex items-center justify-between flex-wrap gap-2">
             <div className="flex items-center gap-2">
@@ -286,10 +286,10 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 <Database className="w-4 h-4" />
               </div>
               <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#022113]">
-                Sovereign Mandi Telemetry
+                APMC Mandi Telemetry
               </span>
             </div>
-            <div className="inline-flex items-center gap-1.5 bg-[#DFEB38]/50 border border-[#DFEB38] text-[#022113] px-3 py-1 rounded-full text-[11px] font-bold font-['Montserrat',sans-serif]">
+            <div className="inline-flex items-center gap-1.5 bg-[#DFEB38]/50 border border-[#DFEB38] text-[#022113] px-3 py-1 rounded-md text-[11px] font-bold font-['Montserrat',sans-serif]">
               <ShieldCheck className="w-3.5 h-3.5 text-[#546C18]" />
               <span>Agmarknet Verified</span>
             </div>
@@ -328,7 +328,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
                 Agronomic Compliance
               </span>
               <span className="font-extrabold text-[#022113] font-['Montserrat',sans-serif] mt-0.5 block">
-                AgriStack Sovereign Mesh
+                AgriStack Extension Mesh
               </span>
             </div>
           </div>
@@ -338,7 +338,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
               type="button"
               onClick={onTriggerSync}
               disabled={isSyncing}
-              className="w-full flex items-center justify-center gap-2 py-3 bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] font-black font-['Montserrat',sans-serif] text-xs uppercase tracking-wider rounded-full transition-all cursor-pointer shadow-md hover:scale-[1.01]"
+              className="w-full flex items-center justify-center gap-2 py-3 bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] font-black font-['Montserrat',sans-serif] text-xs uppercase tracking-wider rounded-xl transition-all cursor-pointer shadow-md hover:scale-[1.01]"
             >
               <RefreshCw className={`w-3.5 h-3.5 ${isSyncing ? 'animate-spin' : ''}`} />
               <span>{isSyncing ? 'Synchronizing APMC Feeds...' : 'Refresh Market Telemetry'}</span>
@@ -351,14 +351,14 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({
           <button
             type="button"
             onClick={onClose}
-            className="px-6 py-3 rounded-full bg-[#F0F2EB] hover:bg-[#E5EAD7] text-[#022113] font-bold text-xs font-['Montserrat',sans-serif] uppercase tracking-wider transition-colors cursor-pointer border border-[#022113]/8"
+            className="px-6 py-3 rounded-xl bg-[#F0F2EB] hover:bg-[#E5EAD7] text-[#022113] font-bold text-xs font-['Montserrat',sans-serif] uppercase tracking-wider transition-colors cursor-pointer border border-[#022113]/8"
           >
             Cancel
           </button>
           <button
             type="button"
             onClick={handleSave}
-            className="px-7 py-3 bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] font-black text-xs font-['Montserrat',sans-serif] uppercase tracking-wider rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer flex items-center gap-2 hover:scale-105"
+            className="px-7 py-3 bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] font-black text-xs font-['Montserrat',sans-serif] uppercase tracking-wider rounded-xl shadow-lg hover:shadow-xl transition-all cursor-pointer flex items-center gap-2 hover:scale-105"
           >
             {savedSuccess ? (
               <>

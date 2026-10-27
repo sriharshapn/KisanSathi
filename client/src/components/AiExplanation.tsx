@@ -158,7 +158,7 @@ export const AiExplanation: React.FC<AiExplanationProps> = ({
   if (!explanation) return null;
 
   return (
-    <div className="bg-white text-[#022113] rounded-3xl p-6 sm:p-8 border border-[#E5EAD7] shadow-[0_4px_24px_rgba(2,33,19,0.04)] font-['Open_Sans',sans-serif]">
+    <div className="bg-white text-[#022113] rounded-3xl p-6 sm:p-8 border border-[#E5EAD7] shadow-[0_4px_24px_rgba(2,33,19,0.04)] font-['Plus_Jakarta_Sans',sans-serif]">
       {/* Header with audio and action controls */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#E5EAD7] pb-5 mb-6">
         <div className="flex items-center gap-3.5">
@@ -181,7 +181,7 @@ export const AiExplanation: React.FC<AiExplanationProps> = ({
           <button
             type="button"
             onClick={handleSpeak}
-            className={`flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer shadow-xs ${
+            className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer shadow-xs ${
               isSpeaking 
                 ? 'bg-amber-500 text-white animate-pulse' 
                 : 'bg-[#DFEB38] hover:bg-[#d0dc32] text-[#022113]'
@@ -196,7 +196,7 @@ export const AiExplanation: React.FC<AiExplanationProps> = ({
           <button
             type="button"
             onClick={handleCopy}
-            className="p-2 rounded-full bg-[#F0F4EC] hover:bg-[#E5EAD7] text-[#022113] border border-[#E5EAD7] transition-colors cursor-pointer"
+            className="p-2 rounded-lg bg-[#F0F4EC] hover:bg-[#E5EAD7] text-[#022113] border border-[#E5EAD7] transition-colors cursor-pointer"
             title="Copy Insights"
           >
             {copied ? <Check className="w-4 h-4 text-[#59701E]" strokeWidth={2} /> : <Copy className="w-4 h-4" strokeWidth={2} />}
@@ -206,7 +206,7 @@ export const AiExplanation: React.FC<AiExplanationProps> = ({
           <button
             type="button"
             onClick={handleShareWhatsApp}
-            className="flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#F0F4EC] hover:bg-[#E5EAD7] border border-[#E5EAD7] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-[#F0F4EC] hover:bg-[#E5EAD7] border border-[#E5EAD7] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] transition-colors cursor-pointer"
             title="Share to WhatsApp"
           >
             <Share2 className="w-3.5 h-3.5" strokeWidth={2} />
@@ -264,7 +264,7 @@ export const AiExplanation: React.FC<AiExplanationProps> = ({
           <ShieldCheck className="w-4 h-4 text-[#59701E] shrink-0" strokeWidth={2} />
           <span>{explanation.verifiedNotice}</span>
         </div>
-        <span className="text-[10px] bg-[#F0F4EC] px-3 py-1 rounded-full border border-[#E5EAD7] text-[#022113] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider">
+        <span className="text-[10px] bg-[#F0F4EC] px-3 py-1 rounded-md border border-[#E5EAD7] text-[#022113] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider">
           Official APMC Advisory • Ministry of Agriculture
         </span>
       </div>

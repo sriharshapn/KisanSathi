@@ -7,7 +7,7 @@ import {
   AlertTriangle, 
   CheckCircle2, 
   ShieldAlert, 
-  Leaf, 
+  
   RefreshCw, 
   Pill, 
   PhoneCall,
@@ -38,7 +38,7 @@ export const DEMO_CASES: DemoCase[] = [
     crop: 'Tomato (Solanum lycopersicum)',
     latin: 'Alternaria solani',
     location: 'Ballari & Kolar, Karnataka',
-    farmer: 'Ramesh Gowda (3.5 ac)',
+    farmer: 'Southern Dry Zone (Zone-3)',
     tag: 'Target-Board Rings',
     severity: 'moderate',
     category: 'Solanaceous',
@@ -52,7 +52,7 @@ export const DEMO_CASES: DemoCase[] = [
     crop: 'Paddy (Oryza sativa)',
     latin: 'Magnaporthe oryzae',
     location: 'Thanjavur Cauvery Delta, Tamil Nadu',
-    farmer: 'S. Murugesan (5 ac Kuruvai)',
+    farmer: 'Cauvery Delta Zone (Zone-4)',
     tag: 'Spindle Eye Spots',
     severity: 'severe',
     category: 'Cereals',
@@ -66,7 +66,7 @@ export const DEMO_CASES: DemoCase[] = [
     crop: 'Chilli (Capsicum annuum)',
     latin: 'Begomovirus + Thrips Complex',
     location: 'Guntur, AP & Byadgi, KA',
-    farmer: 'Venkat Reddy (4 ac Byadgi)',
+    farmer: 'Krishna Agro-Climatic Zone',
     tag: 'Upward Boat Cupping',
     severity: 'severe',
     category: 'Spices',
@@ -80,7 +80,7 @@ export const DEMO_CASES: DemoCase[] = [
     crop: 'Wheat (Triticum aestivum)',
     latin: 'Puccinia striiformis',
     location: 'Ludhiana, PB & Karnal, HR',
-    farmer: 'Harpreet Singh (8 ac PBW-725)',
+    farmer: 'Trans-Gangetic Plains Zone',
     tag: 'Linear Orange Stripes',
     severity: 'severe',
     category: 'Cereals',
@@ -94,7 +94,7 @@ export const DEMO_CASES: DemoCase[] = [
     crop: 'Onion (Allium cepa)',
     latin: 'Alternaria porri',
     location: 'Lasalgaon & Nashik, Maharashtra',
-    farmer: 'Dnyaneshwar Shinde (2.5 ac)',
+    farmer: 'Western Maharashtra Plain',
     tag: 'Sunken Violet Blotch',
     severity: 'moderate',
     category: 'Alliums',
@@ -292,36 +292,37 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
   };
 
   return (
-    <div className="max-w-[1440px] mx-auto px-3 sm:px-6 py-8 md:py-12 space-y-8 font-['Open_Sans',sans-serif] text-[#022113]">
+    <div className="max-w-[1440px] mx-auto px-3 sm:px-6 py-8 md:py-12 space-y-8 font-['Plus_Jakarta_Sans',sans-serif] text-[#022113]">
       {/* Header Banner (Pic 1 & 2 Aesthetic) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
         {/* Left Card: Crisp White Card */}
         <div className="lg:col-span-8 bg-white rounded-[2.5rem] p-8 sm:p-10 border border-[#022113]/8 shadow-xl hover:shadow-2xl transition-all space-y-4 flex flex-col justify-between">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F0F2EB] border border-[#022113]/8 text-xs font-['Montserrat',sans-serif] font-bold uppercase tracking-wider text-[#546C18]">
-              <Sparkles className="w-3.5 h-3.5 text-[#546C18]" />
-              <span>Gemini Vision AI • Plant Pathology Diagnostic System</span>
-            </div>
             <h1 className="text-3xl sm:text-5xl font-black text-[#022113] font-['Montserrat',sans-serif] tracking-tight">
-              Vision AI <span className="text-[#546C18]">Pathology Scanner</span>
+              Crop Pathology <span className="text-[#546C18]">Diagnostic Scanner</span>
             </h1>
             <p className="text-[#4A5568] text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
               Snap or upload a photo of infected leaves, stems, or fruits. KisanSathi detects plant pathogens with dual organic & chemical remedy recommendations.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 pt-2 border-t border-[#022113]/8">
-            <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
-              Dual Bio / Chemical Rx
-            </span>
-            <span className="text-[#718096]">•</span>
-            <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
-              Exact Dilution Dosages
-            </span>
-            <span className="text-[#718096]">•</span>
-            <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
-              Pre-Harvest Interval (PHI)
-            </span>
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-[#022113]/8">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
+                Dual Bio / Chemical Rx
+              </span>
+              <span className="text-[#718096]">•</span>
+              <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
+                Exact Dilution Dosages
+              </span>
+              <span className="text-[#718096]">•</span>
+              <span className="text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
+                Pre-Harvest Interval (PHI)
+              </span>
+            </div>
+            <div className="text-xs text-stone-600 font-medium">
+              Gemini 3.8 Flash Multimodal Vision API
+            </div>
           </div>
         </div>
 
@@ -329,8 +330,8 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
         <div className="lg:col-span-4 bg-[#546C18] text-white rounded-[2.5rem] p-8 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between space-y-4">
           <div className="space-y-2">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1 rounded-full bg-[#DFEB38] text-[#022113]">
-                Multimodal Vision 2.0
+              <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1 rounded-md bg-[#DFEB38] text-[#022113]">
+                Pathology Vision
               </span>
               <span className="text-xs font-mono text-white/80">Sub-Second</span>
             </div>
@@ -344,8 +345,8 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
 
           <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
             <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#DFEB38] block">Diagnostic Accuracy</span>
-            <span className="text-2xl font-black font-['Montserrat',sans-serif] text-white block">98.8% Match</span>
-            <span className="text-[11px] text-white/70 block">Verified against ICAR pathology benchmarks</span>
+            <span className="text-2xl font-black font-['Montserrat',sans-serif] text-white block">Diagnostic Standard</span>
+            <span className="text-[11px] text-white/70 block">Referenced against ICAR disease management schedules</span>
           </div>
         </div>
       </div>
@@ -365,7 +366,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
               <button
                 type="button"
                 onClick={handleOpenReports}
-                className="px-4 py-2 rounded-full bg-[#F0F2EB] border border-[#022113]/8 hover:bg-[#DFEB38] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider flex items-center gap-1.5 cursor-pointer transition-colors shadow-sm"
+                className="px-4 py-2 rounded-xl bg-[#F0F2EB] border border-[#022113]/8 hover:bg-[#DFEB38] text-[#022113] text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider flex items-center gap-1.5 cursor-pointer transition-colors shadow-sm"
               >
                 <History className="w-3.5 h-3.5 text-[#546C18]" />
                 <span>Past Scans</span>
@@ -423,7 +424,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
                   <p className="text-sm font-bold text-[#022113] font-['Montserrat',sans-serif]">
                     Drag and drop your leaf photo here, or click to browse
                   </p>
-                  <p className="text-xs text-[#022113]/60 mt-1 font-['Open_Sans',sans-serif]">
+                  <p className="text-xs text-[#022113]/60 mt-1 font-['Plus_Jakarta_Sans',sans-serif]">
                     Supports JPG, PNG, WEBP up to 10MB • Clear natural lighting recommended
                   </p>
                 </div>
@@ -439,12 +440,12 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
             <button
               onClick={handleDiagnose}
               disabled={!selectedFile || loading}
-              className="px-6 py-2.5 rounded-full bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer shadow-[0_4px_16px_rgba(223,235,56,0.4)] disabled:opacity-40"
+              className="px-6 py-2.5 rounded-xl bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer shadow-[0_4px_16px_rgba(223,235,56,0.4)] disabled:opacity-40"
             >
               {loading ? (
                 <>
                   <RefreshCw className="w-3.5 h-3.5 animate-spin text-[#022113]" />
-                  <span>Scanning with Gemini...</span>
+                  <span>Analyzing specimen...</span>
                 </>
               ) : (
                 <>
@@ -466,7 +467,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
                   Field Outbreak Demo Cases
                 </h3>
               </div>
-              <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] px-2.5 py-0.5 rounded-full bg-[#DFEB38]/40 text-[#022113] border border-[#DFEB38]">
+              <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] px-2.5 py-0.5 rounded-md bg-[#DFEB38]/40 text-[#022113] border border-[#DFEB38]">
                 8 Real Cases
               </span>
             </div>
@@ -499,7 +500,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
                           <strong className="text-xs text-[#022113] truncate font-bold font-['Montserrat',sans-serif]">
                             {sample.name}
                           </strong>
-                          <span className={`text-[9px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] px-2 py-0.5 rounded-full border ${
+                          <span className={`text-[9px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] px-2 py-0.5 rounded-md border ${
                             sample.severity === 'severe'
                               ? 'bg-rose-100 text-rose-800 border-rose-200'
                               : 'bg-amber-100 text-amber-800 border-amber-200'
@@ -513,7 +514,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
                         </span>
                       </div>
                     </div>
-                    <span className={`text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1.5 rounded-full border transition-all shrink-0 ${
+                    <span className={`text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1.5 rounded-md border transition-all shrink-0 ${
                       isSelected && loading
                         ? 'bg-[#DFEB38] text-[#022113] border-[#DFEB38]'
                         : 'bg-white border-[#E5EAD7] text-[#022113] group-hover:bg-[#DFEB38]'
@@ -550,11 +551,11 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
             <div className="p-7 sm:p-8 rounded-[2.5rem] bg-white border border-[#022113]/8 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:shadow-2xl transition-all">
               <div className="flex items-center gap-3.5">
                 <div className="w-13 h-13 rounded-2xl bg-[#F0F2EB] border border-[#022113]/8 flex items-center justify-center text-[#546C18] shadow-sm">
-                  <Leaf className="w-6 h-6" />
+                  
                 </div>
                 <div>
                   <div className="flex items-center gap-2 flex-wrap">
-                    <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] px-3 py-1 rounded-full bg-[#DFEB38] text-[#022113] shadow-xs">
+                    <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] px-3 py-1 rounded-md bg-[#DFEB38] text-[#022113] shadow-xs">
                       Validated Field Outbreak Case
                     </span>
                     <span className="text-xs text-[#022113]/60 font-mono">
@@ -581,7 +582,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
           <div className="bg-white rounded-[2.5rem] border border-[#022113]/8 p-8 sm:p-10 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:shadow-2xl transition-all">
             <div className="flex items-center gap-3.5">
               <div className="w-13 h-13 rounded-2xl bg-[#546C18] text-[#DFEB38] flex items-center justify-center shrink-0 shadow-sm">
-                <Leaf className="w-6 h-6 text-[#DFEB38]" />
+                
               </div>
               <div>
                 <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#022113]/50">Identified Botanical Specimen</span>
@@ -590,7 +591,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
             </div>
 
             <div className="flex items-center gap-2.5 flex-wrap font-['Montserrat',sans-serif] text-xs font-bold">
-              <span className={`px-4 py-2 rounded-full border uppercase tracking-wider shadow-xs ${
+              <span className={`px-4 py-2 rounded-xl border uppercase tracking-wider shadow-xs ${
                 result.overall_health === 'healthy' 
                   ? 'bg-emerald-100 text-emerald-800 border-emerald-200' 
                   : result.overall_health === 'stressed'
@@ -600,7 +601,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
                 Condition: {result.overall_health.toUpperCase()}
               </span>
 
-              <span className="px-4 py-2 rounded-full bg-[#F0F2EB] text-[#022113] border border-[#022113]/8 uppercase tracking-wider shadow-xs">
+              <span className="px-4 py-2 rounded-xl bg-[#F0F2EB] text-[#022113] border border-[#022113]/8 uppercase tracking-wider shadow-xs">
                 Action: {result.urgency.replace('_', ' ').toUpperCase()}
               </span>
             </div>
@@ -628,7 +629,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
                       {Math.round(diag.confidence * 100)}%
                     </span>
                   </div>
-                  <span className={`text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3.5 py-1 rounded-full border ${
+                  <span className={`text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3.5 py-1 rounded-md border ${
                     diag.severity === 'severe'
                       ? 'bg-rose-100 text-rose-800 border-rose-200'
                       : diag.severity === 'moderate'
@@ -645,7 +646,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
                 {/* Organic Treatment */}
                 <div className="p-5 rounded-2xl bg-[#F8FAF6] border border-[#E5EAD7] space-y-3">
                   <div className="flex items-center gap-2 text-[#022113]">
-                    <Leaf className="w-4 h-4 text-[#59701E]" />
+                    
                     <h4 className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif]">
                       Certified Organic & Bio-Remedies
                     </h4>
@@ -721,7 +722,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
 
             <button
               onClick={() => onNavigate('contact')}
-              className="px-6 py-2.5 rounded-full bg-[#DFEB38] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#d0df2a] transition-all shrink-0 cursor-pointer shadow-[0_4px_16px_rgba(223,235,56,0.4)] hover:scale-105"
+              className="px-6 py-2.5 rounded-xl bg-[#DFEB38] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#d0df2a] transition-all shrink-0 cursor-pointer shadow-[0_4px_16px_rgba(223,235,56,0.4)] hover:scale-105"
             >
               Contact KVK Officer
             </button>
@@ -732,7 +733,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
       {/* Past Reports Modal */}
       {reportsOpen && (
         <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-3xl border border-[#E5EAD7] max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-4 max-h-[85vh] flex flex-col font-['Open_Sans',sans-serif]">
+          <div className="bg-white rounded-3xl border border-[#E5EAD7] max-w-2xl w-full p-6 sm:p-8 shadow-2xl space-y-4 max-h-[85vh] flex flex-col font-['Plus_Jakarta_Sans',sans-serif]">
             <div className="flex items-center justify-between pb-4 border-b border-[#E5EAD7]">
               <div className="flex items-center gap-2.5">
                 <History className="w-5 h-5 text-[#59701E]" />
@@ -740,7 +741,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
               </div>
               <button 
                 onClick={() => setReportsOpen(false)}
-                className="p-1 rounded-full hover:bg-[#F0F4EC] text-[#022113] cursor-pointer"
+                className="p-1.5 rounded-lg hover:bg-[#F0F4EC] text-[#022113] cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -757,7 +758,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2">
                         <span className="font-bold text-xs text-[#022113] font-['Montserrat',sans-serif]">{rep.crop_identified}</span>
-                        <span className={`text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-2 py-0.5 rounded-full ${
+                        <span className={`text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-2 py-0.5 rounded-md ${
                           rep.severity === 'severe' ? 'bg-rose-100 text-rose-800 border border-rose-200' :
                           rep.severity === 'moderate' ? 'bg-amber-100 text-amber-800 border border-amber-200' :
                           'bg-emerald-100 text-emerald-800 border border-emerald-200'
@@ -778,7 +779,7 @@ export const DiagnosePage: React.FC<DiagnosePageProps> = ({ language, onNavigate
                     <div className="pt-2 flex justify-end">
                       <button
                         onClick={() => handleLoadReport(rep)}
-                        className="px-4 py-1.5 bg-[#546C18] text-white rounded-full text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#435713] cursor-pointer transition-colors"
+                        className="px-4 py-1.5 bg-[#546C18] text-white rounded-xl text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#435713] cursor-pointer transition-colors"
                       >
                         Load Diagnosis & Remedies
                       </button>

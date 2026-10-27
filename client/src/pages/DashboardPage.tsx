@@ -15,8 +15,7 @@ import { MarketComparison } from '../components/MarketComparison';
 import { PriceTrendChart } from '../components/PriceTrendChart';
 import { AiExplanation } from '../components/AiExplanation';
 
-import { 
-  ShieldCheck, 
+import {
   Sparkles, 
   AlertCircle, 
   Satellite,
@@ -82,7 +81,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
 
 
   return (
-    <div className="space-y-8 pb-16 text-[#022113] max-w-[1440px] mx-auto px-3 sm:px-6 font-['Open_Sans',sans-serif]">
+    <div className="space-y-8 pb-16 text-[#022113] max-w-[1440px] mx-auto px-3 sm:px-6 font-['Plus_Jakarta_Sans',sans-serif]">
       
       {/* ── Terminal Title & Overview Hero (Pic 1 & 2 Aesthetic) ── */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
@@ -90,10 +89,6 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
         {/* Left Card: Crisp White Elevation (Pic 2 style) */}
         <div className="lg:col-span-7 bg-white rounded-[2.5rem] p-8 sm:p-10 shadow-xl border border-[#022113]/8 flex flex-col justify-between space-y-6 hover:shadow-2xl transition-all">
           <div className="space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F0F2EB] border border-[#022113]/8 text-xs font-['Montserrat',sans-serif] font-bold uppercase tracking-wider text-[#546C18]">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#546C18]" strokeWidth={2} />
-              <span>100% Official APMC Rates • Zero Speculation</span>
-            </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#022113] tracking-tight leading-[1.08] font-['Montserrat',sans-serif]">
               KisanSathi <span className="text-[#546C18]">Mandi Terminal</span>
@@ -103,22 +98,27 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
               Compare verified wholesale mandi prices across 218+ APMC hubs in all 36 Indian States & UTs, calculate realistic transport logistics, and receive clear selling advisory in your regional language.
             </p>
 
-            {/* Quick Action Navigation Strip */}
-            <div className="flex flex-wrap items-center gap-3 pt-1">
-              <button
-                onClick={() => onNavigate('advisory')}
-                className="px-5 py-2.5 rounded-full bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer font-['Montserrat',sans-serif] shadow-xs"
-              >
-                <Sparkles className="w-3.5 h-3.5 text-[#022113]" strokeWidth={2} />
-                <span>AI Crop Advisory</span>
-              </button>
-              <button
-                onClick={() => onNavigate('satellite')}
-                className="px-5 py-2.5 rounded-full bg-[#F0F2EB] hover:bg-[#E5EAD7] text-[#022113] text-xs font-bold uppercase tracking-wider border border-[#022113]/8 flex items-center gap-2 transition-all cursor-pointer font-['Montserrat',sans-serif]"
-              >
-                <Satellite className="w-3.5 h-3.5 text-[#546C18]" strokeWidth={2} />
-                <span>Satellite Field NDVI</span>
-              </button>
+            {/* Quick Action Navigation Strip & Google Tech Badge */}
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-1">
+              <div className="flex flex-wrap items-center gap-3">
+                <button
+                  onClick={() => onNavigate('advisory')}
+                  className="px-5 py-2.5 rounded-xl bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer font-['Montserrat',sans-serif] shadow-xs"
+                >
+                  <Sparkles className="w-3.5 h-3.5 text-[#022113]" strokeWidth={2} />
+                  <span>AI Crop Advisory</span>
+                </button>
+                <button
+                  onClick={() => onNavigate('satellite')}
+                  className="px-5 py-2.5 rounded-xl bg-[#F0F2EB] hover:bg-[#E5EAD7] text-[#022113] text-xs font-bold uppercase tracking-wider border border-[#022113]/8 flex items-center gap-2 transition-all cursor-pointer font-['Montserrat',sans-serif]"
+                >
+                  <Satellite className="w-3.5 h-3.5 text-[#546C18]" strokeWidth={2} />
+                  <span>Satellite Field NDVI</span>
+                </button>
+              </div>
+              <div className="text-xs text-stone-600 font-medium">
+                Gemini Market Intelligence • Firebase Persistence
+              </div>
             </div>
           </div>
 
@@ -156,7 +156,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
                   Live Mandi Price Pulse
                 </span>
               </div>
-              <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1 rounded-full bg-[#DFEB38] text-[#022113]">
+              <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1 rounded-md bg-[#DFEB38] text-[#022113]">
                 Agmarknet Verified
               </span>
             </div>
@@ -200,7 +200,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
                 <span className="text-[10px] text-white/80 font-mono">Up to ₹350/q price spread across regional yards</span>
               </div>
             </div>
-            <span className="px-3 py-1 rounded-full bg-[#DFEB38] text-[#022113] text-[10px] font-bold uppercase tracking-wider shrink-0 font-['Montserrat',sans-serif]">
+            <span className="px-3 py-1 rounded-md bg-[#DFEB38] text-[#022113] text-[10px] font-bold uppercase tracking-wider shrink-0 font-['Montserrat',sans-serif]">
               Active
             </span>
           </div>
@@ -214,7 +214,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
           <button
             type="button"
             onClick={() => setActiveTab('form')}
-            className={`px-6 py-2.5 text-xs font-bold rounded-full border transition-all cursor-pointer uppercase tracking-wider font-['Montserrat',sans-serif] ${
+            className={`px-6 py-2.5 text-xs font-bold rounded-xl border transition-all cursor-pointer uppercase tracking-wider font-['Montserrat',sans-serif] ${
               activeTab === 'form'
                 ? 'bg-[#546C18] text-[#DFEB38] border-[#546C18] shadow-sm'
                 : 'bg-white text-[#59701E] border-[#E5EAD7] hover:bg-[#F8FAF6]'
@@ -225,7 +225,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
           <button
             type="button"
             onClick={() => setActiveTab('nlp')}
-            className={`px-6 py-2.5 text-xs font-bold rounded-full border transition-all cursor-pointer uppercase tracking-wider font-['Montserrat',sans-serif] flex items-center gap-1.5 ${
+            className={`px-6 py-2.5 text-xs font-bold rounded-xl border transition-all cursor-pointer uppercase tracking-wider font-['Montserrat',sans-serif] flex items-center gap-1.5 ${
               activeTab === 'nlp'
                 ? 'bg-[#546C18] text-[#DFEB38] border-[#546C18] shadow-sm'
                 : 'bg-white text-[#59701E] border-[#E5EAD7] hover:bg-[#F8FAF6]'
@@ -306,7 +306,7 @@ export const DashboardPage: React.FC<DashboardPageProps> = ({
                       {selectedMarket.market_name} ({selectedMarket.district})
                     </h3>
                   </div>
-                  <div className="text-xs bg-[#F0F4EC] px-4 py-2.5 rounded-full border border-[#E5EAD7] self-start sm:self-auto font-mono text-[#022113]">
+                  <div className="text-xs bg-[#F0F4EC] px-4 py-2.5 rounded-xl border border-[#E5EAD7] self-start sm:self-auto font-mono text-[#022113]">
                     Modal Rate: <strong className="text-[#022113] text-base font-bold font-['Montserrat',sans-serif]">₹{selectedMarket.modal_price}/quintal</strong>
                   </div>
                 </div>

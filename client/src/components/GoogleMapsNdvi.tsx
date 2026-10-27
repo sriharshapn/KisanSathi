@@ -20,6 +20,8 @@ export interface GoogleMapsNdviProps {
   lon: number;
   state: string;
   district: string;
+  taluk?: string;
+  village?: string;
   ndviScore: number;
   cloudCoverage?: number;
   viewMode: 'ndvi' | 'rgb' | 'stress' | 'hybrid' | 'earth3d';
@@ -105,6 +107,8 @@ export const GoogleMapsNdvi: React.FC<GoogleMapsNdviProps> = ({
   lon,
   state,
   district,
+  taluk,
+  village,
   ndviScore,
   cloudCoverage = 4,
   viewMode,
@@ -290,7 +294,7 @@ export const GoogleMapsNdvi: React.FC<GoogleMapsNdviProps> = ({
   };
 
   const showEeNdvi = viewMode === 'ndvi' || viewMode === 'hybrid';
-  const mapKey = `leaflet_map_${viewMode}`;
+  const mapKey = `leaflet_map_${viewMode}_${lat.toFixed(4)}_${lon.toFixed(4)}`;
 
   return (
     <div className="relative w-full rounded-2xl overflow-hidden border border-white/[0.08] bg-[#08080A] shadow-inner">
@@ -304,9 +308,9 @@ export const GoogleMapsNdvi: React.FC<GoogleMapsNdviProps> = ({
             </div>
             <div>
               <div className="font-bold text-xs text-white flex items-center gap-1.5 leading-none">
-                <span>{focusedField ? focusedField.field_name : `${district}, ${state}`}</span>
+                <span>{focusedField ? focusedField.field_name : (village && taluk ? `${village}, ${taluk}, ${district}` : taluk ? `${taluk}, ${district}` : `${district}, ${state}`)}</span>
                 {govPlotRecord && (
-                  <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-medium border border-emerald-500/30">
+                  <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-300 font-medium border border-emerald-500/30">
                     Cadastre #{govPlotRecord.survey_number || '142/2A'}
                   </span>
                 )}
@@ -431,65 +435,29 @@ export const GoogleMapsNdvi: React.FC<GoogleMapsNdviProps> = ({
         )}
       </div>
 
-      <div className="relative w-full h-[400px] sm:h-[480px]">
-        {viewMode === 'earth3d' ? (
-          <div className="relative w-full h-full bg-[#08080A] overflow-hidden">
-            <iframe
-              key={`earth3d_${lat.toFixed(4)}_${lon.toFixed(4)}_${district}_${state}`}
-              title={`Google Earth 3D - ${district}, ${state}`}
-              src={`https://earth.google.com/web/@${lat.toFixed(6)},${lon.toFixed(6)},450a,1200d,35y,45h,60t,0r`}
-              className="w-full h-full border-0 pointer-events-auto"
-              loading="lazy"
-            />
-            <div className="absolute top-16 right-3 bg-[#0F0F12]/90 backdrop-blur-md text-white text-[11px] p-3 rounded-xl border border-white/[0.08] shadow-xl space-y-1.5 pointer-events-auto max-w-xs z-[1000]">
-              <div className="font-semibold text-white flex items-center gap-1.5">
-                <Globe2 className="w-3.5 h-3.5 text-blue-400" strokeWidth={1.5} />
-                <span>Google Earth 3D Topography</span>
-              </div>
-              <div className="text-[10px] text-zinc-400 font-mono">
-                Camera: 450m AMSL • 60° Oblique Perspective
-              </div>
-              <div className="text-[10px] text-emerald-400 font-mono">
-                Dataset: COPERNICUS/S2_SR_HARMONIZED
-              </div>
-              <div className="pt-1 flex gap-2">
-                <a
-                  href={`https://earth.google.com/web/@${lat.toFixed(6)},${lon.toFixed(6)},500a,800d,35y,0h,45t,0r`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-2.5 py-1 bg-white/10 hover:bg-white/15 text-white rounded text-[10px] font-medium flex items-center gap-1 transition-colors border border-white/[0.08]"
-                >
-                  <span>Open Full 3D</span>
-                  <ExternalLink className="w-3 h-3" strokeWidth={1.5} />
-                </a>
-                <a
-                  href={`https://code.earthengine.google.com/?scriptPath=users/google/earthengine-api:templates/landsat`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-2.5 py-1 bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 rounded text-[10px] font-medium flex items-center gap-1 transition-colors border border-white/[0.08]"
-                >
-                  <span>GEE Catalog</span>
-                  <ExternalLink className="w-3 h-3" strokeWidth={1.5} />
-                </a>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <MapContainer
-            key={mapKey}
-            center={[lat, lon]}
-            zoom={16}
-            ref={mapRef}
-            className="w-full h-full"
-            zoomControl={true}
-            attributionControl={false}
-          >
+      <div className={`relative w-full h-[400px] sm:h-[480px] overflow-hidden transition-all duration-700 ${viewMode === 'earth3d' ? '[perspective:1000px]' : ''}`}>
+        <MapContainer
+          key={mapKey}
+          center={[lat, lon]}
+          zoom={16}
+          ref={mapRef}
+          className={`w-full h-full transition-transform duration-700 ${viewMode === 'earth3d' ? '[transform:rotateX(26deg)_scale(1.08)]' : ''}`}
+          zoomControl={true}
+          attributionControl={false}
+        >
             <MapController center={[lat, lon]} zoom={16} />
             
             <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}" />
             
             {viewMode === 'hybrid' && (
               <TileLayer url="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}" />
+            )}
+            
+            {viewMode === 'earth3d' && (
+              <TileLayer 
+                url="https://server.arcgisonline.com/ArcGIS/rest/services/Elevation/World_Hillshade/MapServer/tile/{z}/{y}/{x}" 
+                opacity={0.45} 
+              />
             )}
             
             <EarthEngineNdviLayer lat={lat} lon={lon} enabled={showEeNdvi} />
@@ -550,7 +518,34 @@ export const GoogleMapsNdvi: React.FC<GoogleMapsNdviProps> = ({
             <CircleMarker center={[lat, lon]} radius={6}
               pathOptions={{ fillColor: '#FDE047', fillOpacity: 1, color: '#123826', weight: 2.5 }}
             />
-          </MapContainer>
+        </MapContainer>
+
+        {viewMode === 'earth3d' && (
+          <div className="absolute top-16 right-3 bg-[#0F0F12]/92 backdrop-blur-md text-white text-[11px] p-3.5 rounded-2xl border border-white/10 shadow-2xl space-y-2 pointer-events-auto max-w-xs z-[1000]">
+            <div className="font-bold text-white flex items-center justify-between gap-2">
+              <div className="flex items-center gap-1.5">
+                <Globe2 className="w-4 h-4 text-emerald-400" strokeWidth={2} />
+                <span className="font-['Montserrat',sans-serif]">3D Topography Elevation</span>
+              </div>
+              <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono font-semibold">Active</span>
+            </div>
+            <div className="text-[10px] text-zinc-300 font-mono space-y-0.5">
+              <div>Camera: 450m AMSL • 26° Oblique Relief</div>
+              <div>Centroid: {lat.toFixed(4)}°N, {lon.toFixed(4)}°E</div>
+              <div className="text-emerald-400">Layer: Copernicus Sentinel-2 Topo Hillshade</div>
+            </div>
+            <div className="pt-1 flex gap-2">
+              <a
+                href={`https://earth.google.com/web/@${lat.toFixed(6)},${lon.toFixed(6)},450a,1200d,35y,0h,45t,0r`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1.5 bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] rounded-xl text-[11px] font-bold font-['Montserrat',sans-serif] flex items-center gap-1 transition-colors shadow-sm"
+              >
+                <span>Open in Google Earth 3D</span>
+                <ExternalLink className="w-3 h-3 text-[#022113]" strokeWidth={2} />
+              </a>
+            </div>
+          </div>
         )}
       </div>
 

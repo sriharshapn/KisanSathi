@@ -48,7 +48,7 @@ export async function explainMarketWithGemini({ market, trend, language = 'en', 
     return {
       ...deterministicResult,
       telemetry: {
-        engine: "Google Gemini 2.0 Flash (Grounded Template Fallback)",
+        engine: "Google Gemini 3.8 Flash (Grounded Template Fallback)",
         provider: "Google Cloud / Gemini",
         model: DEFAULT_MODEL_ID,
         mode: "Deterministic Local Edge / Offline",
@@ -85,7 +85,7 @@ Format response strictly as a single JSON object with these exact keys:
 }
 `;
 
-    const modelNames = [DEFAULT_MODEL_ID, 'gemini-flash-latest', 'gemini-2.0-flash'];
+    const modelNames = [DEFAULT_MODEL_ID, 'gemini-flash-latest'];
     let parsedText = '';
 
     for (const modelName of modelNames) {
@@ -108,7 +108,7 @@ Format response strictly as a single JSON object with these exact keys:
         ...deterministicResult,
         ...parsedJson,
         telemetry: {
-          engine: "Google Gemini 2.0 Flash (Live Runtime)",
+          engine: "Google Gemini 3.8 Flash (Live Runtime)",
           provider: "Google Cloud / Gemini",
           model: DEFAULT_MODEL_ID,
           grounded: true
@@ -119,7 +119,7 @@ Format response strictly as a single JSON object with these exact keys:
     return {
       ...deterministicResult,
       telemetry: {
-        engine: "Google Gemini 2.0 Flash (Grounding Safe Fallback)",
+        engine: "Google Gemini 3.8 Flash (Grounding Safe Fallback)",
         provider: "Google Cloud / Gemini",
         model: DEFAULT_MODEL_ID,
         grounded: true
@@ -130,7 +130,7 @@ Format response strictly as a single JSON object with these exact keys:
     return {
       ...deterministicResult,
       telemetry: {
-        engine: "Google Gemini 2.0 Flash (Offline Grounded Fallback)",
+        engine: "Google Gemini 3.8 Flash (Offline Grounded Fallback)",
         provider: "Google Cloud / Gemini",
         model: DEFAULT_MODEL_ID,
         grounded: true

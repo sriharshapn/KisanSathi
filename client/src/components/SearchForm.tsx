@@ -139,18 +139,13 @@ function getNearestDistrictName(lat: number, lon: number): string {
   };
 
   return (
-    <div className="bg-white rounded-[2.5rem] overflow-hidden border border-[#022113]/8 shadow-xl hover:shadow-2xl transition-all font-['Open_Sans',sans-serif]">
+    <div className="bg-white rounded-[2.5rem] overflow-hidden border border-[#022113]/8 shadow-xl hover:shadow-2xl transition-all font-['Plus_Jakarta_Sans',sans-serif]">
       {/* Visual Subheader */}
       <div className="bg-[#F0F2EB] border-b border-[#022113]/8 px-6 sm:px-8 py-5 flex items-center justify-between">
         <h2 className="text-sm sm:text-base font-bold text-[#022113] flex items-center gap-2 font-['Montserrat',sans-serif]">
           <SlidersHorizontal className="w-4 h-4 text-[#546C18]" strokeWidth={2} />
           <span>{t.searchTabForm}</span>
         </h2>
-        <div className="flex items-center gap-2">
-          <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider text-[#546C18] bg-white border border-[#022113]/8 px-3.5 py-1 rounded-full shadow-2xs">
-            Official Agmarknet Rates • Pan-India Search
-          </span>
-        </div>
       </div>
 
       <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-6">
@@ -179,7 +174,7 @@ function getNearestDistrictName(lat: number, lon: number): string {
                 <button
                   type="button"
                   onClick={() => onCropChange('')}
-                  className="mr-3 text-xs text-[#59701E] hover:text-[#022113] bg-[#E5EAD7] hover:bg-[#d5dec2] px-3 py-1 rounded-full cursor-pointer transition-colors font-semibold"
+                  className="mr-3 text-xs text-[#59701E] hover:text-[#022113] bg-[#E5EAD7] hover:bg-[#d5dec2] px-3 py-1 rounded-md cursor-pointer transition-colors font-semibold"
                 >
                   Clear
                 </button>
@@ -278,7 +273,7 @@ function getNearestDistrictName(lat: number, lon: number): string {
                     key={v}
                     type="button"
                     onClick={() => onVarietyChange(v)}
-                    className={`px-3 py-1 rounded-full text-xs font-['Montserrat',sans-serif] font-medium transition-all cursor-pointer ${
+                    className={`px-3 py-1 rounded-lg text-xs font-['Montserrat',sans-serif] font-medium transition-all cursor-pointer ${
                       variety === v 
                         ? 'bg-[#546C18] text-[#DFEB38] font-bold shadow-xs' 
                         : 'bg-[#F0F4EC] text-[#022113] hover:bg-[#DFEB38] border border-[#E5EAD7]'
@@ -305,7 +300,7 @@ function getNearestDistrictName(lat: number, lon: number): string {
                 type="button"
                 onClick={handleGpsClick}
                 disabled={locating}
-                className="text-xs text-[#022113] hover:text-[#022113] flex items-center gap-1 bg-[#F0F4EC] hover:bg-[#DFEB38] px-3 py-1 rounded-full border border-[#E5EAD7] transition-all cursor-pointer font-semibold"
+                className="text-xs text-[#022113] hover:text-[#022113] flex items-center gap-1 bg-[#F0F4EC] hover:bg-[#DFEB38] px-3 py-1 rounded-md border border-[#E5EAD7] transition-all cursor-pointer font-semibold"
                 aria-label="Use device GPS location"
               >
                 <Navigation className={`w-3 h-3 ${locating ? 'animate-spin text-[#59701E]' : 'text-[#59701E]'}`} strokeWidth={2} />
@@ -380,7 +375,7 @@ function getNearestDistrictName(lat: number, lon: number): string {
           <button
             type="submit"
             disabled={isLoading || !selectedCrop}
-            className="w-full bg-[#DFEB38] hover:bg-[#d0dc32] text-[#022113] font-bold font-['Montserrat',sans-serif] text-xs uppercase tracking-wider py-4 px-6 rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed shadow-[0_4px_16px_rgba(223,235,56,0.3)]"
+            className="w-full bg-[#DFEB38] hover:bg-[#d0dc32] text-[#022113] font-bold font-['Montserrat',sans-serif] text-xs uppercase tracking-wider py-4 px-6 rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed shadow-[0_4px_16px_rgba(223,235,56,0.3)]"
           >
             {isLoading ? (
               <>

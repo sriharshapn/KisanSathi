@@ -282,16 +282,16 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
   }
 
   return (
-    <section className="space-y-6 font-['Open_Sans',sans-serif]">
+    <section className="space-y-6 font-['Plus_Jakarta_Sans',sans-serif]">
       {/* Section Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-[#E5EAD7] pb-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#DFEB38] text-[#022113] text-[10px] font-black font-['Montserrat',sans-serif] uppercase tracking-wider">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-[#DFEB38] text-[#022113] text-[10px] font-black font-['Montserrat',sans-serif] uppercase tracking-wider">
               <Sparkles className="w-3 h-3 text-[#022113]" />
               Spotlight Carousel
             </span>
-            <span className="text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider bg-[#F0F4EC] text-[#59701E] border border-[#E5EAD7] px-3 py-1 rounded-full">
+            <span className="text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider bg-[#F0F4EC] text-[#59701E] border border-[#E5EAD7] px-3 py-1 rounded-md">
               {processedMarkets.length} of {markets.length} Mandis
             </span>
           </div>
@@ -306,10 +306,10 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
         {/* View Layout Toggle & Carousel Navigation */}
         <div className="flex items-center gap-2 self-start sm:self-auto">
           {/* Layout switcher */}
-          <div className="flex items-center bg-[#F0F4EC] p-1 rounded-full border border-[#E5EAD7]">
+          <div className="flex items-center bg-[#F0F4EC] p-1 rounded-xl border border-[#E5EAD7]">
             <button
               onClick={() => setViewLayout('carousel')}
-              className={`px-3 py-1 rounded-full text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded-lg text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer flex items-center gap-1.5 ${
                 viewLayout === 'carousel'
                   ? 'bg-[#546C18] text-[#DFEB38] shadow-xs'
                   : 'text-[#59701E] hover:text-[#022113]'
@@ -321,7 +321,7 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
             </button>
             <button
               onClick={() => setViewLayout('grid')}
-              className={`px-3 py-1 rounded-full text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer flex items-center gap-1.5 ${
+              className={`px-3 py-1 rounded-lg text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer flex items-center gap-1.5 ${
                 viewLayout === 'grid'
                   ? 'bg-[#546C18] text-[#DFEB38] shadow-xs'
                   : 'text-[#59701E] hover:text-[#022113]'
@@ -338,14 +338,14 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
             <div className="flex items-center gap-1.5">
               <button
                 onClick={scrollPrev}
-                className="w-8 h-8 rounded-full bg-white hover:bg-[#F0F4EC] border border-[#E5EAD7] text-[#022113] flex items-center justify-center transition-all shadow-xs cursor-pointer active:scale-95"
+                className="w-8 h-8 rounded-lg bg-white hover:bg-[#F0F4EC] border border-[#E5EAD7] text-[#022113] flex items-center justify-center transition-all shadow-xs cursor-pointer active:scale-95"
                 title="Previous Mandi"
               >
                 <ChevronLeft className="w-4 h-4 text-[#022113]" strokeWidth={2.5} />
               </button>
               <button
                 onClick={scrollNext}
-                className="w-8 h-8 rounded-full bg-white hover:bg-[#F0F4EC] border border-[#E5EAD7] text-[#022113] flex items-center justify-center transition-all shadow-xs cursor-pointer active:scale-95"
+                className="w-8 h-8 rounded-lg bg-white hover:bg-[#F0F4EC] border border-[#E5EAD7] text-[#022113] flex items-center justify-center transition-all shadow-xs cursor-pointer active:scale-95"
                 title="Next Mandi"
               >
                 <ChevronRight className="w-4 h-4 text-[#022113]" strokeWidth={2.5} />
@@ -387,7 +387,7 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
       <div className="bg-white p-4 rounded-3xl border border-[#E5EAD7] shadow-[0_4px_24px_rgba(2,33,19,0.04)] flex flex-wrap items-center justify-between gap-3 text-xs">
         <div className="flex flex-wrap items-center gap-2">
           {/* State Filter */}
-          <div className="flex items-center gap-1.5 bg-[#F8FAF6] px-3 py-1.5 rounded-full border border-[#E5EAD7]">
+          <div className="flex items-center gap-1.5 bg-[#F8FAF6] px-3 py-1.5 rounded-md border border-[#E5EAD7]">
             <Filter className="w-3.5 h-3.5 text-[#59701E]" strokeWidth={2} />
             <span className="text-[#59701E] font-semibold hidden sm:inline">State:</span>
             <select
@@ -403,7 +403,7 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
           </div>
 
           {/* Distance Radius Filter */}
-          <div className="flex items-center gap-1.5 bg-[#F8FAF6] px-3 py-1.5 rounded-full border border-[#E5EAD7]">
+          <div className="flex items-center gap-1.5 bg-[#F8FAF6] px-3 py-1.5 rounded-md border border-[#E5EAD7]">
             <span className="text-[#59701E] font-semibold">Radius:</span>
             <select
               value={maxDistance}
@@ -418,7 +418,7 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
           </div>
 
           {/* Sort By */}
-          <div className="flex items-center gap-1.5 bg-[#F8FAF6] px-3 py-1.5 rounded-full border border-[#E5EAD7]">
+          <div className="flex items-center gap-1.5 bg-[#F8FAF6] px-3 py-1.5 rounded-md border border-[#E5EAD7]">
             <ArrowUpDown className="w-3.5 h-3.5 text-[#59701E]" strokeWidth={2} />
             <span className="text-[#59701E] font-semibold hidden sm:inline">Sort:</span>
             <select
@@ -438,7 +438,7 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
           {(selectedState !== 'all' || maxDistance > 0 || searchQuery.trim() || sortBy !== 'distance') && (
             <button
               onClick={handleResetFilters}
-              className="flex items-center gap-1 px-3 py-1.5 text-[#59701E] hover:text-[#022113] font-semibold rounded-full hover:bg-[#F0F4EC] transition-colors cursor-pointer"
+              className="flex items-center gap-1 px-3 py-1.5 text-[#59701E] hover:text-[#022113] font-semibold rounded-lg hover:bg-[#F0F4EC] transition-colors cursor-pointer"
             >
               <RotateCcw className="w-3 h-3" strokeWidth={2} />
               <span>Reset</span>
@@ -454,7 +454,7 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Filter mandi..."
-            className="w-full pl-8 pr-3 py-2 border border-[#E5EAD7] rounded-full bg-[#F8FAF6] text-[#022113] text-xs placeholder:text-[#889988] focus:outline-none focus:border-[#59701E]"
+            className="w-full pl-8 pr-3 py-2 border border-[#E5EAD7] rounded-xl bg-[#F8FAF6] text-[#022113] text-xs placeholder:text-[#889988] focus:outline-none focus:border-[#59701E]"
           />
         </div>
       </div>
@@ -530,7 +530,7 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
                   <button
                     key={dotIdx}
                     onClick={() => scrollToIndex(dotIdx)}
-                    className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                    className={`h-2 rounded-sm transition-all duration-300 cursor-pointer ${
                       activeIndex === dotIdx
                         ? 'w-6 bg-[#546C18]'
                         : 'w-2 bg-[#E5EAD7] hover:bg-[#59701E]/40'
@@ -546,17 +546,17 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
               <div className="flex items-center gap-2">
                 <button
                   onClick={scrollPrev}
-                  className="px-3 py-1 rounded-full bg-white hover:bg-[#DFEB38] text-[#022113] border border-[#E5EAD7] text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer shadow-2xs flex items-center gap-1"
+                  className="px-3 py-1 rounded-lg bg-white hover:bg-[#DFEB38] text-[#022113] border border-[#E5EAD7] text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer shadow-2xs flex items-center gap-1"
                 >
-                  <ChevronLeft className="w-3.5 h-3.5" />
+                  
                   <span className="hidden sm:inline">Prev</span>
                 </button>
                 <button
                   onClick={scrollNext}
-                  className="px-3 py-1 rounded-full bg-white hover:bg-[#DFEB38] text-[#022113] border border-[#E5EAD7] text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer shadow-2xs flex items-center gap-1"
+                  className="px-3 py-1 rounded-lg bg-white hover:bg-[#DFEB38] text-[#022113] border border-[#E5EAD7] text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer shadow-2xs flex items-center gap-1"
                 >
                   <span className="hidden sm:inline">Next</span>
-                  <ChevronRight className="w-3.5 h-3.5" />
+                  
                 </button>
               </div>
             </div>
@@ -584,7 +584,7 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
                   <button
                     type="button"
                     onClick={() => setVisibleCount(prev => Math.min(prev + BATCH_INCREMENT, processedMarkets.length))}
-                    className="px-8 py-3 rounded-full bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-md hover:scale-105"
+                    className="px-7 py-3 rounded-xl bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113] text-xs font-black font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-md hover:scale-105"
                   >
                     <span>{SHOW_MORE_LABELS[language] || 'Show More'}</span>
                     <ChevronDown className="w-4 h-4 text-[#022113]" strokeWidth={2.5} />
@@ -593,7 +593,7 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
                   <button
                     type="button"
                     onClick={() => setVisibleCount(INITIAL_BATCH_SIZE)}
-                    className="px-7 py-2.5 rounded-full bg-white hover:bg-[#F8FAF6] text-[#022113] border border-[#E5EAD7] text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-xs"
+                    className="px-6 py-2.5 rounded-xl bg-white hover:bg-[#F8FAF6] text-[#022113] border border-[#E5EAD7] text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer shadow-xs"
                   >
                     <span>{SHOW_LESS_LABELS[language] || 'Show Less'}</span>
                     <ChevronUp className="w-4 h-4 text-[#022113]" strokeWidth={2} />
@@ -610,7 +610,7 @@ export const MarketComparison: React.FC<MarketComparisonProps> = ({
           </p>
           <button
             onClick={handleResetFilters}
-            className="px-6 py-2.5 bg-[#DFEB38] text-[#022113] text-xs font-bold rounded-full hover:bg-[#d0dc32] transition-colors cursor-pointer font-['Montserrat',sans-serif]"
+            className="px-6 py-2.5 bg-[#DFEB38] text-[#022113] text-xs font-bold rounded-xl hover:bg-[#d0dc32] transition-colors cursor-pointer font-['Montserrat',sans-serif]"
           >
             Show All {markets.length} Markets
           </button>

@@ -167,6 +167,8 @@ export function searchGovPlotData(query = {}) {
   const ownerName = `Farmer Beneficiary (Patta #${surveyMain})`;
 
   const recordPayload = {
+    query: { state, district, taluk, village, survey_number: surveyClean },
+    location: { state, district, taluk, village },
     official_plot_id: {
       agristack_plot_id: agristackPlotId,
       survey_number: surveyClean,

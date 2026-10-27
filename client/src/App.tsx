@@ -339,7 +339,7 @@ export const App: React.FC = () => {
 
   return (
     <div 
-      className="min-h-screen flex flex-col font-['Open_Sans',sans-serif] bg-[#F8FAF6] text-[#022113] relative selection:bg-[#DFEB38] selection:text-[#022113]" 
+      className="min-h-screen flex flex-col font-['Plus_Jakarta_Sans',sans-serif] bg-[#F8FAF6] text-[#022113] relative selection:bg-[#DFEB38] selection:text-[#022113]" 
       style={{ background: '#F8FAF6' }}
     >
       <div className="grain fixed inset-0 opacity-15 pointer-events-none z-0"></div>

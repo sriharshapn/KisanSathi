@@ -1,19 +1,14 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import type { Language, NavigationPage } from '../types';
-import { 
-  Network, 
+import {
   AlertTriangle, 
   Globe, 
   Users,
-  Sprout,
-  ArrowRight,
-  RefreshCw,
   ShieldCheck,
   Radio,
   Search,
   Layers,
-  ArrowUpRight,
-  Activity,
+Activity,
   SlidersHorizontal,
   ChevronLeft,
   ChevronRight,
@@ -81,7 +76,7 @@ const DEFAULT_STATE_NODES: StateNode[] = [
     active_growers: 138200,
     data_contracts: 14,
     protocol_version: 'ETSI NGSI-LD v2.1.1',
-    security: 'X.509 Mutual TLS & Sovereign Enclave',
+    security: 'X.509 Mutual TLS & State Enclave',
     status: 'synced',
     disease_alerts: 4,
     last_sync: new Date().toISOString()
@@ -100,7 +95,7 @@ const DEFAULT_STATE_NODES: StateNode[] = [
     active_growers: 154300,
     data_contracts: 16,
     protocol_version: 'ETSI NGSI-LD v2.1.1',
-    security: 'X.509 Mutual TLS & Sovereign Enclave',
+    security: 'X.509 Mutual TLS & State Enclave',
     status: 'synced',
     disease_alerts: 3,
     last_sync: new Date().toISOString()
@@ -119,7 +114,7 @@ const DEFAULT_STATE_NODES: StateNode[] = [
     active_growers: 98400,
     data_contracts: 12,
     protocol_version: 'ETSI NGSI-LD v2.1.1',
-    security: 'X.509 Mutual TLS & Sovereign Enclave',
+    security: 'X.509 Mutual TLS & State Enclave',
     status: 'synced',
     disease_alerts: 5,
     last_sync: new Date().toISOString()
@@ -138,7 +133,7 @@ const DEFAULT_STATE_NODES: StateNode[] = [
     active_growers: 104500,
     data_contracts: 11,
     protocol_version: 'ETSI NGSI-LD v2.1.1',
-    security: 'X.509 Mutual TLS & Sovereign Enclave',
+    security: 'X.509 Mutual TLS & State Enclave',
     status: 'synced',
     disease_alerts: 4,
     last_sync: new Date().toISOString()
@@ -157,7 +152,7 @@ const DEFAULT_STATE_NODES: StateNode[] = [
     active_growers: 118900,
     data_contracts: 13,
     protocol_version: 'ETSI NGSI-LD v2.1.1',
-    security: 'X.509 Mutual TLS & Sovereign Enclave',
+    security: 'X.509 Mutual TLS & State Enclave',
     status: 'synced',
     disease_alerts: 6,
     last_sync: new Date().toISOString()
@@ -176,7 +171,7 @@ const DEFAULT_STATE_NODES: StateNode[] = [
     active_growers: 182100,
     data_contracts: 15,
     protocol_version: 'ETSI NGSI-LD v2.1.1',
-    security: 'X.509 Mutual TLS & Sovereign Enclave',
+    security: 'X.509 Mutual TLS & State Enclave',
     status: 'synced',
     disease_alerts: 5,
     last_sync: new Date().toISOString()
@@ -195,7 +190,7 @@ const DEFAULT_STATE_NODES: StateNode[] = [
     active_growers: 86400,
     data_contracts: 10,
     protocol_version: 'ETSI NGSI-LD v2.1.1',
-    security: 'X.509 Mutual TLS & Sovereign Enclave',
+    security: 'X.509 Mutual TLS & State Enclave',
     status: 'synced',
     disease_alerts: 2,
     last_sync: new Date().toISOString()
@@ -214,7 +209,7 @@ const DEFAULT_STATE_NODES: StateNode[] = [
     active_growers: 129700,
     data_contracts: 12,
     protocol_version: 'ETSI NGSI-LD v2.1.1',
-    security: 'X.509 Mutual TLS & Sovereign Enclave',
+    security: 'X.509 Mutual TLS & State Enclave',
     status: 'synced',
     disease_alerts: 3,
     last_sync: new Date().toISOString()
@@ -233,7 +228,7 @@ const DEFAULT_STATE_NODES: StateNode[] = [
     active_growers: 74600,
     data_contracts: 9,
     protocol_version: 'ETSI NGSI-LD v2.1.1',
-    security: 'X.509 Mutual TLS & Sovereign Enclave',
+    security: 'X.509 Mutual TLS & State Enclave',
     status: 'synced',
     disease_alerts: 2,
     last_sync: new Date().toISOString()
@@ -252,7 +247,7 @@ const DEFAULT_STATE_NODES: StateNode[] = [
     active_growers: 89300,
     data_contracts: 11,
     protocol_version: 'ETSI NGSI-LD v2.1.1',
-    security: 'X.509 Mutual TLS & Sovereign Enclave',
+    security: 'X.509 Mutual TLS & State Enclave',
     status: 'synced',
     disease_alerts: 4,
     last_sync: new Date().toISOString()
@@ -350,7 +345,7 @@ const DEFAULT_DISEASE_ALERTS: DiseaseAlert[] = [
 export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }) => {
   const [nodes, setNodes] = useState<StateNode[]>(DEFAULT_STATE_NODES);
   const [diseaseAlerts, setDiseaseAlerts] = useState<DiseaseAlert[]>(DEFAULT_DISEASE_ALERTS);
-  const [loading, setLoading] = useState(false);
+  const [_loading, setLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState<'all' | 'optimal' | 'watch'>('all');
   const [selectedTab, setSelectedTab] = useState<'topology' | 'surveillance'>('topology');
@@ -610,7 +605,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
   }, [nodes]);
 
   return (
-    <div className="max-w-[1440px] mx-auto px-3 sm:px-6 py-8 md:py-12 space-y-8 font-['Open_Sans',sans-serif] text-[#022113]">
+    <div className="max-w-[1440px] mx-auto px-3 sm:px-6 py-8 md:py-12 space-y-8 font-['Plus_Jakarta_Sans',sans-serif] text-[#022113]">
       
       {/* ── 1. HERO BANNER: BEHANCE DOUBLE-CARD ARCHITECTURE ── */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
@@ -618,38 +613,35 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
         {/* Left Card: Crisp White Card */}
         <div className="lg:col-span-8 bg-white rounded-[2.5rem] p-8 sm:p-10 border border-[#022113]/8 shadow-xl hover:shadow-2xl transition-all space-y-5 flex flex-col justify-between">
           <div className="space-y-3">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F0F2EB] border border-[#022113]/8 text-xs font-['Montserrat',sans-serif] font-bold uppercase tracking-wider text-[#546C18]">
-              {loading ? (
-                <RefreshCw className="w-3.5 h-3.5 animate-spin text-[#546C18]" />
-              ) : (
-                <Network className="w-3.5 h-3.5 text-[#546C18]" />
-              )}
-              <span>Digital Public Good (DPG) • Interoperable National Mesh</span>
-            </div>
             
             <h1 className="text-3xl sm:text-5xl font-black text-[#022113] font-['Montserrat',sans-serif] tracking-tight">
               Inter-State <span className="text-[#546C18]">Agro-Data Mesh</span>
             </h1>
             
             <p className="text-[#4A5568] text-xs sm:text-base leading-relaxed font-normal max-w-2xl">
-              India's sovereign, federated network enabling state agriculture departments to securely interchange Sentinel-2 NDVI vegetative canopy models, terminal APMC price telemetry, and cross-border pathogen warnings under open ETSI NGSI-LD protocols.
+              India's federated public network enabling state agriculture departments to securely interchange Sentinel-2 NDVI vegetative canopy models, terminal APMC price telemetry, and cross-border pathogen warnings under open ETSI NGSI-LD protocols.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[#022113]/8">
-            <div className="flex items-center gap-1.5 text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
-              <ShieldCheck className="w-4 h-4 text-[#546C18]" />
-              <span>ETSI GS CIM 009 v1.4.1</span>
+          <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-[#022113]/8">
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-1.5 text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
+                <ShieldCheck className="w-4 h-4 text-[#546C18]" />
+                <span>ETSI GS CIM 009 v1.4.1</span>
+              </div>
+              <span className="text-[#718096]">•</span>
+              <div className="flex items-center gap-1.5 text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
+                <Layers className="w-4 h-4 text-[#546C18]" />
+                <span>Smart Data Models Initiative</span>
+              </div>
+              <span className="text-[#718096]">•</span>
+              <div className="flex items-center gap-1.5 text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
+                <Radio className="w-4 h-4 text-[#546C18]" />
+                <span>10 Synchronized State Nodes</span>
+              </div>
             </div>
-            <span className="text-[#718096]">•</span>
-            <div className="flex items-center gap-1.5 text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
-              <Layers className="w-4 h-4 text-[#546C18]" />
-              <span>Smart Data Models Initiative</span>
-            </div>
-            <span className="text-[#718096]">•</span>
-            <div className="flex items-center gap-1.5 text-xs font-bold font-['Montserrat',sans-serif] text-[#546C18] uppercase tracking-wider">
-              <Radio className="w-4 h-4 text-[#546C18]" />
-              <span>10 Synchronized State Nodes</span>
+            <div className="text-xs text-stone-600 font-medium">
+              Google Cloud Platform • Earth Engine Telemetry
             </div>
           </div>
         </div>
@@ -658,7 +650,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
         <div className="lg:col-span-4 bg-[#546C18] text-white rounded-[2.5rem] p-8 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between space-y-6">
           <div className="space-y-3">
             <div className="flex items-center justify-between">
-              <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1 rounded-full bg-[#DFEB38] text-[#022113]">
+              <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1 rounded-md bg-[#DFEB38] text-[#022113]">
                 Federated Core v2.1
               </span>
               <span className="text-xs font-mono text-white/80 flex items-center gap-1">
@@ -667,10 +659,10 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
               </span>
             </div>
             <h3 className="text-xl font-bold font-['Montserrat',sans-serif] text-white pt-2">
-              Sovereign Interoperability
+              Federated Interoperability
             </h3>
             <p className="text-xs text-white/85 leading-relaxed font-normal">
-              State governments retain 100% cryptographic sovereignty over their agricultural registries while broadcasting real-time early warnings across district corridors.
+              State governments retain 100% cryptographic governance over their agricultural registries while broadcasting real-time early warnings across district corridors.
             </p>
           </div>
 
@@ -714,7 +706,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
             Verified AgriParcels
           </span>
           <div className="flex items-center gap-2.5 mt-2">
-            <Sprout className="w-5 h-5 text-[#546C18]" />
+            
             <span className="text-xl sm:text-3xl font-black text-[#022113] font-['Montserrat',sans-serif]">
               {totalParcels.toLocaleString()}
             </span>
@@ -761,7 +753,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
         <div className="flex items-center gap-2 overflow-x-auto pb-1">
           <button
             onClick={() => setSelectedTab('topology')}
-            className={`px-5 py-2.5 rounded-full text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-xl text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               selectedTab === 'topology'
                 ? 'bg-[#546C18] text-[#DFEB38] shadow-md'
                 : 'bg-[#F0F4EC] text-[#022113] hover:bg-[#E2ECE3] border border-[#E5EAD7]'
@@ -773,7 +765,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
 
           <button
             onClick={() => setSelectedTab('surveillance')}
-            className={`px-5 py-2.5 rounded-full text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
+            className={`px-5 py-2.5 rounded-xl text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider transition-all cursor-pointer whitespace-nowrap flex items-center gap-2 ${
               selectedTab === 'surveillance'
                 ? 'bg-[#546C18] text-[#DFEB38] shadow-md'
                 : 'bg-[#F0F4EC] text-[#022113] hover:bg-[#E2ECE3] border border-[#E5EAD7]'
@@ -798,7 +790,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search state, APMC terminal hub, or crop..."
-                className="w-full pl-10 pr-4 py-2.5 rounded-full bg-[#F8FAF6] border border-[#022113]/10 text-xs font-semibold text-[#022113] placeholder-[#022113]/40 outline-none focus:border-[#546C18] transition-all"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#F8FAF6] border border-[#022113]/10 text-xs font-semibold text-[#022113] placeholder-[#022113]/40 outline-none focus:border-[#546C18] transition-all"
               />
             </div>
 
@@ -809,7 +801,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
               </span>
               <button
                 onClick={() => setStatusFilter('all')}
-                className={`px-3 py-1 rounded-full text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-lg text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer ${
                   statusFilter === 'all'
                     ? 'bg-[#546C18] text-[#DFEB38]'
                     : 'bg-[#F0F2EB] text-[#022113] hover:bg-[#E2ECE3]'
@@ -819,7 +811,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
               </button>
               <button
                 onClick={() => setStatusFilter('optimal')}
-                className={`px-3 py-1 rounded-full text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-lg text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer ${
                   statusFilter === 'optimal'
                     ? 'bg-[#546C18] text-[#DFEB38]'
                     : 'bg-[#F0F2EB] text-[#022113] hover:bg-[#E2ECE3]'
@@ -829,7 +821,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
               </button>
               <button
                 onClick={() => setStatusFilter('watch')}
-                className={`px-3 py-1 rounded-full text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer ${
+                className={`px-3 py-1 rounded-lg text-xs font-bold font-['Montserrat',sans-serif] transition-all cursor-pointer ${
                   statusFilter === 'watch'
                     ? 'bg-[#546C18] text-[#DFEB38]'
                     : 'bg-[#F0F2EB] text-[#022113] hover:bg-[#E2ECE3]'
@@ -840,11 +832,11 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
             </div>
               {/* Carousel / Grid Toggle and Navigation Controls */}
               <div className="flex items-center gap-2">
-                <div className="flex items-center bg-[#F0F2EB] p-1 rounded-full border border-[#022113]/5">
+                <div className="flex items-center bg-[#F0F2EB] p-1 rounded-xl border border-[#022113]/5">
                   <button
                     onClick={() => setNodeViewLayout('carousel')}
                     title="Spotlight Carousel"
-                    className={`px-3 py-1 rounded-full text-xs font-bold font-['Montserrat',sans-serif] flex items-center gap-1.5 transition-all cursor-pointer ${
+                    className={`px-3 py-1 rounded-lg text-xs font-bold font-['Montserrat',sans-serif] flex items-center gap-1.5 transition-all cursor-pointer ${
                       nodeViewLayout === 'carousel'
                         ? 'bg-[#546C18] text-[#DFEB38] shadow-xs'
                         : 'text-[#022113]/70 hover:text-[#022113]'
@@ -856,7 +848,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                   <button
                     onClick={() => setNodeViewLayout('grid')}
                     title="Grid View"
-                    className={`px-3 py-1 rounded-full text-xs font-bold font-['Montserrat',sans-serif] flex items-center gap-1.5 transition-all cursor-pointer ${
+                    className={`px-3 py-1 rounded-lg text-xs font-bold font-['Montserrat',sans-serif] flex items-center gap-1.5 transition-all cursor-pointer ${
                       nodeViewLayout === 'grid'
                         ? 'bg-[#546C18] text-[#DFEB38] shadow-xs'
                         : 'text-[#022113]/70 hover:text-[#022113]'
@@ -871,14 +863,14 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                   <div className="flex items-center gap-1 ml-1">
                     <button
                       onClick={scrollNodePrev}
-                      className="w-8 h-8 rounded-full bg-[#F0F2EB] hover:bg-[#DFEB38] text-[#022113] flex items-center justify-center transition-all cursor-pointer shadow-xs border border-[#022113]/5"
+                      className="w-8 h-8 rounded-lg bg-[#F0F2EB] hover:bg-[#DFEB38] text-[#022113] flex items-center justify-center transition-all cursor-pointer shadow-xs border border-[#022113]/5"
                       title="Previous Node"
                     >
                       <ChevronLeft className="w-4 h-4" />
                     </button>
                     <button
                       onClick={scrollNodeNext}
-                      className="w-8 h-8 rounded-full bg-[#F0F2EB] hover:bg-[#DFEB38] text-[#022113] flex items-center justify-center transition-all cursor-pointer shadow-xs border border-[#022113]/5"
+                      className="w-8 h-8 rounded-lg bg-[#F0F2EB] hover:bg-[#DFEB38] text-[#022113] flex items-center justify-center transition-all cursor-pointer shadow-xs border border-[#022113]/5"
                       title="Next Node"
                     >
                       <ChevronRight className="w-4 h-4" />
@@ -918,7 +910,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                       '--spotlight-y': '50%',
                       '--spotlight-opacity': '0',
                     } as React.CSSProperties}
-                    className="group relative bg-white rounded-[2.2rem] p-6 border-2 border-[#022113]/8 hover:border-[#546C18]/40 shadow-md hover:shadow-xl transition-all cursor-pointer flex flex-col justify-between w-[320px] sm:w-[350px] md:w-[370px] h-[340px] shrink-0 overflow-hidden font-['Open_Sans',sans-serif]"
+                    className="group relative bg-white rounded-[2.2rem] p-6 border-2 border-[#022113]/8 hover:border-[#546C18]/40 shadow-md hover:shadow-xl transition-all cursor-pointer flex flex-col justify-between w-[320px] sm:w-[350px] md:w-[370px] h-[340px] shrink-0 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]"
                   >
                     {/* Spotlight Glow Overlay */}
                     <div 
@@ -938,9 +930,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                             {node.state}
                           </h3>
                         </div>
-                        <span className="w-8 h-8 rounded-full bg-[#F0F2EB] group-hover:bg-[#DFEB38] text-[#022113] flex items-center justify-center transition-all shrink-0">
-                          <ArrowUpRight className="w-4 h-4" />
-                        </span>
+                        
                       </div>
 
                       <div className="h-[36px] flex items-center">
@@ -982,7 +972,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                         <span className="w-2 h-2 rounded-full bg-emerald-500" />
                         <span className="text-[11px] font-mono text-[#022113]/70">{node.latency_ms}ms ping</span>
                       </div>
-                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider ${
+                      <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider ${
                         node.health_status === 'Optimal'
                           ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
                           : 'bg-amber-100 text-amber-800 border border-amber-200'
@@ -1030,7 +1020,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                     '--spotlight-y': '50%',
                     '--spotlight-opacity': '0',
                   } as React.CSSProperties}
-                  className="group relative bg-white rounded-[2.2rem] p-6 border-2 border-[#022113]/8 hover:border-[#546C18]/40 shadow-md hover:shadow-xl transition-all cursor-pointer flex flex-col justify-between h-[340px] overflow-hidden font-['Open_Sans',sans-serif]"
+                  className="group relative bg-white rounded-[2.2rem] p-6 border-2 border-[#022113]/8 hover:border-[#546C18]/40 shadow-md hover:shadow-xl transition-all cursor-pointer flex flex-col justify-between h-[340px] overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]"
                 >
                   <div 
                     className="pointer-events-none absolute -inset-px rounded-[2.2rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -1048,9 +1038,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                           {node.state}
                         </h3>
                       </div>
-                      <span className="w-8 h-8 rounded-full bg-[#F0F2EB] group-hover:bg-[#DFEB38] text-[#022113] flex items-center justify-center transition-all shrink-0">
-                        <ArrowUpRight className="w-4 h-4" />
-                      </span>
+                      
                     </div>
 
                     <div className="h-[36px] flex items-center">
@@ -1092,7 +1080,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                       <span className="w-2 h-2 rounded-full bg-emerald-500" />
                       <span className="text-[11px] font-mono text-[#022113]/70">{node.latency_ms}ms ping</span>
                     </div>
-                    <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider ${
+                    <span className={`px-2.5 py-0.5 rounded-md text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider ${
                       node.health_status === 'Optimal'
                         ? 'bg-emerald-100 text-emerald-800 border border-emerald-200'
                         : 'bg-amber-100 text-amber-800 border border-amber-200'
@@ -1116,7 +1104,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                   Synchronizing every 15 minutes with ICAR, DMI Agmarknet, and Copernicus Sentinel-2
                 </p>
               </div>
-              <span className="text-xs font-mono text-[#546C18] font-bold bg-[#F0F2EB] px-3 py-1 rounded-full border border-[#022113]/5">
+              <span className="text-xs font-mono text-[#546C18] font-bold bg-[#F0F2EB] px-3 py-1 rounded-md border border-[#022113]/5">
                 Total Contracts: {totalContracts}
               </span>
             </div>
@@ -1151,7 +1139,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                       <td className="py-3 px-3 text-[#022113]/70">{row.dominant_crops.join(', ')}</td>
                       <td className="py-3 px-3 font-mono font-bold text-[#546C18]">{row.ndvi_mean}</td>
                       <td className="py-3 px-3">
-                        <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider ${
+                        <span className={`px-2 py-0.5 rounded-md text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider ${
                           row.health_status === 'Optimal'
                             ? 'bg-emerald-100 text-emerald-800'
                             : 'bg-amber-100 text-amber-800'
@@ -1186,17 +1174,17 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                 </p>
               </div>
               <div className="flex items-center gap-3 flex-wrap">
-                <span className="px-3 py-1 rounded-full text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider bg-amber-100 text-amber-900 border border-amber-200">
+                <span className="px-3 py-1 rounded-lg text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider bg-amber-100 text-amber-900 border border-amber-200">
                   {diseaseAlerts.length} Active Corridors Under ICAR Watch
                 </span>
 
                 {/* Carousel / Grid Toggle and Navigation Controls */}
                 <div className="flex items-center gap-2">
-                  <div className="flex items-center bg-[#F0F2EB] p-1 rounded-full border border-[#022113]/5">
+                  <div className="flex items-center bg-[#F0F2EB] p-1 rounded-xl border border-[#022113]/5">
                     <button
                       onClick={() => setAlertViewLayout('carousel')}
                       title="Spotlight Carousel"
-                      className={`px-3 py-1 rounded-full text-xs font-bold font-['Montserrat',sans-serif] flex items-center gap-1.5 transition-all cursor-pointer ${
+                      className={`px-3 py-1 rounded-lg text-xs font-bold font-['Montserrat',sans-serif] flex items-center gap-1.5 transition-all cursor-pointer ${
                         alertViewLayout === 'carousel'
                           ? 'bg-[#546C18] text-[#DFEB38] shadow-xs'
                           : 'text-[#022113]/70 hover:text-[#022113]'
@@ -1208,7 +1196,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                     <button
                       onClick={() => setAlertViewLayout('grid')}
                       title="Grid View"
-                      className={`px-3 py-1 rounded-full text-xs font-bold font-['Montserrat',sans-serif] flex items-center gap-1.5 transition-all cursor-pointer ${
+                      className={`px-3 py-1 rounded-lg text-xs font-bold font-['Montserrat',sans-serif] flex items-center gap-1.5 transition-all cursor-pointer ${
                         alertViewLayout === 'grid'
                           ? 'bg-[#546C18] text-[#DFEB38] shadow-xs'
                           : 'text-[#022113]/70 hover:text-[#022113]'
@@ -1223,14 +1211,14 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                     <div className="flex items-center gap-1">
                       <button
                         onClick={scrollAlertPrev}
-                        className="w-8 h-8 rounded-full bg-[#F0F2EB] hover:bg-[#DFEB38] text-[#022113] flex items-center justify-center transition-all cursor-pointer shadow-xs border border-[#022113]/5"
+                        className="w-8 h-8 rounded-lg bg-[#F0F2EB] hover:bg-[#DFEB38] text-[#022113] flex items-center justify-center transition-all cursor-pointer shadow-xs border border-[#022113]/5"
                         title="Previous Corridor"
                       >
                         <ChevronLeft className="w-4 h-4" />
                       </button>
                       <button
                         onClick={scrollAlertNext}
-                        className="w-8 h-8 rounded-full bg-[#F0F2EB] hover:bg-[#DFEB38] text-[#022113] flex items-center justify-center transition-all cursor-pointer shadow-xs border border-[#022113]/5"
+                        className="w-8 h-8 rounded-lg bg-[#F0F2EB] hover:bg-[#DFEB38] text-[#022113] flex items-center justify-center transition-all cursor-pointer shadow-xs border border-[#022113]/5"
                         title="Next Corridor"
                       >
                         <ChevronRight className="w-4 h-4" />
@@ -1268,7 +1256,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                         '--spotlight-y': '50%',
                         '--spotlight-opacity': '0',
                       } as React.CSSProperties}
-                      className="group relative p-6 rounded-[2.2rem] bg-[#F8FAF6] border-2 border-[#022113]/8 hover:border-[#546C18]/40 transition-all shadow-sm hover:shadow-xl flex flex-col justify-between w-[360px] sm:w-[420px] md:w-[460px] h-[430px] shrink-0 overflow-hidden font-['Open_Sans',sans-serif]"
+                      className="group relative p-6 rounded-[2.2rem] bg-[#F8FAF6] border-2 border-[#022113]/8 hover:border-[#546C18]/40 transition-all shadow-sm hover:shadow-xl flex flex-col justify-between w-[360px] sm:w-[420px] md:w-[460px] h-[430px] shrink-0 overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]"
                     >
                       {/* Spotlight Glow Overlay */}
                       <div 
@@ -1287,7 +1275,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                             </h4>
                             <span className="text-xs font-semibold text-[#546C18] truncate block">Host Crop: {alert.crop}</span>
                           </div>
-                          <span className={`px-3 py-1 rounded-full text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider shrink-0 ${
+                          <span className={`px-3 py-1 rounded-md text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider shrink-0 ${
                             alert.severity === 'high'
                               ? 'bg-rose-100 text-rose-800 border border-rose-200'
                               : 'bg-amber-100 text-amber-800 border border-amber-200'
@@ -1301,9 +1289,9 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                           <div className="flex items-center justify-between text-xs font-bold font-['Montserrat',sans-serif]">
                             <span className="text-[#022113] truncate max-w-[140px]">{alert.originDistrict}, {alert.originState}</span>
                             <span className="text-[#546C18] flex items-center gap-1 font-mono text-[11px] shrink-0 px-1">
-                              <span>→</span>
+                              
                               <span>{alert.vectorDistanceKm} km</span>
-                              <span>→</span>
+                              
                             </span>
                             <span className="text-[#022113] truncate max-w-[140px] text-right">{alert.destinationDistrict}, {alert.destinationState}</span>
                           </div>
@@ -1336,10 +1324,9 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                               onNavigate('diagnose');
                             }
                           }}
-                          className="px-4 py-2 rounded-full bg-[#DFEB38] text-[#022113] font-bold text-xs font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#d0df2a] transition-all flex items-center gap-1 cursor-pointer shadow-xs shrink-0"
+                          className="px-4 py-2 rounded-xl bg-[#DFEB38] text-[#022113] font-bold text-xs font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#d0df2a] transition-all flex items-center gap-1 cursor-pointer shadow-xs shrink-0"
                         >
                           <span>Run Leaf Diagnosis</span>
-                          <ArrowRight className="w-3.5 h-3.5" />
                         </button>
                       </div>
                     </div>
@@ -1381,7 +1368,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                       '--spotlight-y': '50%',
                       '--spotlight-opacity': '0',
                     } as React.CSSProperties}
-                    className="group relative p-6 rounded-[2.2rem] bg-[#F8FAF6] border-2 border-[#022113]/8 hover:border-[#546C18]/40 transition-all shadow-sm hover:shadow-xl flex flex-col justify-between h-[430px] overflow-hidden font-['Open_Sans',sans-serif]"
+                    className="group relative p-6 rounded-[2.2rem] bg-[#F8FAF6] border-2 border-[#022113]/8 hover:border-[#546C18]/40 transition-all shadow-sm hover:shadow-xl flex flex-col justify-between h-[430px] overflow-hidden font-['Plus_Jakarta_Sans',sans-serif]"
                   >
                     <div 
                       className="pointer-events-none absolute -inset-px rounded-[2.2rem] opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -1399,7 +1386,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                           </h4>
                           <span className="text-xs font-semibold text-[#546C18] truncate block">Host Crop: {alert.crop}</span>
                         </div>
-                        <span className={`px-3 py-1 rounded-full text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider shrink-0 ${
+                        <span className={`px-3 py-1 rounded-md text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider shrink-0 ${
                           alert.severity === 'high'
                             ? 'bg-rose-100 text-rose-800 border border-rose-200'
                             : 'bg-amber-100 text-amber-800 border border-amber-200'
@@ -1413,9 +1400,9 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                         <div className="flex items-center justify-between text-xs font-bold font-['Montserrat',sans-serif]">
                           <span className="text-[#022113] truncate max-w-[140px]">{alert.originDistrict}, {alert.originState}</span>
                           <span className="text-[#546C18] flex items-center gap-1 font-mono text-[11px] shrink-0 px-1">
-                            <span>→</span>
+                            
                             <span>{alert.vectorDistanceKm} km</span>
-                            <span>→</span>
+                            
                           </span>
                           <span className="text-[#022113] truncate max-w-[140px] text-right">{alert.destinationDistrict}, {alert.destinationState}</span>
                         </div>
@@ -1444,10 +1431,9 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
                       </span>
                       <button
                         onClick={() => onNavigate('diagnose')}
-                        className="px-4 py-2 rounded-full bg-[#DFEB38] text-[#022113] font-bold text-xs font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#d0df2a] transition-all flex items-center gap-1 cursor-pointer shadow-xs shrink-0"
+                        className="px-4 py-2 rounded-xl bg-[#DFEB38] text-[#022113] font-bold text-xs font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#d0df2a] transition-all flex items-center gap-1 cursor-pointer shadow-xs shrink-0"
                       >
                         <span>Run Leaf Diagnosis</span>
-                        <ArrowRight className="w-3.5 h-3.5" />
                       </button>
                     </div>
                   </div>
@@ -1486,7 +1472,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
 
               <button
                 onClick={() => setSelectedNodeModal(null)}
-                className="w-8 h-8 rounded-full bg-[#F0F2EB] text-[#022113] flex items-center justify-center font-bold text-xs hover:bg-[#E2ECE3] transition-all cursor-pointer"
+                className="w-8 h-8 rounded-lg bg-[#F0F2EB] text-[#022113] flex items-center justify-center font-bold text-xs hover:bg-[#E2ECE3] transition-all cursor-pointer"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1545,7 +1531,7 @@ export const GovDashboardPage: React.FC<GovDashboardPageProps> = ({ onNavigate }
               </span>
               <button
                 onClick={() => setSelectedNodeModal(null)}
-                className="px-6 py-2.5 rounded-full bg-[#DFEB38] text-[#022113] font-bold text-xs font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#d0df2a] transition-all cursor-pointer shadow-md"
+                className="px-6 py-2.5 rounded-xl bg-[#DFEB38] text-[#022113] font-bold text-xs font-['Montserrat',sans-serif] uppercase tracking-wider hover:bg-[#d0df2a] transition-all cursor-pointer shadow-md"
               >
                 Close Inspection
               </button>

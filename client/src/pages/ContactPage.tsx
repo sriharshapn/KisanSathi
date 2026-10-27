@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import type { Language, NavigationPage } from '../types';
 import { 
   PhoneCall, 
-  MapPin, 
   Clock, 
   Send, 
   CheckCircle2, 
@@ -23,8 +22,8 @@ interface FAQItem {
 
 const FAQ_LIST: FAQItem[] = [
   {
-    q: "How does KisanSathi generate personalised AI crop advisories?",
-    a: "KisanSathi's advisory engine (powered by fine-tuned Gemini 2.0 Flash) synthesises multiple real-time inputs: Sentinel-2 satellite soil moisture & NDVI, IMD 7-day NWP weather forecasts, State Soil Health Card NPK levels, and prevailing e-NAM/Agmarknet market price signals to generate 3–5 optimal crop recommendations with regenerative scores (A–F)."
+    q: "How does KisanSathi generate crop advisories?",
+    a: "KisanSathi's advisory engine synthesises multiple real-time inputs: Sentinel-2 satellite soil moisture & NDVI, IMD 7-day weather forecasts, State Soil Health Card NPK levels, and prevailing e-NAM/Agmarknet market price signals to generate 3-5 optimal crop recommendations with suitability scores (A-F)."
   },
   {
     q: "How does the Sentinel-2 satellite NDVI and irrigation model work?",
@@ -116,16 +115,13 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
   };
 
   return (
-    <div className="space-y-12 sm:space-y-16 pb-20 font-['Open_Sans',sans-serif] text-[#022113]">
-      {/* Header Banner (Pic 1 & 2 Aesthetic) */}
+    <div className="space-y-12 sm:space-y-16 pb-20 font-['Plus_Jakarta_Sans',sans-serif] text-[#022113]">
+      {/* Header Banner */}
       <section className="max-w-[1440px] mx-auto px-3 sm:px-6 mt-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          {/* Left Card: Crisp White Card */}
+          {/* Left Card */}
           <div className="lg:col-span-8 bg-white rounded-[2.5rem] p-8 sm:p-12 border border-[#022113]/8 shadow-xl hover:shadow-2xl transition-all space-y-4 flex flex-col justify-between">
             <div className="space-y-4">
-              <span className="text-xs font-bold font-['Montserrat',sans-serif] uppercase tracking-wider text-[#546C18] bg-[#F0F2EB] px-4 py-1.5 rounded-full border border-[#022113]/8 inline-block">
-                Krishi Vigyan Kendra & Grower Support • 24x7
-              </span>
               <h1 className="text-3xl sm:text-5xl font-black text-[#022113] tracking-tight leading-[1.08] font-['Montserrat',sans-serif]">
                 Direct Access to <span className="text-[#546C18]">Agricultural Science</span>
               </h1>
@@ -149,11 +145,11 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
             </div>
           </div>
 
-          {/* Right Card: Rich Olive Card */}
+          {/* Right Card */}
           <div className="lg:col-span-4 bg-[#546C18] text-white rounded-[2.5rem] p-8 sm:p-10 shadow-xl hover:shadow-2xl transition-all flex flex-col justify-between space-y-5">
             <div className="space-y-3">
               <div className="flex items-center justify-between">
-                <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1 rounded-full bg-[#DFEB38] text-[#022113]">
+                <span className="text-[10px] font-bold font-['Montserrat',sans-serif] uppercase tracking-wider px-3 py-1 rounded-md bg-[#DFEB38] text-[#022113]">
                   Emergency Escalation
                 </span>
                 <span className="text-xs font-mono text-white/80">Active</span>
@@ -166,10 +162,10 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
               </p>
             </div>
 
-            <div className="p-4 rounded-2xl bg-white/10 border border-white/15 space-y-1">
-              <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#DFEB38] block">Resolution Time</span>
-              <span className="text-2xl font-black font-['Montserrat',sans-serif] text-white block">&lt; 15 Minutes</span>
-              <span className="text-[11px] text-white/70 block">Average response time for urgent field calls</span>
+            <div className="p-4 rounded-xl bg-white/10 border border-white/15 space-y-1">
+              <span className="text-[10px] font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#DFEB38] block">Direct Escalation</span>
+              <span className="text-lg font-bold font-['Montserrat',sans-serif] text-white block">ICAR Field Agronomists</span>
+              <span className="text-[11px] text-white/70 block">Available during working hours across 731 KVKs</span>
             </div>
           </div>
         </div>
@@ -178,125 +174,78 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
       {/* Emergency & Toll-Free Highlights */}
       <section className="max-w-[1440px] mx-auto px-3 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="p-8 sm:p-10 rounded-[2.5rem] bg-white border border-[#022113]/8 space-y-4 shadow-xl hover:shadow-2xl transition-all">
-            <div className="w-13 h-13 rounded-2xl bg-[#546C18] text-[#DFEB38] flex items-center justify-center font-bold shadow-sm">
+          <div className="p-8 sm:p-10 rounded-[2rem] bg-white border border-[#022113]/8 space-y-4 shadow-xl hover:shadow-2xl transition-all">
+            <div className="w-12 h-12 rounded-xl bg-[#546C18] text-[#DFEB38] flex items-center justify-center font-bold shadow-sm">
               <PhoneCall className="w-6 h-6 text-[#DFEB38]" />
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#546C18] bg-[#F0F2EB] px-3 py-1 rounded-full inline-block">Toll-Free 24x7 Helpline</span>
+            <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#546C18] bg-[#F0F2EB] px-3 py-1 rounded-md inline-block">Toll-Free 24x7 Helpline</span>
             <h3 className="text-2xl sm:text-3xl font-black font-['Montserrat',sans-serif] text-[#022113]">1800-180-1551</h3>
             <p className="text-[#022113]/70 text-xs sm:text-sm leading-relaxed font-normal">
               Ministry of Agriculture & Farmers Welfare Kisan Call Centre. Instant voice connection to agricultural officers in your vernacular tongue.
             </p>
           </div>
 
-          <div className="p-8 sm:p-10 rounded-[2.5rem] bg-[#546C18] text-white space-y-4 shadow-xl hover:shadow-2xl transition-all">
-            <div className="w-13 h-13 rounded-2xl bg-white/20 text-[#DFEB38] flex items-center justify-center font-bold shadow-sm">
+          <div className="p-8 sm:p-10 rounded-[2rem] bg-[#546C18] text-white space-y-4 shadow-xl hover:shadow-2xl transition-all">
+            <div className="w-12 h-12 rounded-xl bg-white/20 text-[#DFEB38] flex items-center justify-center font-bold shadow-sm">
               <MessageSquare className="w-6 h-6 text-[#DFEB38]" />
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#DFEB38] bg-black/20 px-3 py-1 rounded-full inline-block">Farmer Digital Desk</span>
+            <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#DFEB38] bg-black/20 px-3 py-1 rounded-md inline-block">Farmer Digital Desk</span>
             <h3 className="text-2xl sm:text-3xl font-black font-['Montserrat',sans-serif] text-white">Direct Advisory</h3>
             <p className="text-white/80 text-xs sm:text-sm leading-relaxed font-normal">
               Send crop diagnostic photos, receive instant organic remedy prescriptions, and subscribe to localized weekly district advisories.
             </p>
           </div>
 
-          <div className="p-8 sm:p-10 rounded-[2.5rem] bg-white border border-[#022113]/8 space-y-4 shadow-xl hover:shadow-2xl transition-all">
-            <div className="w-13 h-13 rounded-2xl bg-[#546C18] text-[#DFEB38] flex items-center justify-center font-bold shadow-sm">
-              <Clock className="w-6 h-6 text-[#DFEB38]" />
+          <div className="p-8 sm:p-10 rounded-[2rem] bg-white border border-[#022113]/8 space-y-4 shadow-xl hover:shadow-2xl transition-all">
+            <div className="w-12 h-12 rounded-xl bg-[#F0F2EB] border border-[#022113]/8 text-[#022113] flex items-center justify-center font-bold shadow-sm">
+              <Clock className="w-6 h-6 text-[#546C18]" />
             </div>
-            <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#546C18] bg-[#F0F2EB] px-3 py-1 rounded-full inline-block">Service Reliability</span>
-            <h3 className="text-2xl sm:text-3xl font-black font-['Montserrat',sans-serif] text-[#022113]">99.9% Core Uptime</h3>
+            <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#546C18] bg-[#F0F2EB] px-3 py-1 rounded-md inline-block">Operating Hours</span>
+            <h3 className="text-2xl sm:text-3xl font-black font-['Montserrat',sans-serif] text-[#022113]">Mon - Sat: 9AM - 5PM</h3>
             <p className="text-[#022113]/70 text-xs sm:text-sm leading-relaxed font-normal">
-              Built on local-first SQLite WAL architecture and cloud nodes for uninterrupted field operation during peak Kharif and Rabi cycles.
+              Direct agronomic consultation at state KVK centres. Digital telemetry, satellite NDVI passes, and weather alerts run 24x7 without interruption.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Directory of KVK Centres */}
-      <section className="max-w-[1440px] mx-auto px-3 sm:px-6 space-y-6">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-[#022113]/8 pb-4">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#546C18] block mb-1">
-              Field Science Infrastructure
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-black text-[#022113] tracking-tight font-['Montserrat',sans-serif]">
-              Krishi Vigyan Kendra (KVK) Partner Centres
-            </h2>
-          </div>
-          <span className="text-xs text-[#022113]/60 font-bold font-['Montserrat',sans-serif] uppercase tracking-wider">Government Extension Network</span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {KVK_CENTRES.map((c) => (
-            <div key={c.name} className="p-7 sm:p-8 rounded-[2.2rem] bg-white border border-[#022113]/8 hover:shadow-2xl hover:-translate-y-1 transition-all space-y-4 shadow-xl">
-              <h3 className="text-base font-black text-[#022113] font-['Montserrat',sans-serif]">{c.name}</h3>
-              <div className="flex items-center gap-1.5 text-xs text-[#022113]/70">
-                <MapPin className="w-3.5 h-3.5 text-[#546C18] shrink-0" />
-                <span className="truncate">{c.location}</span>
-              </div>
-
-              <div className="pt-3 border-t border-[#022113]/8 space-y-2 text-xs">
-                <div className="flex justify-between">
-                  <span className="text-[#022113]/50 font-medium">KVK Telephone:</span>
-                  <strong className="text-[#022113] font-bold font-mono">{c.phone}</strong>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-[#022113]/50 font-medium">Agro-Speciality:</span>
-                  <span className="text-[#546C18] font-bold truncate max-w-[180px]">{c.speciality}</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-[#022113]/50 font-medium">Office Timings:</span>
-                  <span className="text-[#022113]/70">{c.hours}</span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Frequently Asked Questions & Direct Escalation Form Side by Side */}
+      {/* Directory & Form */}
       <section className="max-w-[1440px] mx-auto px-3 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column: Frequently Asked Questions */}
-          <div className="lg:col-span-6 bg-white p-8 sm:p-10 rounded-[2.5rem] border border-[#022113]/8 shadow-xl space-y-6">
+          {/* Left Column: FAQ Accordion */}
+          <div className="lg:col-span-6 space-y-6">
             <div className="space-y-2">
-              <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#546C18] bg-[#F0F4EC] px-4 py-1.5 rounded-full border border-[#E5EAD7] inline-block">
-                Knowledge Base
+              <span className="text-xs font-bold uppercase tracking-wider font-['Montserrat',sans-serif] text-[#546C18]">
+                Technical Knowledge Base
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-[#022113] tracking-tight font-['Montserrat',sans-serif]">
-                KisanSathi Architecture FAQs
+              <h2 className="text-2xl sm:text-4xl font-black text-[#022113] tracking-tight font-['Montserrat',sans-serif]">
+                Common Operational Questions
               </h2>
-              <p className="text-[#022113]/70 text-xs sm:text-sm font-normal">
-                Answers grounded in the official KisanSathi precision agriculture specification.
-              </p>
             </div>
 
             <div className="space-y-3">
-              {FAQ_LIST.map((item, idx) => {
+              {FAQ_LIST.map((faq, idx) => {
                 const isOpen = openFaq === idx;
                 return (
-                  <div 
-                    key={idx} 
-                    className="rounded-2xl border border-[#E5EAD7] bg-[#F8FAF6] overflow-hidden transition-all"
+                  <div
+                    key={idx}
+                    className="rounded-2xl border border-[#022113]/8 bg-white overflow-hidden shadow-sm transition-all"
                   >
                     <button
-                      type="button"
                       onClick={() => setOpenFaq(isOpen ? null : idx)}
-                      className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 cursor-pointer"
+                      className="w-full p-5 text-left flex items-center justify-between gap-4 font-bold font-['Montserrat',sans-serif] text-sm text-[#022113] hover:text-[#546C18] transition-colors cursor-pointer"
                     >
-                      <span className="text-xs sm:text-sm font-bold text-[#022113] font-['Montserrat',sans-serif]">
-                        {item.q}
-                      </span>
-                      <span className="text-[#546C18] shrink-0">
-                        {isOpen ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                      </span>
+                      <span>{faq.q}</span>
+                      {isOpen ? (
+                        <ChevronUp className="w-5 h-5 text-[#546C18] shrink-0" />
+                      ) : (
+                        <ChevronDown className="w-5 h-5 text-stone-400 shrink-0" />
+                      )}
                     </button>
-
                     {isOpen && (
-                      <div className="px-4 pb-5 sm:px-5 sm:pb-6 text-xs text-[#022113]/80 leading-relaxed border-t border-[#E5EAD7] pt-3 font-normal">
-                        {item.a}
+                      <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-[#022113]/75 leading-relaxed border-t border-stone-100 font-normal">
+                        {faq.a}
                       </div>
                     )}
                   </div>
@@ -320,11 +269,11 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
             </div>
 
             {submitted ? (
-              <div className="p-6 rounded-2xl bg-[#F0F4EC] border border-[#DFEB38] text-[#022113] text-center space-y-2">
+              <div className="p-6 rounded-2xl bg-[#F0F2EB] border border-[#DFEB38] text-[#022113] text-center space-y-2">
                 <CheckCircle2 className="w-8 h-8 mx-auto text-[#546C18]" />
                 <h4 className="text-base font-bold font-['Montserrat',sans-serif] text-[#022113]">Query Logged Successfully</h4>
                 <p className="text-xs text-[#022113]/70">
-                  Ticket reference has been created. A certified agronomist from your selected KVK centre will contact you.
+                  Ticket reference has been created. An agronomist from your selected KVK centre will review your query.
                 </p>
               </div>
             ) : (
@@ -338,7 +287,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. Ramesh Patil"
-                      className="w-full px-4 py-2.5 rounded-full border border-[#E5EAD7] bg-[#F8FAF6] text-xs font-semibold text-[#022113] focus:outline-none focus:border-[#546C18]"
+                      className="w-full px-4 py-2.5 rounded-xl border border-[#E5EAD7] bg-[#F8FAF6] text-xs font-semibold text-[#022113] focus:outline-none focus:border-[#546C18]"
                     />
                   </div>
                   <div>
@@ -349,7 +298,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="e.g. 9845012345"
-                      className="w-full px-4 py-2.5 rounded-full border border-[#E5EAD7] bg-[#F8FAF6] text-xs font-semibold text-[#022113] focus:outline-none focus:border-[#546C18]"
+                      className="w-full px-4 py-2.5 rounded-xl border border-[#E5EAD7] bg-[#F8FAF6] text-xs font-semibold text-[#022113] focus:outline-none focus:border-[#546C18]"
                     />
                   </div>
                 </div>
@@ -359,7 +308,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                   <select
                     value={formData.centre}
                     onChange={(e) => setFormData({ ...formData, centre: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-full border border-[#E5EAD7] bg-[#F8FAF6] text-xs font-semibold text-[#022113] focus:outline-none focus:border-[#546C18]"
+                    className="w-full px-4 py-2.5 rounded-xl border border-[#E5EAD7] bg-[#F8FAF6] text-xs font-semibold text-[#022113] focus:outline-none focus:border-[#546C18]"
                   >
                     {KVK_CENTRES.map((c) => (
                       <option key={c.name} value={c.name} className="bg-white text-[#022113]">{c.name}</option>
@@ -372,7 +321,7 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                   <select
                     value={formData.category}
                     onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-full border border-[#E5EAD7] bg-[#F8FAF6] text-xs font-semibold text-[#022113] focus:outline-none focus:border-[#546C18]"
+                    className="w-full px-4 py-2.5 rounded-xl border border-[#E5EAD7] bg-[#F8FAF6] text-xs font-semibold text-[#022113] focus:outline-none focus:border-[#546C18]"
                   >
                     <option value="Crop Advisory Query">Crop Advisory & Sowing Query</option>
                     <option value="Disease / Pest Escalation">Disease / Pest Escalation</option>
@@ -390,13 +339,13 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Describe your crop, acreage, and specific symptoms or questions..."
-                    className="w-full px-4 py-3 rounded-2xl border border-[#E5EAD7] bg-[#F8FAF6] text-xs font-semibold text-[#022113] focus:outline-none focus:border-[#546C18]"
+                    className="w-full px-4 py-3 rounded-xl border border-[#E5EAD7] bg-[#F8FAF6] text-xs font-semibold text-[#022113] focus:outline-none focus:border-[#546C18]"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 rounded-full bg-[#DFEB38] hover:bg-[#c9d42f] text-[#022113] font-black text-xs font-['Montserrat',sans-serif] uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-[0_4px_16px_rgba(223,235,56,0.4)]"
+                  className="w-full py-3.5 rounded-xl bg-[#DFEB38] hover:bg-[#c9d42f] text-[#022113] font-black text-xs font-['Montserrat',sans-serif] uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-md"
                 >
                   <Send className="w-4 h-4 text-[#022113]" />
                   <span>Submit Query to Agronomist</span>

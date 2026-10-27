@@ -1,7 +1,7 @@
 import React, { useRef, useCallback } from 'react';
 import type { MarketItem, Language } from '../types';
 import { TRANSLATIONS } from '../i18n/translations';
-import { MapPin, Clock, ShieldCheck, HelpCircle, CheckCircle, Zap, Check, ArrowRight } from 'lucide-react';
+import { MapPin, Clock, ShieldCheck, HelpCircle, CheckCircle, Zap, Check } from 'lucide-react';
 
 interface MarketCardProps {
   market: MarketItem;
@@ -53,14 +53,14 @@ export const MarketCard: React.FC<MarketCardProps> = ({
         '--spotlight-opacity': '0',
       } as React.CSSProperties}
       className={`
-        group relative rounded-[2.2rem] cursor-pointer transition-all duration-300 flex flex-col justify-between h-[460px] w-full overflow-hidden font-['Open_Sans',sans-serif] select-none
+        group relative rounded-[2.2rem] cursor-pointer transition-all duration-300 flex flex-col justify-between h-[460px] w-full overflow-hidden font-['Plus_Jakarta_Sans',sans-serif] select-none
         ${isSelected
           ? 'bg-white border-2 border-[#546C18] shadow-2xl'
           : 'bg-white border-2 border-[#022113]/8 hover:border-[#546C18]/40 shadow-lg hover:shadow-xl'
         }
       `}
     >
-      {/* Spotlight glow overlay — pure CSS radial, no dependencies */}
+      {/* Spotlight glow overlay - pure CSS radial, no dependencies */}
       <div
         className="pointer-events-none absolute inset-0 z-0 rounded-[2.2rem] transition-opacity duration-300"
         style={{
@@ -95,7 +95,7 @@ export const MarketCard: React.FC<MarketCardProps> = ({
 
           <div className="flex flex-col items-end gap-1 shrink-0">
             {market.distance_km !== null && (
-              <span className="text-[11px] font-bold font-['Montserrat',sans-serif] text-[#022113] bg-[#F0F4EC] border border-[#E5EAD7] px-2.5 py-0.5 rounded-full">
+              <span className="text-[11px] font-bold font-['Montserrat',sans-serif] text-[#022113] bg-[#F0F4EC] border border-[#E5EAD7] px-2 py-0.5 rounded-md">
                 {market.distance_km} km
               </span>
             )}
@@ -129,7 +129,7 @@ export const MarketCard: React.FC<MarketCardProps> = ({
           </div>
         </div>
 
-        {/* ── Row 3: Min / Max — inline ── */}
+        {/* ── Row 3: Min / Max - inline ── */}
         <div className="grid grid-cols-2 divide-x divide-[#E5EAD7] border border-[#E5EAD7] rounded-2xl overflow-hidden bg-[#F8FAF6]">
           <div className="px-3.5 py-2.5">
             <div className="flex items-center gap-1 mb-0.5">
@@ -165,15 +165,15 @@ export const MarketCard: React.FC<MarketCardProps> = ({
           </div>
         </div>
 
-        {/* ── Row 4: Pills — variety, grade, arrival ── */}
+        {/* ── Row 4: Pills - variety, grade, arrival ── */}
         <div className="h-[54px] flex flex-wrap content-start gap-1.5 overflow-hidden">
-          <span className="text-[10px] font-medium text-[#022113] bg-[#F0F4EC] border border-[#E5EAD7] px-2.5 py-0.5 rounded-full">
+          <span className="text-[10px] font-medium text-[#022113] bg-[#F0F4EC] border border-[#E5EAD7] px-2 py-0.5 rounded-md">
             {market.variety}
           </span>
-          <span className="text-[10px] font-medium text-[#022113] bg-[#F0F4EC] border border-[#E5EAD7] px-2.5 py-0.5 rounded-full">
+          <span className="text-[10px] font-medium text-[#022113] bg-[#F0F4EC] border border-[#E5EAD7] px-2 py-0.5 rounded-md">
             {market.grade}
           </span>
-          <span className="text-[10px] font-medium text-[#022113] bg-[#F0F4EC] border border-[#E5EAD7] px-2.5 py-0.5 rounded-full">
+          <span className="text-[10px] font-medium text-[#022113] bg-[#F0F4EC] border border-[#E5EAD7] px-2 py-0.5 rounded-md">
             {t.arrivalQty}: {market.arrival_quantity}q
           </span>
         </div>
@@ -195,12 +195,12 @@ export const MarketCard: React.FC<MarketCardProps> = ({
         {/* ── Footer ── */}
         <div className="pt-3 mt-auto border-t border-[#E5EAD7] flex items-center justify-between gap-2">
           {isEstimated ? (
-            <span className="text-[10px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+            <span className="text-[10px] font-semibold text-amber-700 bg-amber-50 border border-amber-200 px-2 py-0.5 rounded-md flex items-center gap-1">
               <Zap className="w-2.5 h-2.5" strokeWidth={2} />
               Estimated
             </span>
           ) : (
-            <span className="text-[10px] font-bold font-['Montserrat',sans-serif] text-[#59701E] bg-[#F0F4EC] border border-[#E5EAD7] px-2.5 py-0.5 rounded-full flex items-center gap-1">
+            <span className="text-[10px] font-bold font-['Montserrat',sans-serif] text-[#59701E] bg-[#F0F4EC] border border-[#E5EAD7] px-2 py-0.5 rounded-md flex items-center gap-1">
               <ShieldCheck className="w-2.5 h-2.5" strokeWidth={2} />
               Official Agmarknet
             </span>
@@ -209,7 +209,7 @@ export const MarketCard: React.FC<MarketCardProps> = ({
           <button
             type="button"
             onClick={(e) => { e.stopPropagation(); onSelect(market); }}
-            className={`text-xs font-bold font-['Montserrat',sans-serif] px-4 py-2 rounded-full transition-all duration-200 cursor-pointer shadow-sm ${
+            className={`text-xs font-bold font-['Montserrat',sans-serif] px-4 py-2 rounded-xl transition-all duration-200 cursor-pointer shadow-sm ${
               isSelected
                 ? 'bg-[#546C18] text-[#DFEB38] ring-2 ring-[#DFEB38]/50'
                 : 'bg-[#DFEB38] hover:bg-[#d0df2a] text-[#022113]'
@@ -223,7 +223,6 @@ export const MarketCard: React.FC<MarketCardProps> = ({
             ) : (
               <span className="inline-flex items-center gap-1.5">
                 <span>{language === 'hi' ? 'विश्लेषण' : language === 'kn' ? 'ವಿಶ್ಲೇಷಣೆ' : 'Analyze'}</span>
-                <ArrowRight className="w-3 h-3" />
               </span>
             )}
           </button>

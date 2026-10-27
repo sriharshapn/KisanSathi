@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ArrowRight } from 'lucide-react';
+
 import type { NavigationPage } from '../types';
 import { indiaMapData } from '../data/indiaMapData';
 import { VERIFIED_MANDI_PINS, type MandiPin } from '../data/allStateMarketsData';
@@ -339,7 +339,7 @@ export const IndiaMarketsMap: React.FC<IndiaMarketsMapProps> = ({
                 className="mt-1 px-3 py-1 rounded-xl bg-[#153424] hover:bg-[#1f4a34] text-white text-[10px] font-bold flex items-center gap-1 shadow-xs transition-all cursor-pointer"
               >
                 <span>Terminal</span>
-                <ArrowRight className="w-3 h-3 text-[#E8A238]" />
+                
               </button>
             </div>
           </div>

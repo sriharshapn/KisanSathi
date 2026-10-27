@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight, Satellite, Sparkles, Scan, Share2 } from 'lucide-react';
+import { Satellite, Sparkles, Scan, Share2 } from 'lucide-react';
 import type { NavigationPage } from '../types';
 
 interface ContinentalMosaicProps {
@@ -28,7 +28,7 @@ export const ContinentalMosaic: React.FC<ContinentalMosaicProps> = ({
           </div>
         </div>
 
-        {/* Asymmetrical 4-Card Photographic Mosaic Grid — Core Modules */}
+        {/* Asymmetrical 4-Card Photographic Mosaic Grid - Core Modules */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-5">
           {/* Card 1: Satellite Intelligence & Sentinel-2 NDVI (Span 7 cols) */}
           <div
@@ -48,11 +48,11 @@ export const ContinentalMosaic: React.FC<ContinentalMosaicProps> = ({
 
             {/* Top Row: Tag & Live Indicator */}
             <div className="relative z-10 flex items-center justify-between">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider text-[#FCD34D] uppercase">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/15 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider text-[#FCD34D] uppercase">
                 <Satellite className="w-3 h-3 text-[#FCD34D]" />
                 Satellite Intelligence
               </span>
-              <span className="text-[11px] font-mono text-emerald-200 bg-emerald-900/70 px-2.5 py-0.5 rounded-full border border-emerald-400/30">
+              <span className="text-[11px] font-mono text-emerald-200 bg-emerald-900/70 px-2.5 py-0.5 rounded-md border border-emerald-400/30">
                 Sentinel-2 ≤10m Multispectral
               </span>
             </div>
@@ -68,8 +68,8 @@ export const ContinentalMosaic: React.FC<ContinentalMosaicProps> = ({
                 </p>
               </div>
 
-              <div className="shrink-0 w-12 h-12 rounded-full border border-white/40 bg-white/15 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#FCD34D] group-hover:border-[#FCD34D] group-hover:text-[#123826] group-hover:scale-110 shadow-lg">
-                <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <div className="shrink-0 w-12 h-12 rounded-xl border border-white/40 bg-white/15 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#FCD34D] group-hover:border-[#FCD34D] group-hover:text-[#123826] group-hover:scale-110 shadow-lg">
+                
               </div>
             </div>
           </div>
@@ -91,12 +91,12 @@ export const ContinentalMosaic: React.FC<ContinentalMosaicProps> = ({
             />
 
             <div className="relative z-10 flex items-center justify-between">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider text-[#FCD34D] uppercase">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/15 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider text-[#FCD34D] uppercase">
                 <Sparkles className="w-3 h-3 text-[#FCD34D]" />
                 AI Advisory Engine
               </span>
-              <span className="text-[11px] font-mono text-amber-200 bg-amber-900/70 px-2.5 py-0.5 rounded-full border border-amber-400/30">
-                Gemini 2.0 Flash
+              <span className="text-[11px] font-mono text-amber-200 bg-amber-900/70 px-2.5 py-0.5 rounded-md border border-amber-400/30">
+                Gemini 3.8 Flash
               </span>
             </div>
 
@@ -106,12 +106,12 @@ export const ContinentalMosaic: React.FC<ContinentalMosaicProps> = ({
                   Personalised Agro-Advisory Engine
                 </h3>
                 <p className="text-stone-200 text-xs sm:text-sm font-['Outfit',sans-serif] leading-relaxed line-clamp-2">
-                  Hyper-local guidance based on soil NPK, climate zone, sowing calendar, and regenerative farming (Score A–F).
+                  Hyper-local guidance based on soil NPK, climate zone, sowing calendar, and regenerative farming (Score A-F).
                 </p>
               </div>
 
-              <div className="shrink-0 w-12 h-12 rounded-full border border-white/40 bg-white/15 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#FCD34D] group-hover:border-[#FCD34D] group-hover:text-[#123826] group-hover:scale-110 shadow-lg">
-                <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <div className="shrink-0 w-12 h-12 rounded-xl border border-white/40 bg-white/15 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#FCD34D] group-hover:border-[#FCD34D] group-hover:text-[#123826] group-hover:scale-110 shadow-lg">
+                
               </div>
             </div>
           </div>
@@ -133,11 +133,11 @@ export const ContinentalMosaic: React.FC<ContinentalMosaicProps> = ({
             />
 
             <div className="relative z-10 flex items-center justify-between">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider text-[#FCD34D] uppercase">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/15 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider text-[#FCD34D] uppercase">
                 <Scan className="w-3 h-3 text-[#FCD34D]" />
                 Crop Diagnostics
               </span>
-              <span className="text-[11px] font-mono text-emerald-200 bg-emerald-900/70 px-2.5 py-0.5 rounded-full border border-emerald-400/30">
+              <span className="text-[11px] font-mono text-emerald-200 bg-emerald-900/70 px-2.5 py-0.5 rounded-md border border-emerald-400/30">
                 Vision AI Diagnostics
               </span>
             </div>
@@ -152,8 +152,8 @@ export const ContinentalMosaic: React.FC<ContinentalMosaicProps> = ({
                 </p>
               </div>
 
-              <div className="shrink-0 w-12 h-12 rounded-full border border-white/40 bg-white/15 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#FCD34D] group-hover:border-[#FCD34D] group-hover:text-[#123826] group-hover:scale-110 shadow-lg">
-                <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <div className="shrink-0 w-12 h-12 rounded-xl border border-white/40 bg-white/15 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#FCD34D] group-hover:border-[#FCD34D] group-hover:text-[#123826] group-hover:scale-110 shadow-lg">
+                
               </div>
             </div>
           </div>
@@ -175,11 +175,11 @@ export const ContinentalMosaic: React.FC<ContinentalMosaicProps> = ({
             />
 
             <div className="relative z-10 flex items-center justify-between">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider text-[#FCD34D] uppercase">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-white/15 backdrop-blur-md border border-white/20 text-[10px] font-mono font-bold tracking-wider text-[#FCD34D] uppercase">
                 <Share2 className="w-3 h-3 text-[#FCD34D]" />
                 Inter-State Gov Layer
               </span>
-              <span className="text-[11px] font-mono text-emerald-200 bg-emerald-900/70 px-2.5 py-0.5 rounded-full border border-emerald-400/30">
+              <span className="text-[11px] font-mono text-emerald-200 bg-emerald-900/70 px-2.5 py-0.5 rounded-md border border-emerald-400/30">
                 FIWARE NGSI-LD & India Stack
               </span>
             </div>
@@ -194,8 +194,8 @@ export const ContinentalMosaic: React.FC<ContinentalMosaicProps> = ({
                 </p>
               </div>
 
-              <div className="shrink-0 w-12 h-12 rounded-full border border-white/40 bg-white/15 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#FCD34D] group-hover:border-[#FCD34D] group-hover:text-[#123826] group-hover:scale-110 shadow-lg">
-                <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              <div className="shrink-0 w-12 h-12 rounded-xl border border-white/40 bg-white/15 backdrop-blur-md flex items-center justify-center text-white transition-all duration-300 group-hover:bg-[#FCD34D] group-hover:border-[#FCD34D] group-hover:text-[#123826] group-hover:scale-110 shadow-lg">
+                
               </div>
             </div>
           </div>
