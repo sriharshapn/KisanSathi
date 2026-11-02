@@ -4,7 +4,7 @@
 
 Built for the **Google Cloud "Build with AI: Code for Communities 2.0"** Hackathon (Hack2skill) · Agriculture Track
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://kisansathi.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=flat-square&logo=vercel&logoColor=white)](https://kisansathi-app.vercel.app)
 [![GitHub](https://img.shields.io/badge/GitHub-KisanSathi-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/sriharshapn/KisanSathi)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2E7D32?style=flat-square)](LICENSE)
 [![Node](https://img.shields.io/badge/Node.js-20%2B-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org/)
@@ -28,7 +28,7 @@ India has 120 million small and marginal farmers with no real-time access to mar
 
 | | |
 |---|---|
-| 🌐 **Production App** | [kisansathi.vercel.app](https://kisansathi.vercel.app) |
+| 🌐 **Production App** | [kisansathi.vercel.app](https://kisansathi-app.vercel.app) |
 | 📦 **GitHub Repo** | [github.com/sriharshapn/KisanSathi](https://github.com/sriharshapn/KisanSathi) |
 
 ---
