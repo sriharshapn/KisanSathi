@@ -1,4 +1,5 @@
 {
+  "name": "kisansathi",
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "client/dist",
