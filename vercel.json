@@ -1,5 +1,5 @@
 {
-  "name": "kisansathi-app",
+  "name": "kisan-sathi-sirius",
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "client/dist",
